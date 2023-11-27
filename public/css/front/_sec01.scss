@@ -1,0 +1,164 @@
+.LOGO {
+    background: url(/img/front/LOGO.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    max-width: 321px;
+    max-height: 106px;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    @include md {
+        display: none;
+    }
+}
+
+.section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .box {
+        z-index: 1;
+        width: 100%;
+        height: 85%;
+        // max-width: 1920px;
+        // max-height: 950px;
+        border: 1px solid red;
+        .logoBox {
+            display: none;
+            @include md {
+                display: block;
+                top: 10%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(116, 146, 136, 0.549);
+                display: flex;
+                justify-content: space-evenly;
+                height: 10%;
+                width: 37%;
+            }
+            .LOGO {
+                background: url(/img/front/LOGO.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                position: relative;
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                max-width: 321px;
+                max-height: 106px;
+                // position: absolute;
+                // top: 2%;
+                // left: 2%;rgba(67, 104, 92, 0.549)
+            }
+        }
+        .box1,
+        .box2,
+        .box3 {
+            display: flex;
+            justify-content: space-evenly;
+            img{
+                position: relative;
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+        .box1 {
+            top: 39%;
+            left: 50%;
+            height: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(116, 146, 136, 0.549);
+            @include md {
+                height: 50%;
+                width: 95%;
+                top: 29%;
+            }
+            img {
+                max-width: 1181px;
+                max-height: 505px;
+            }
+            .sec01TitlePC {
+                background: url(/img/front/sec01TitlePC.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                position: relative;
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                max-width: 1181px;
+                max-height: 505px;
+                @include md {
+                    background: url(/img/front/sec01TitleM.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                }
+            }
+        }
+        .box2{
+            background-color: rgba(73, 97, 89, 0.549);
+            display: none;
+            @include md {
+                display: block;
+                height: 32%;
+                width: 100%;
+                bottom: 2%;
+            }
+            .sec01dogM{
+                background: url(/img/front/sec01dogM.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                position: relative;
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                max-width: 855px;
+                max-height: 576px;
+            }
+        }
+        .box3{
+            background-color: rgba(116, 146, 136, 0.549);
+            transform: translate(-50%, -50%);
+            top: 39%;
+            left: 50%;
+            height: 10%;
+            width: 6%;
+            @include md {
+                top: 2%;
+            }
+            img {
+                max-width: 109px;
+                max-height: 81px;
+            }
+            .scrollToNextSection{
+                animation-name: move; /* 套用的 keyframe */
+                animation-duration: 1.3s;          /* 動畫持續時間 */
+                animation-iteration-count: infinite; /* 動畫播放次數 */
+                animation-timing-function: linear;   /* 影片加速速率 */
+            }
+            @keyframes move {
+                0%{
+                    transform: translateY(0%);
+                    opacity: 1;
+                }
+                50%{
+                    opacity: 1;
+                    transform: translateY(40%);
+                }
+                100%{
+                    opacity: 0;
+                    transform: translateY(80%);
+                }
+                
+            }
+        }
+    }
+}

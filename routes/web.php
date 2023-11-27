@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// 事前預約
+Route::get('/prereg', function () {
+    return view('front/prereg');
+});
