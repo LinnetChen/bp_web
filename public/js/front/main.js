@@ -85,4 +85,49 @@ $("#checkbox").click(function () {
 
 
 // section3 進度條
-$('.line .white').attr('style','transform: translate(10%);')
+$(".line .white").attr("style", "transform: translate(10%);");
+
+
+
+
+
+
+// sliderL選單
+const button = document.querySelector(".button");
+const menuList = document.querySelector(".menu_list");
+
+const handleClick = () => {
+    menuList.classList.toggle("menu_list--animate");
+};// 定義點擊事件的監聽函式
+
+button.addEventListener("click", handleClick);// 點擊事件監聽
+button.click();
+
+
+// 滾動出現.隱藏選單
+$(document).scroll(function() {
+    var topy = $(this).scrollTop();
+    if (topy > 400) {
+        $('.slideBarL , .slideBarR , .slideBarDown').addClass('appear');
+    } else {
+        $('.slideBarL , .slideBarR , .slideBarDown').removeClass('appear');
+    }
+});
+
+// 跳窗
+function pop(i) {
+    switch(i){
+        case 'point_text':
+            value = point_text ;
+            break;
+    }
+    $('.info .title').html(value.title);
+    $('.info .text').html(value.text);
+    $('.info .img').html(value.img);
+    $("html").css("overflow", "hidden");
+    $(".popup").show();
+}
+function closePopup() {
+    $(".popup").fadeOut();
+    $("html").css("overflow-y", "scroll");
+}

@@ -41,72 +41,70 @@
 
 <body>
     <div class="overlay"></div>
+    {{-- <div class="black-screen" id="blackScreen"></div> --}}
     <div class="allBg"></div>
     <div class="wrap" id="#app">
 
-        <div class="slideBarL">
-            <ul>
-                <li>預約領獎勵</li>
-                <li>狗狗肉投票活動</li>
-                <li>狗狗介紹 ​</li>
-                <li>遊戲特色</li>
-            </ul>
-        </div>
-        <div class="slideBarR">
-            <div class="bg">
-                <div class="btnBox">
-                    <div class="fb"></div>
-                    <div class="google"></div>
-                    <div class="ios"></div>
-                    <div class="top"></div>
+        <div class="popup">
+            <div class="popBox">
+                <div class="info">
+                    <div class="title"></div>
+                    <div class="text"></div>
+                    <div class="img"></div>
+
                 </div>
             </div>
+            <div onclick='closePopup()' class="xBtn">x</div>
         </div>
 
-        {{-- 手機版MENU --}}
-        {{-- <div class="slideBarHead">
-            <ul>
-                <li>預約領獎勵</li>
-                <li>狗狗肉投票活動</li>
-                <li>狗狗介紹 ​</li>
-                <li>遊戲特色</li>
-            </ul>
-        </div> --}}
-        <div class="slideBarDown">
-            <div class="bg">
-                <div class="btnBox">
-                    <div class="top"></div>
-                    <div class="fb"></div>
-                    {{-- <div class="google"></div> --}}
-                    <div class="ios"></div>
+        <div class="slider">
+            <div class="slideBarL">
+                <div class="menu">
+                    <ul class="menu_list">
+                        <li class="menu_list_item"><a href="#section2">預約領獎勵</a></li>
+                        <li class="menu_list_item"><a href="#section3">狗狗肉投票活動</a></li>
+                        <li class="menu_list_item"><a href="#section4">狗狗介紹 ​</a></li>
+                        <li class="menu_list_item"><a href="#section5">遊戲特色</a></li>
+                    </ul>
+                </div>
+                <div class="button">
+                    <div class="triangle"></div>
+                </div>
+            </div>
+            <div class="slideBarR">
+                <div class="bg">
+                    <div class="btnBox">
+                        <div class="fb"><a href="#"></a></div>
+                        <div class="google"><a href="#"></a></div>
+                        <div class="ios"><a href="#"></a></div>
+                        <div class="top"><a href="#section1"></a></div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- 手機版MENU --}}
+            {{-- <div class="slideBarHead">
+                <ul>
+                    <li>預約領獎勵</li>
+                    <li>狗狗肉投票活動</li>
+                    <li>狗狗介紹 ​</li>
+                    <li>遊戲特色</li>
+                </ul>
+            </div> --}}
+            <div class="slideBarDown">
+                <div class="bg">
+                    <div class="btnBox">
+                        <div class="empty"></div>
+                        <div class="top"><a href="#section1"></a></div>
+                        <div class="fb"><a href="#"></a></div>
+                        {{-- <div class="google"><a href="#"></a></div> --}}
+                        <div class="ios"><a href="#"></a></div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="container">
-
-
-
-
-            {{-- sec1 --}}
-            <div class="section section1" id="section1">
-                <div class="LOGO"></div>
-                <div class="box">
-                    <div class="logoBox">
-                        <div class="LOGO"></div>
-                    </div>
-                    <div class="box1">
-                        <div class="sec01TitlePC"></div>
-                    </div>
-                    <div class="box2">
-                        <div class="sec01dogM"></div>
-                    </div>
-                    <div class="box3">
-                        <a href="#section2"><img class="scrollToNextSection" src="/img/front/start.png"></a>
-                    </div>
-                </div>
-            </div>
-
 
             {{-- sec3 --}}
             <div class="section3_boxPC">
@@ -117,7 +115,6 @@
                         </div>
                         <div class="sec3_box2">
                             <div class="sec3_boxL">
-                                {{-- <div class="activity_t"><span>活動一</span>選出心儀小狗，票數最高開服即送！</div> --}}
                                 <div class="activity_t">
                                     <div class="title">活動一</div>
                                     <div class="text">選出心儀小狗，票數最高開服即送！</div>
@@ -134,7 +131,6 @@
                                 </div>
                             </div>
                             <div class="sec3_boxR">
-                                {{-- <div class="activity_t"><span>活動二</span>投票同時餵食小狗，吃得越飽就能加碼肉片獎勵！</div> --}}
                                 <div class="activity_t">
                                     <div class="title">活動二</div>
                                     <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！</div>
@@ -156,7 +152,7 @@
                             </div>
                         </div>
                         <div class="sec3_box3">
-                            <div class="pointBox">
+                            <div class="pointBox" onclick="pop('point_text')">
                                 <p>注意事項</p>
                             </div>
                         </div>
@@ -171,7 +167,6 @@
                         </div>
                         <div class="sec3_box2">
                             <div class="sec3_boxR">
-                                {{-- <div class="activity_t"><span>活動二</span>投票同時餵食小狗，吃得越飽就能加碼肉片獎勵！</div> --}}
                                 <div class="activity_t">
                                     <div class="title">活動二</div>
                                     <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！</div>
@@ -206,7 +201,6 @@
                         </div>
                         <div class="sec3_box2">
                             <div class="sec3_boxL">
-                                {{-- <div class="activity_t"><span>活動一</span>選出心儀小狗，票數最高開服即送！</div> --}}
                                 <div class="activity_t">
                                     <div class="title">活動一</div>
                                     <div class="text">選出心儀小狗，票數最高開服即送！</div>
@@ -227,6 +221,37 @@
                 </div>
 
             </div>
+
+
+
+            {{-- sec4 --}}
+            <div class="section section4" id="section4">
+                <div class="sec_box">
+                    <div class="sec4_box1">
+                        <img src="/img/front/sec04Title.png">
+                    </div>
+                    <div class="sec4_box2">
+                        <div class="sec4_box3">
+                            <div class="imgBox">
+                                <img src="/img/front/sec4_char0.png">
+                            </div>
+                            <div class="textBox">
+                                <div class="text1_box">
+                                    <div class="title"></div>
+                                    <p></p>
+                                </div>
+                                <div class="text2_box">
+                                    <div class="title"></div>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sec4_box4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
             {{-- sec2 --}}
@@ -276,6 +301,27 @@
             </div>
 
 
+            {{-- sec1 --}}
+            <div class="section section1" id="section1">
+                <div class="LOGO"></div>
+                <div class="box">
+                    <div class="logoBox">
+                        <div class="LOGO"></div>
+                    </div>
+                    <div class="box1">
+                        <div class="sec01TitlePC"></div>
+                    </div>
+                    <div class="box2">
+                        <div class="sec01dogM"></div>
+                    </div>
+                    <div class="box3">
+                        <a href="#section2"><img class="scrollToNextSection" src="/img/front/start.png"></a>
+                    </div>
+                </div>
+            </div>
+
+
+
             {{-- sec5 --}}
             <div class="section section5" id="section5">
                 <div class="sec_box">
@@ -313,39 +359,7 @@
             </div>
 
 
-
-
-            {{-- sec4 --}}
-            <div class="section section4" id="section4">
-                <div class="sec_box">
-                    <div class="sec4_box1">
-                        <img src="/img/front/sec04Title.png">
-                    </div>
-                    <div class="sec4_box2">
-                        <div class="sec4_box3">
-                            <div class="imgBox">
-                                <img src="/img/front/sec4_char0.png">
-                            </div>
-                            <div class="textBox">
-                                <div class="text1_box">
-                                    <div class="title"></div>
-                                    <p></p>
-                                </div>
-                                <div class="text2_box">
-                                    <div class="title"></div>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sec4_box4">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            {{-- <div class="section footer"></div> --}}
+            <div class="section footer"></div>
         </div>
     </div>
 

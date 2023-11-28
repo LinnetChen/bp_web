@@ -1,23 +1,101 @@
 .slideBarL {
+    opacity: 1;
     position: fixed;
     bottom: 50%;
-    left: 0px;
+    left: 2%;
     transform: translate(0%, 50%);
-    background-color: rgb(255, 211, 211, 0.5);
-    width: 10%;
-    height: 20%;
-    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    // width: 12%;
+    // height: 18%;
+    z-index: 2;
     @include md() {
         display: none;
     }
-    ul {
-        line-height: 40px;
-        li {
-            font-size: 22px;
+    .button {
+        position: absolute;
+        width: 6%;
+        height: 10%;
+        top: 45%;
+        left: 10%;
+        .triangle{
+            width: 100%;
+            height: 100%;
+            // border-radius: 50%;
+            background: #94c700;
+            // clip-path: polygon(0 0, 100% 50%, 0 100%);
+            clip-path: polygon(100% 0, 0 50%, 100% 100%);
+        }
+    }
+
+    .menu {
+        width: 100%;
+        .menu_list {
+            line-height: 1.7rem;
+            text-align: left;
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+    
+    .menu_list_item {
+        padding-bottom: 20px;
+        position: relative;
+        list-style: none;
+        top: 0px;
+        opacity: 0;
+        a {
             color: #94c700;
+            text-decoration: none;
+            text-align: left;
+            font-size: 1.4rem;
+            font-weight: 600;
+            display: inline-block;
+            width: 100%;
+            @include xxl(){
+                font-size: 1.2rem;
+                width: 70%;
+            }
+        }
+    }
+
+    $delay: 0.5s;
+    $menu-items: 4;
+
+    @keyframes left {
+        0% {
+            left: 0px;
+            opacity: 0;
+        }
+        70% {
+            opacity: 1;
+            left: 50px;
+            animation-timing-function: ease-out;
+        }
+        100% {
+            opacity: 1;
+            left: 50px;
+            animation-timing-function: ease-out;
+        }
+    }
+
+    .menu_list--animate .menu_list_item {
+        animation: left 0.9s;
+        animation-fill-mode: forwards;
+        opacity: 0;
+
+        @for $i from 2 through $menu-items {
+            &:nth-child(#{$i}) {
+                animation-delay: $delay * ($i - 1);
+            }
         }
     }
 }
+
+.appear {
+    opacity: 1;
+}
+
+
 .slideBarR {
     position: fixed;
     bottom: 50%;
@@ -26,7 +104,7 @@
     background-color: rgb(255, 211, 211, 0.5);
     width: 10%;
     height: 65%;
-    z-index: 10;
+    z-index: 2;
     @include md() {
         display: none;
     }
@@ -55,6 +133,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
+            @include xl(){
+                height: 22%;
+            }
+            @include lmd(){
+                height: 18%;
+            }
         }
         .fb {
             background: url(/img/front/fb.png);
@@ -100,10 +184,10 @@
     bottom: 0px;
     right: 0px;
     transform: translate(0%, 0%);
-    background-color: rgb(255, 211, 211, 0.5);
+    background-color: #ffb72a;
     width: 100%;
-    height: 10%;
-    z-index: 10;
+    height: 11%;
+    z-index: 2;
     @include md() {
         display: block;
     }
@@ -111,7 +195,7 @@
         background: url(/img/front/slideBarDown.png);
         background-repeat: no-repeat;
         background-size: contain;
-        background-position: center;
+        background-position: left;
         position: relative;
         height: 100%;
         width: 100%;
@@ -119,19 +203,29 @@
         max-height: 207px;
         display: flex;
         flex-direction: column;
+        justify-content: flex-end;
         align-items: center;
-        justify-content: center;
+        padding: 0 0 5px 0;
         .btnBox {
             // position: absolute;
             // top: 55%;
             height: 100%;
             width: 100%;
-            max-width: 408px;
+            max-width: 365px;
             max-height: 46px;
             display: flex;
             flex-direction: row;
+            // background-color: green;
         }
 
+        .empty{
+            height: 100%;
+            width: 30%;
+            max-width: 100px;
+            max-height: 94px;
+            border: 1px solid red;
+            
+        }
         .google {
             background: url(/img/front/google.png);
         }
@@ -147,18 +241,21 @@
             position: relative;
             display: inline-block;
             height: 100%;
-            width: 90%;
+            width: 40%;
             max-width: 202px;
             max-height: 59px;
+            border: 1px solid red;
+
         }
 
         .fb {
             background: url(/img/front/fbM.png);
         }
-        .top{
+        .top {
             background: url(/img/front/topM.png);
         }
-        .top, .fb {
+        .top,
+        .fb {
             border: 1px solid red;
             background-repeat: no-repeat;
             background-size: contain;
@@ -166,7 +263,7 @@
             position: relative;
             display: inline-block;
             height: 100%;
-            width: 100%;
+            width: 15%;
             max-width: 94px;
             max-height: 94px;
         }

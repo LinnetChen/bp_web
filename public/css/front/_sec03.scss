@@ -35,22 +35,30 @@
             background-color: rgba(70, 111, 97, 0.549);
             display: flex;
             justify-content: space-between;
+            @include xl(){
+                height: 60%;
+            }
             .activity_t {
                 margin: 12px;
                 display: flex;
                 align-items: center;
                 .title {
-                    font-size: 1.8rem;
+                    font-size: 1.8em;
                     font-weight: 600;
                     background-color: #ff3b67;
                     border-radius: 30px;
                     padding: 16px 20px;
                     color: #fff;
                     margin-right: 10px;
+                    white-space:nowrap;
+
                 }
                 .text {
                     font-size: 1.4rem;
                     line-height: 1.6rem;
+                    @include xl(){
+                        width: 70%;
+                    }
                 }
             }
             .sec3_boxL {
@@ -136,9 +144,11 @@
                     text-align: center;
                     position: relative;
                     overflow: hidden;
+                    margin: 15px 0;
                     p {
                         position: absolute;
                         left: 50%;
+                        top: 10%;
                         z-index: 2;
                     }
                 }
@@ -183,7 +193,7 @@
             }
         }
         .sec3_box3 {
-            width: 8%;
+            width: 10%;
             height: 6%;
             background-color: rgba(94, 135, 121, 0.549);
             .pointBox {
@@ -197,6 +207,7 @@
                 justify-content: center;
                 font-size: 1.4rem;
                 font-weight: 500;
+                white-space:nowrap;
             }
         }
     }
@@ -247,6 +258,7 @@
                 margin: 12px;
                 display: flex;
                 align-items: center;
+                justify-content: center;
                 .title {
                     font-size: 1.8rem;
                     font-weight: 600;
@@ -259,6 +271,9 @@
                 .text {
                     font-size: 1.4rem;
                     line-height: 1.6rem;
+                    @include xxs(){
+                        width: 55%;
+                    }
                 }
             }
             .sec3_boxL {
@@ -345,9 +360,15 @@
                     text-align: center;
                     position: relative;
                     overflow: hidden;
+                    margin: 10px 0;
+                    @include md(){
+                        width: 80%;
+                    }
                     p {
                         position: absolute;
                         left: 50%;
+                        top: 10%;
+                        z-index: 1;
                     }
                 }
                 .white {
