@@ -34,7 +34,7 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js.map"></script>
 
 
-    {{-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> --}}
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <link rel="stylesheet" href="css/front/style.css">
 </head>
@@ -43,8 +43,7 @@
     <div class="overlay"></div>
     {{-- <div class="black-screen" id="blackScreen"></div> --}}
     <div class="allBg"></div>
-    <div class="wrap" id="#app">
-
+    <div class="wrap" id="app">
         <div class="popup">
             <div class="popBox">
                 <div class="info">
@@ -83,14 +82,18 @@
             </div>
 
             {{-- 手機版MENU --}}
-            {{-- <div class="slideBarHead">
-                <ul>
-                    <li>預約領獎勵</li>
-                    <li>狗狗肉投票活動</li>
-                    <li>狗狗介紹 ​</li>
-                    <li>遊戲特色</li>
+            <div id="menuToggle">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <li class="menu_list_item"><a href="#section2">預約領獎勵</a></li>
+                    <li class="menu_list_item"><a href="#section3">狗狗肉投票活動</a></li>
+                    <li class="menu_list_item"><a href="#section4">狗狗介紹 ​</a></li>
+                    <li class="menu_list_item"><a href="#section5">遊戲特色</a></li>
                 </ul>
-            </div> --}}
+            </div>
             <div class="slideBarDown">
                 <div class="bg">
                     <div class="btnBox">
@@ -105,6 +108,80 @@
         </div>
 
         <div class="container">
+
+
+
+
+            {{-- sec1 --}}
+            <div class="section section1" id="section1">
+                <div class="LOGO"></div>
+                <div class="box">
+                    <div class="logoBox">
+                        <div class="LOGO"></div>
+                    </div>
+                    <div class="box1">
+                        <div class="sec01TitlePC"></div>
+                    </div>
+                    <div class="box2">
+                        <div class="sec01dogM"></div>
+                    </div>
+                    <div class="box3">
+                        <a href="#section2"><img class="scrollToNextSection" src="/img/front/start.png"></a>
+                    </div>
+                </div>
+            </div>
+
+            {{-- sec2 --}}
+            <div class="section section2" id="section2">
+                <div class="sec_box">
+                    <div class="sec2_box1">
+                        <img src="/img/front/sec02Title.png">
+                    </div>
+                    <div class="sec2_box2">
+                        <div class="sec2_box3">
+                            <div class="numberbox">
+                                <select name="selected" class="select" id="mobile_select" @change="selectChange"
+                                    v-model="sec02.selectedCountry">
+                                    <option value="+886">台灣(+886)</option>
+                                    <option value="+852">香港(+852)</option>
+                                    <option value="+853">澳門(+853)</option>
+                                </select>
+                                <div class="inputbox">
+
+                                    <input v-model="sec02.phone"placeholder="請填入正確的手機號碼" pattern="[0-9]*"
+                                        @input="inputChange" @paste.prevent="preventPasteAndDrag" @dragover.prevent
+                                        @drop.prevent maxlength=10 name="phone" id="mobile_input">
+
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <input v-model="sec02.privacyChecked" type="checkbox" name="privacy" class="check"
+                                    id="checkbox">
+                                勾選即同意<a href="#" target="_blank">事前登錄相關隱私權條款</a>
+                            </div>
+                        </div>
+                        <div class="sec2_box4">
+                            <div class="slippersBox">
+                                <img src="/img/front/slippers.png">
+                            </div>
+                            <div class="textBox">
+                                <p class="slipperTitle">藍白拖</p>
+                                <p class="slipperText">好穿便宜又能當武器的拖鞋，
+                                    雖然外觀普通，用起來卻讓人
+                                    愛不釋手！<br>
+                                    <span>台港澳限定武器。<span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sec2_box5">
+                            <div class="reserve" @click="phoneDateWall"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
 
             {{-- sec3 --}}
             <div class="section3_boxPC">
@@ -121,12 +198,12 @@
                                 </div>
                                 <div class="card_box">
                                     <div class="card cardL">
-                                        <img src="/img/front/cardBao.png">
-                                        <p>當前獲得骨頭數<br><span>1000000000</span></p>
+                                        <img src="/img/front/cardBao.png" onclick="pop('bao')">
+                                        <p>當前獲得骨頭數<br><span>%[sec03.activityNum.numBao]</span></p>
                                     </div>
                                     <div class="card cardR">
-                                        <img src="/img/front/cardHero.png">
-                                        <p>當前獲得骨頭數<br><span>1000000000</span></p>
+                                        <img src="/img/front/cardHero.png" onclick="pop('hero')">
+                                        <p>當前獲得骨頭數<br><span>%[sec03.activityNum.numHero]</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +216,7 @@
                                     <img src="/img/front/dogBowl100.png">
                                 </div>
                                 <div class="line">
-                                    <p>20%</p>
+                                    <p>%[sec03.activityNum.numMeat]%</p>
                                     <div class="white">
                                     </div>
                                 </div>
@@ -160,6 +237,31 @@
                 </div>
             </div>
             <div class="section3_boxM">
+                <div class="section section31" id="section3">
+                    <div class="sec_box">
+                        <div class="sec3_box1">
+                            <img src="/img/front/sec03Title.png">
+                        </div>
+                        <div class="sec3_box2">
+                            <div class="sec3_boxL">
+                                <div class="activity_t">
+                                    <div class="title">活動一</div>
+                                    <div class="text">選出心儀小狗，票數最高開服即送！</div>
+                                </div>
+                                <div class="card_box">
+                                    <div class="card cardL">
+                                        <img src="/img/front/cardBao.png" onclick="pop('bao')">
+                                        <p>當前獲得骨頭數<br><span>%[sec03.activityNum.numBao]</span></p>
+                                    </div>
+                                    <div class="card cardR">
+                                        <img src="/img/front/cardHero.png" onclick="pop('hero')">
+                                        <p>當前獲得骨頭數<br><span>%[sec03.activityNum.numHero]</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="section section32" id="section3">
                     <div class="sec_box">
                         <div class="sec3_box1">
@@ -175,7 +277,7 @@
                                     <img src="/img/front/dogBowl100.png">
                                 </div>
                                 <div class="line">
-                                    <p>20%</p>
+                                    <p>%[sec03.activityNum.numMeat]%</p>
                                     <div class="white">
                                     </div>
                                 </div>
@@ -194,34 +296,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="section section31" id="section3">
-                    <div class="sec_box">
-                        <div class="sec3_box1">
-                            <img src="/img/front/sec03Title.png">
-                        </div>
-                        <div class="sec3_box2">
-                            <div class="sec3_boxL">
-                                <div class="activity_t">
-                                    <div class="title">活動一</div>
-                                    <div class="text">選出心儀小狗，票數最高開服即送！</div>
-                                </div>
-                                <div class="card_box">
-                                    <div class="card cardL">
-                                        <img src="/img/front/cardBao.png">
-                                        <p>當前獲得骨頭數<br><span>1000000000</span></p>
-                                    </div>
-                                    <div class="card cardR">
-                                        <img src="/img/front/cardHero.png">
-                                        <p>當前獲得骨頭數<br><span>1000000000</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
 
 
             {{-- sec4 --}}
@@ -251,75 +326,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-            {{-- sec2 --}}
-            <div class="section section2" id="section2">
-                <div class="sec_box">
-                    <div class="sec2_box1">
-                        <img src="/img/front/sec02Title.png">
-                    </div>
-                    <div class="sec2_box2">
-                        <div class="sec2_box3">
-                            <div class="numberbox">
-                                <select name="selected" class="select" id="mobile_select">
-                                    <option value="+886">台灣(+886)</option>
-                                    <option value="+852">香港(+852)</option>
-                                    <option value="+853">澳門(+853)</option>
-                                </select>
-                                <div class="inputbox">
-
-                                    <input type="text" placeholder="請填入正確的手機號碼" onpaste="return false"
-                                        ondragenter="return false" maxlength="10" name="phone" id="mobile_input">
-
-                                </div>
-                            </div>
-                            <div class="checkbox">
-                                <input type="checkbox" name="privacy" value="false" class="check"
-                                    id="checkbox">勾選即同意<a href="#" target="_blank">事前登錄相關隱私權條款</a>
-                            </div>
-                        </div>
-                        <div class="sec2_box4">
-                            <div class="slippersBox">
-                                <img src="/img/front/slippers.png">
-                            </div>
-                            <div class="textBox">
-                                <p class="slipperTitle">藍白拖</p>
-                                <p class="slipperText">好穿便宜又能當武器的拖鞋，
-                                    雖然外觀普通，用起來卻讓人
-                                    愛不釋手！<br>
-                                    <span>台港澳限定武器。<span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="sec2_box5">
-                            <div class="reserve"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            {{-- sec1 --}}
-            <div class="section section1" id="section1">
-                <div class="LOGO"></div>
-                <div class="box">
-                    <div class="logoBox">
-                        <div class="LOGO"></div>
-                    </div>
-                    <div class="box1">
-                        <div class="sec01TitlePC"></div>
-                    </div>
-                    <div class="box2">
-                        <div class="sec01dogM"></div>
-                    </div>
-                    <div class="box3">
-                        <a href="#section2"><img class="scrollToNextSection" src="/img/front/start.png"></a>
-                    </div>
-                </div>
-            </div>
-
 
 
             {{-- sec5 --}}
@@ -359,12 +365,14 @@
             </div>
 
 
+
             <div class="section footer"></div>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    {{-- <script src="js/front/vue_data.js"></script> --}}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/front/vue_data.js"></script>
     <script src="js/front/view.js"></script>
     <script src="js/front/swiper.js"></script>
     <script src="js/front/main.js"></script>

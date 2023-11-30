@@ -46,51 +46,44 @@ function tab_btn(i) {
 }
 
 // 預約按鈕
-$(".reserve").on("click", function () {
-    $(".sec2_box5").html(`<div class="reserved"></div>`);
-});
+// $(".reserve").on("click", function () {
+//     $(".sec2_box5").html(`<div class="reserved"></div>`);
+// });
 
 // 輸入電話號碼
 
-var selectValue = "";
-selectValue = "+886";
+// var selectValue = "";
+// selectValue = "+886";
 
-$("#mobile_select").on("change", function () {
-    selectValue = $(this).val();
-    console.log(selectValue);
-});
+// $("#mobile_select").on("change", function () {
+//     selectValue = $(this).val();
+//     console.log(selectValue);
+// });
 
-$("#mobile_input").on("input", function () {
-    var input = document.getElementById("mobile_input");
-    if (selectValue === "+886") {
-        input.maxLength = 10;
-    } else if (selectValue === "+852" || selectValue === "+853") {
-        input.maxLength = 8;
-    }
-    var inputValue = $(this).val();
-    console.log(inputValue);
-});
+// $("#mobile_input").on("input", function () {
+//     var input = document.getElementById("mobile_input");
+//     if (selectValue === "+886") {
+//         input.maxLength = 10;
+//     } else if (selectValue === "+852" || selectValue === "+853") {
+//         input.maxLength = 8;
+//     }
+//     var inputValue = $(this).val();
+//     console.log(inputValue);
+// });
 
 // 同意框
-var checkboxValue = $("#checkbox").val();
-console.log(checkboxValue);
+// var checkboxValue = $("#checkbox").val();
+// console.log(checkboxValue);
 
-$("#checkbox").click(function () {
-    var isChecked = $(this).is(":checked");
-    checkboxValue = isChecked;
-    console.log(isChecked);
-    console.log(checkboxValue);
-});
-
-
+// $("#checkbox").click(function () {
+//     var isChecked = $(this).is(":checked");
+//     checkboxValue = isChecked;
+//     console.log(isChecked);
+//     console.log(checkboxValue);
+// });
 
 // section3 進度條
 $(".line .white").attr("style", "transform: translate(10%);");
-
-
-
-
-
 
 // sliderL選單
 const button = document.querySelector(".button");
@@ -98,32 +91,44 @@ const menuList = document.querySelector(".menu_list");
 
 const handleClick = () => {
     menuList.classList.toggle("menu_list--animate");
-};// 定義點擊事件的監聽函式
+    $('.triangle').toggleClass('rotate');
+}; // 定義點擊事件的監聽函式
 
-button.addEventListener("click", handleClick);// 點擊事件監聽
+button.addEventListener("click", handleClick); // 點擊事件監聽
 button.click();
 
-
 // 滾動出現.隱藏選單
-$(document).scroll(function() {
+$(document).scroll(function () {
     var topy = $(this).scrollTop();
     if (topy > 400) {
-        $('.slideBarL , .slideBarR , .slideBarDown').addClass('appear');
+        $(".slideBarL , .slideBarR , .slideBarDown").addClass("appear");
     } else {
-        $('.slideBarL , .slideBarR , .slideBarDown').removeClass('appear');
+        $(".slideBarL , .slideBarR , .slideBarDown").removeClass("appear");
     }
 });
 
+function A(i) {
+    console.log(i);
+    console.log(12333);
+}
+
+
 // 跳窗
 function pop(i) {
-    switch(i){
-        case 'point_text':
-            value = point_text ;
+    switch (i) {
+        case "point_text":
+            value = point_text;
+            break;
+        case "bao":
+            value = bao;
+            break;
+        case "hero":
+            value = hero;
             break;
     }
-    $('.info .title').html(value.title);
-    $('.info .text').html(value.text);
-    $('.info .img').html(value.img);
+    $(".info .title").html(value.title);
+    $(".info .text").html(value.text);
+    $(".info .img").html(value.img);
     $("html").css("overflow", "hidden");
     $(".popup").show();
 }
@@ -131,3 +136,33 @@ function closePopup() {
     $(".popup").fadeOut();
     $("html").css("overflow-y", "scroll");
 }
+
+// 手機MENU收起，並到a連結
+    document.addEventListener('DOMContentLoaded', function () {
+        var menuToggleCheckbox = document.querySelector('#menuToggle input[type="checkbox"]');
+        var menuLinks = document.querySelectorAll('#menu a');
+
+        // 監聽菜單連結的點擊事件
+        menuLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                // 取消 #menuToggle 的 checkbox 勾選狀態
+                menuToggleCheckbox.checked = false;
+
+                // 取得目標區塊的 id
+                var targetId = link.getAttribute('href').substring(1);
+
+                // 找到目標區塊
+                var targetElement = document.getElementById(targetId);
+
+                // 如果目標區塊存在，則進行滾動
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    // 阻止預設點擊事件，避免頁面跳轉
+                    event.preventDefault();
+                }
+            });
+        });
+    });

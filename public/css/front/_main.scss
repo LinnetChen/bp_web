@@ -63,7 +63,6 @@ body {
 }
 
 .container {
-    background-color: #ffffff71;
     position: relative;
     // width: 100vw;
     width: 100%;
@@ -82,8 +81,12 @@ body {
     // height: 100vh;
     height: 950px;
     background-size: cover;
-
+    
     scroll-snap-align: center;
+    
+    @include xxs(){
+        height: 750px;
+    }
 
     &.section1 {
         background: url(/img/front/sec01BgPC.jpg);

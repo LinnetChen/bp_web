@@ -30,6 +30,13 @@
             width: 50%;
             height: 80%;
             background-color: rgba(83, 106, 98, 0.549);
+            @include xxl{
+                height: 60%;
+            }
+            @include lg{
+                height: 50%;
+                width: 60%;
+            }
             @include md {
                 width: 90%;
             }

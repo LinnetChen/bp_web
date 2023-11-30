@@ -50,6 +50,7 @@ for ($i = 0; $i <= 5; $i++) {
 }
 $(".sec4_box4").html(char_info);
 
+// 注意事項
 var point_text = {
     title: `注意事項`,
 
@@ -79,6 +80,18 @@ var point_text = {
 <li>官方將保留變更活動內容以及核准兌換與否之權利，詳細活動規則、獎勵及異動說明均以網站<br>或FB公告最後一次公佈為準，請玩家密切留意網站公告訊息。活動開始後，所有玩家視同<br>同意最後公告之內容。<br>​</li></ul>​`,
 
     img: ``,
+};
+
+var bao = {
+    title:``,
+    text: `點擊確認支持籠包汪!`,
+    img: `<img src="/img/front/cardBao2.png" onclick="A('bao')">`,
+};
+
+var hero = {
+    title:``,
+    text: `點擊確認支持英雄汪!`,
+    img: `<img src="/img/front/cardHero2.png" onclick="A('hero')">`,
 };
 
 // 電腦視窗小尺寸 畫面黑屏
