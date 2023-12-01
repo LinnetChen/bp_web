@@ -1,6 +1,5 @@
 var api = "";
 
-
 const app = Vue.createApp({
     delimiters: ["%[", "]"],
     data() {
@@ -98,30 +97,35 @@ const app = Vue.createApp({
                 //  跳窗 請勾選同意
             }
         },
-
         async phoneDateSubmit(mobileNum) {
             console.log("call api");
             console.log(mobileNum);
 
-            this.$nextTick(() => {
-                $(".sec2_box5").html(`<div class="reserved"></div>`);
-            });
-            
-            // try {
-            //     const response = await axios.post(api, {
-            //         type: "phone",
-            //         mobile:mobileNum,
-            //     });
+            try {
+                const response = await axios.post(api, {
+                    type: "phone",
+                    mobile: mobileNum,
+                });
 
-            //     if (response.status == 1) {
+                if (response.status == 1) {
+                    // 跳窗 預約成功
 
-            //     } else if( response.status == -99 ) {
-            //     }else if( response.status == -98 ) {
-            //             // 跳窗 長度錯誤或未勾
-            //     }
-            // } catch (error) {
-            //     console.error("Error:", error);
-            // }
+                    this.$nextTick(() => {
+                        $(".sec2_box5").html(`<div class="reserved"></div>`);
+                    });
+                } else if (response.status == -99) {
+                    // 跳窗 此號碼已預約
+
+                    this.$nextTick(() => {
+                        $(".sec2_box5").html(`<div class="reserved"></div>`);
+                    });
+
+                } else if (response.status == -98) {
+                    // 跳窗 長度錯誤或未勾
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
         },
     },
     mounted() {
@@ -129,5 +133,6 @@ const app = Vue.createApp({
         this.getSetting();
     },
 });
+
 
 app.mount("#app");
