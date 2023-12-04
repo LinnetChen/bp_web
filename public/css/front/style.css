@@ -333,11 +333,165 @@ textarea {
   cursor: pointer;
 }
 
+.popup2 {
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(135deg, rgba(250, 255, 231, 0.9215686275) 0%, #eaffd6 100%);
+  padding: 60px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+.popup2 .popBox {
+  width: 100%;
+  max-width: 1700px;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup2 .popBox .info {
+  padding: 20px;
+  width: 26%;
+  height: 64%;
+  border-radius: 30px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  background-color: rgb(255, 255, 255);
+}
+.popup2 .popBox .info .text,
+.popup2 .popBox .info .title {
+  color: #2c0900;
+  margin-bottom: 20px;
+}
+.popup2 .popBox .info img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+  cursor: pointer;
+}
+.popup2 .popBox .info .title {
+  font-size: 2.5rem;
+}
+.popup2 .popBox .info .text {
+  text-align: left;
+  display: flex;
+  justify-content: center;
+}
+.popup2 .popBox .info .text ul li {
+  color: #2c0900;
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+.popup2 .xBtn {
+  font-size: 4rem;
+  color: #2c0900;
+  position: fixed;
+  top: 72px;
+  right: 24px;
+  cursor: pointer;
+}
+
+.popupEmpty {
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6235294118);
+  padding: 60px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+.popupEmpty .popBox {
+  width: 100%;
+  max-width: 1700px;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media all and (max-width: 500px) {
+  .popupEmpty .popBox {
+    width: 90%;
+    height: 90%;
+  }
+}
+.popupEmpty .popBox .info {
+  padding: 20px;
+  width: 500px;
+  height: 300px;
+  border-radius: 30px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  background: url(/img/front/sec2_box2Bg.png);
+  background-color: #fff;
+  border: 5px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.popupEmpty .popBox .info .text,
+.popupEmpty .popBox .info .title {
+  color: #2c0900;
+  margin-bottom: 20px;
+}
+.popupEmpty .popBox .info img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+  cursor: pointer;
+}
+.popupEmpty .popBox .info .title {
+  font-size: 2.5rem;
+  line-height: 2.9rem;
+}
+.popupEmpty .popBox .info .text {
+  text-align: left;
+  display: flex;
+  justify-content: center;
+}
+.popupEmpty .popBox .info .yes {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, #ff3b67 0%, #ff886e 100%);
+  padding: 10px 20px;
+  border: 3px solid #9e2510;
+  border-radius: 30px;
+}
+
 .slideBarL {
-  opacity: 0;
+  opacity: 1;
   position: fixed;
   bottom: 50%;
-  left: 2%;
+  left: 1%;
   transform: translate(0%, 50%);
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
@@ -350,7 +504,7 @@ textarea {
 .slideBarL .button {
   position: absolute;
   width: 6%;
-  height: 10%;
+  height: 8%;
   top: 45%;
   left: 10%;
 }
@@ -374,7 +528,7 @@ textarea {
   padding-left: 0;
 }
 .slideBarL .menu_list_item {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   position: relative;
   list-style: none;
   top: 0px;
@@ -388,12 +542,20 @@ textarea {
   font-weight: 600;
   display: inline-block;
   width: 100%;
+  padding: 18px;
 }
 @media all and (max-width: 1775px) {
   .slideBarL .menu_list_item a {
     font-size: 1.2rem;
     width: 70%;
   }
+}
+.slideBarL .menu_list_item a.active {
+  color: #fff;
+  background-color: #ffb72c;
+  -webkit-clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+          clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+  padding: 16px 30px 16px 16px;
 }
 @keyframes left {
   0% {
@@ -531,6 +693,11 @@ textarea {
     display: block;
   }
 }
+@media all and (max-width: 375px) {
+  .slideBarDown {
+    background-color: #ffb72a;
+  }
+}
 .slideBarDown .bg {
   background: url(/img/front/slideBarDown.png);
   background-repeat: no-repeat;
@@ -581,7 +748,7 @@ textarea {
   position: relative;
   display: inline-block;
   height: 100%;
-  width: 40%;
+  width: 50%;
   max-width: 202px;
   max-height: 59px;
   border: 1px solid red;

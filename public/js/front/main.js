@@ -83,6 +83,8 @@ function tab_btn(i) {
 // });
 
 // section3 進度條
+
+
 $(".line .white").attr("style", "transform: translate(10%);");
 
 // sliderL選單
@@ -107,10 +109,6 @@ $(document).scroll(function () {
     }
 });
 
-function A(i) {
-    console.log(i);
-    console.log(12333);
-}
 
 
 // 跳窗
@@ -118,12 +116,6 @@ function pop(i) {
     switch (i) {
         case "point_text":
             value = point_text;
-            break;
-        case "bao":
-            value = bao;
-            break;
-        case "hero":
-            value = hero;
             break;
     }
     $(".info .title").html(value.title);

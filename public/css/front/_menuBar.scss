@@ -1,8 +1,8 @@
 .slideBarL {
-    opacity: 0;
+    opacity: 1;
     position: fixed;
     bottom: 50%;
-    left: 2%;
+    left: 1%;
     transform: translate(0%, 50%);
     background-color: rgba(0, 0, 0, 0.5);
     // width: 12%;
@@ -14,15 +14,13 @@
     .button {
         position: absolute;
         width: 6%;
-        height: 10%;
+        height: 8%;
         top: 45%;
         left: 10%;
         .triangle {
             width: 100%;
             height: 100%;
-            // border-radius: 50%;
             background: #94c700;
-            // clip-path: polygon(0 0, 100% 50%, 0 100%);
             clip-path: polygon(100% 0, 0 50%, 100% 100%);
         }
         .rotate {
@@ -41,7 +39,7 @@
     }
 
     .menu_list_item {
-        padding-bottom: 20px;
+        padding-bottom: 10px;
         position: relative;
         list-style: none;
         top: 0px;
@@ -54,9 +52,17 @@
             font-weight: 600;
             display: inline-block;
             width: 100%;
+            padding: 18px;
             @include xxl() {
                 font-size: 1.2rem;
                 width: 70%;
+            }
+
+            &.active {
+                color: #fff;
+                background-color: #ffb72c;
+                clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+                padding: 16px 30px 16px 16px;
             }
         }
     }
@@ -184,12 +190,14 @@
     bottom: 0px;
     right: 0px;
     transform: translate(0%, 0%);
-    // background-color: #ffb72a;
     width: 100%;
     height: 11%;
     z-index: 2;
     @include md() {
         display: block;
+    }
+    @include xxs{
+        background-color: #ffb72a;
     }
     .bg {
         background: url(/img/front/slideBarDown.png);
@@ -225,7 +233,7 @@
             max-width: 100px;
             max-height: 94px;
             border: 1px solid red;
-            @include xxs{
+            @include xxs {
                 width: 26%;
             }
         }
@@ -244,7 +252,7 @@
             position: relative;
             display: inline-block;
             height: 100%;
-            width: 40%;
+            width: 50%;
             max-width: 202px;
             max-height: 59px;
             border: 1px solid red;
@@ -380,8 +388,6 @@
         }
     }
 }
-
-
 
 .appear {
     opacity: 1;

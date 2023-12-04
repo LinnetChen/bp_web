@@ -18,7 +18,6 @@
     <meta name="author" content="DiGeam" />
     <meta name="Resource-type" content="Document" />
     <link rel="icon" sizes="192x192" href="/img/front/favicon.png">
-    {{-- <link rel="icon" sizes="192x192" href="/img/front/favicon.ico"> --}}
     <meta name="description" content="《小狗英雄》事前預約 汪汪開跑!" />
     <link rel="pingback" href="" />
     <title>《小狗英雄》事前預約 汪汪開跑!</title>
@@ -40,7 +39,7 @@
 </head>
 
 <body>
-    <div class="overlay"></div>
+    {{-- <div class="overlay"></div> --}}
     {{-- <div class="black-screen" id="blackScreen"></div> --}}
     <div class="allBg"></div>
     <div class="wrap" id="app">
@@ -49,21 +48,50 @@
                 <div class="info">
                     <div class="title"></div>
                     <div class="text"></div>
-                    <div class="img"></div>
 
                 </div>
             </div>
             <div onclick='closePopup()' class="xBtn">x</div>
         </div>
 
+        <div v-if="popup2.visible" class="popup2">
+            <div class="popup2">
+                <div class="popBox">
+                    <div class="info">
+                        <div class="text">%[ popup2 . text ]</div>
+                        <div class="img">
+                            <img :src="popup2.img" @click="chaVoteClick(popup2.currentCard)" />
+                        </div>
+                    </div>
+                </div>
+                <div @click='closePopup' class="xBtn">x</div>
+            </div>
+        </div>
+
+        <div class="popupEmpty">
+            <div class="popBox">
+                <div class="info">
+                    <div class="title">恭喜完成事前預約</div>
+                    <div class="text"></div>
+                    <div onclick='closePopup()' class="yes">確認</div>
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="slider">
             <div class="slideBarL">
                 <div class="menu">
                     <ul class="menu_list">
-                        <li class="menu_list_item"><a href="#section2">預約領獎勵</a></li>
-                        <li class="menu_list_item"><a href="#section3">狗狗肉投票活動</a></li>
-                        <li class="menu_list_item"><a href="#section4">狗狗介紹 ​</a></li>
-                        <li class="menu_list_item"><a href="#section5">遊戲特色</a></li>
+                        <li class="menu_list_item" @click="addActive(2)"><a href="#section2"
+                                :class="{ 'active': menu.activeTab === 2 }">預約領獎勵</a></li>
+                        <li class="menu_list_item" @click="addActive(3)"><a href="#section3"
+                                :class="{ 'active': menu.activeTab === 3 }">狗狗肉投票活動</a></li>
+                        <li class="menu_list_item" @click="addActive(4)"><a href="#section4"
+                                :class="{ 'active': menu.activeTab === 4 }">狗狗介紹 ​</a></li>
+                        <li class="menu_list_item" @click="addActive(5)"><a href="#section5"
+                                :class="{ 'active': menu.activeTab === 5 }">遊戲特色</a></li>
                     </ul>
                 </div>
                 <div class="button">
@@ -73,9 +101,10 @@
             <div class="slideBarR">
                 <div class="bg">
                     <div class="btnBox">
-                        <div class="fb"><a href="#"></a></div>
-                        <div class="google"><a href="#"></a></div>
-                        <div class="ios"><a href="#"></a></div>
+                        <a class="fb" target="_blank"
+                            href="https://www.facebook.com/profile.php?id=61553615279273"></a>
+                        <a class="google" href="#"></a>
+                        <a class="ios" href="#"></a>
                         <div class="top"><a href="#section1"></a></div>
                     </div>
                 </div>
@@ -99,18 +128,21 @@
                     <div class="btnBox">
                         <div class="empty"></div>
                         <div class="top"><a href="#section1"></a></div>
-                        <div class="fb"><a href="#"></a></div>
+                        <a class="fb" target="_blank"
+                            href="https://www.facebook.com/profile.php?id=61553615279273"></a>
                         {{-- <div class="google"><a href="#"></a></div> --}}
                         <div class="ios"><a href="#"></a></div>
+
+                        {{-- <a v-if="menu.isAndroid" class="google" href="#android-link"></a>
+                        <a v-if="menu.isiOS" class="ios" href="#ios-link"></a> --}}
                     </div>
                 </div>
             </div>
         </div>
 
+
+
         <div class="container">
-
-
-
 
             {{-- sec1 --}}
             <div class="section section1" id="section1">
@@ -157,7 +189,7 @@
                             <div class="checkbox">
                                 <input v-model="sec02.privacyChecked" type="checkbox" name="privacy" class="check"
                                     id="checkbox">
-                                勾選即同意<a href="#" target="_blank">事前登錄相關隱私權條款</a>
+                                勾選即同意<a href="https://www.digeam.com/terms2" target="_blank">事前登錄相關隱私權條款</a>
                             </div>
                         </div>
                         <div class="sec2_box4">
@@ -180,9 +212,6 @@
                 </div>
             </div>
 
-
-
-
             {{-- sec3 --}}
             <div class="section3_boxPC">
                 <div class="section section3" id="section3">
@@ -198,11 +227,11 @@
                                 </div>
                                 <div class="card_box">
                                     <div class="card cardL">
-                                        <img src="/img/front/cardBao.png" onclick="pop('bao')">
+                                        <img src="/img/front/cardBao.png" @click="pop2('bao')">
                                         <p>當前獲得骨頭數<br><span>%[sec03.activityNum.numBao]</span></p>
                                     </div>
                                     <div class="card cardR">
-                                        <img src="/img/front/cardHero.png" onclick="pop('hero')">
+                                        <img src="/img/front/cardHero.png" @click="pop2('hero')">
                                         <p>當前獲得骨頭數<br><span>%[sec03.activityNum.numHero]</span></p>
                                     </div>
                                 </div>
@@ -250,11 +279,11 @@
                                 </div>
                                 <div class="card_box">
                                     <div class="card cardL">
-                                        <img src="/img/front/cardBao.png" onclick="pop('bao')">
+                                        <img src="/img/front/cardBao.png" onclick="pop2('bao')">
                                         <p>當前獲得骨頭數<br><span>%[sec03.activityNum.numBao]</span></p>
                                     </div>
                                     <div class="card cardR">
-                                        <img src="/img/front/cardHero.png" onclick="pop('hero')">
+                                        <img src="/img/front/cardHero.png" onclick="pop2('hero')">
                                         <p>當前獲得骨頭數<br><span>%[sec03.activityNum.numHero]</span></p>
                                     </div>
                                 </div>
@@ -290,7 +319,7 @@
                             </div>
                         </div>
                         <div class="sec3_box3">
-                            <div class="pointBox">
+                            <div class="pointBox" onclick="pop('point_text')">
                                 <p>注意事項</p>
                             </div>
                         </div>

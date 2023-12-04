@@ -6,8 +6,8 @@ const app = Vue.createApp({
         return {
             sec03: {
                 activityNum: {
-                    numBao: 0,
-                    numHero: 0,
+                    numBao: 1000,
+                    numHero: 1000,
                     numMeat: 0,
                 },
             },
@@ -17,9 +17,29 @@ const app = Vue.createApp({
                 phonePro: "",
                 privacyChecked: false,
             },
+            menu: {
+                activeTab: 0,
+                isAndroid: false,
+                isiOS: false,
+            },
+            popup2: {
+                visible: false,
+                text: "",
+                img: "",
+                currentCard: null, // 保存當前點擊的卡片資料
+                bao: {
+                    text: "點擊確定支持籠包汪!",
+                    imgUrl: "/img/front/cardBao2.png",
+                },
+                hero: {
+                    text: "點擊確定支持英雄汪!",
+                    imgUrl: "/img/front/cardHero2.png",
+                },
+            },
         };
     },
     methods: {
+        // 進畫面設定
         async getSetting() {
             try {
                 const response = await axios.post(api, {
@@ -32,8 +52,6 @@ const app = Vue.createApp({
                     this.sec03.activityNum.numBao = numArray[0] || 0;
                     this.sec03.activityNum.numHero = numArray[1] || 0;
                     this.sec03.activityNum.numMeat = numArray[2] || 0;
-
-                    // console.log("Data updated:", this.sec03.activityNum);
                 } else {
                     console.error("Status is not 1:", response.data);
                 }
@@ -41,6 +59,8 @@ const app = Vue.createApp({
                 console.error("Error:", error);
             }
         },
+
+        // sec02
         selectChange() {
             console.log("國家代碼", this.sec02.selectedCountry);
             console.log("條款", this.sec02.privacyChecked);
@@ -119,7 +139,6 @@ const app = Vue.createApp({
                     this.$nextTick(() => {
                         $(".sec2_box5").html(`<div class="reserved"></div>`);
                     });
-
                 } else if (response.status == -98) {
                     // 跳窗 長度錯誤或未勾
                 }
@@ -127,12 +146,102 @@ const app = Vue.createApp({
                 console.error("Error:", error);
             }
         },
+
+        // menu
+        addActive(tabNumber) {
+            this.menu.activeTab = tabNumber;
+        },
+        handleScroll() {
+            const currentScroll = window.scrollY;
+
+            document.querySelectorAll(".section").forEach((section, index) => {
+                const sectionId = `section${index + 1}`;
+                const sectionElement = document.getElementById(sectionId);
+
+                if (sectionElement) {
+                    // 跳過 section01
+                    if (sectionId === "section01") {
+                        // 清除有 active 的區塊
+                        document
+                            .querySelectorAll(".menu_list_item a")
+                            .forEach((item) => {
+                                item.classList.remove("active");
+                            });
+                    }
+
+                    const sectionTop = sectionElement.offsetTop;
+                    const sectionBottom =
+                        sectionTop + sectionElement.offsetHeight;
+
+                    // 檢查是否是 section3 的直接子區塊
+                    const isSection3Child =
+                        section.classList.contains("section3_boxM");
+
+                    if (
+                        currentScroll >= sectionTop &&
+                        currentScroll < sectionBottom &&
+                        !isSection3Child
+                    ) {
+                        this.menu.activeTab = index + 1;
+                    }
+                }
+            });
+        },
+
+        // 偵測ios / android  /pc
+        detectDevice() {
+            const ua = navigator.userAgent;
+            this.menu.isAndroid =
+                ua.indexOf("Android") > -1 || ua.indexOf("Adr") > -1;
+            this.menu.isiOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        },
+
+        // 狗投票選擇跳窗
+        pop2(type) {
+            switch (type) {
+                case "bao":
+                    this.popup2.text = this.popup2.bao.text;
+                    this.popup2.img = this.popup2.bao.imgUrl;
+                    this.popup2.currentCard = "bao";
+                    break;
+                case "hero":
+                    this.popup2.text = this.popup2.hero.text;
+                    this.popup2.img = this.popup2.hero.imgUrl;
+                    this.popup2.currentCard = "hero";
+                    break;
+            }
+            document.documentElement.style.overflow = "hidden";
+            this.popup2.visible = true;
+        },
+        async chaVoteClick(cha) {
+            try {
+                const response = await axios.post(api, {
+                    type: "vote",
+                    choose: cha,
+                });
+
+                if (response.status == 1) {
+                    // 跳窗 投票成功!
+                } else if( response.status == -99 ) {
+                    // 跳窗 您已投過票
+                }
+            } catch (error) {
+            }
+        },
+        closePopup() {
+            document.documentElement.style.overflow = "auto";
+            this.popup2.visible = false;
+        },
     },
     mounted() {
         // 在 mounted 钩子中调用1次 getSetting 方法
         this.getSetting();
+        window.addEventListener("scroll", this.handleScroll);
+        this.detectDevice();
+    },
+    beforeDestroy() {
+        window.removeEventListener("scroll", this.handleScroll);
     },
 });
-
 
 app.mount("#app");
