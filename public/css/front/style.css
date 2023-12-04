@@ -362,13 +362,27 @@ textarea {
 .popup2 .popBox .info {
   padding: 20px;
   width: 26%;
-  height: 64%;
   border-radius: 30px;
   text-align: center;
   line-height: 35px;
   font-size: 1.3rem;
   font-weight: 800;
   background-color: rgb(255, 255, 255);
+}
+@media all and (max-width: 960px) {
+  .popup2 .popBox .info {
+    width: 35%;
+  }
+}
+@media all and (max-width: 900px) {
+  .popup2 .popBox .info {
+    width: 60%;
+  }
+}
+@media all and (max-width: 500px) {
+  .popup2 .popBox .info {
+    width: 75%;
+  }
 }
 .popup2 .popBox .info .text,
 .popup2 .popBox .info .title {
@@ -397,6 +411,7 @@ textarea {
   list-style-position: inside;
 }
 .popup2 .xBtn {
+  z-index: 1;
   font-size: 4rem;
   color: #2c0900;
   position: fixed;
@@ -1457,10 +1472,14 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+@media all and (max-width: 1440px) {
+  .section3 .sec_box {
+    justify-content: space-evenly;
+  }
+}
 .section3 .sec_box .sec3_box1 {
   width: 50%;
   height: 18%;
-  background-color: rgba(116, 146, 136, 0.549);
 }
 .section3 .sec_box .sec3_box1 img {
   position: relative;
@@ -1517,7 +1536,7 @@ body {
 }
 .section3 .sec_box .sec3_box2 .sec3_boxL .card_box {
   height: 85%;
-  width: 90%;
+  width: 95%;
   border: 1px solid red;
   display: flex;
   justify-content: space-evenly;
@@ -1527,6 +1546,7 @@ body {
   line-height: 1.4rem;
   font-weight: 500;
   text-align: center;
+  margin: 0 10px;
 }
 .section3 .sec_box .sec3_box2 .sec3_boxL .card_box .card img {
   height: 90%;
@@ -1596,14 +1616,13 @@ body {
 .section3 .sec_box .sec3_box2 .sec3_boxR .line p {
   position: absolute;
   left: 50%;
-  top: 10%;
+  line-height: 1rem;
   z-index: 2;
 }
 .section3 .sec_box .sec3_box2 .sec3_boxR .white {
   background-color: #fff;
   height: 100%;
   width: 100%;
-  transform: translate(0%);
 }
 .section3 .sec_box .sec3_box2 .sec3_boxR .addMeatBox {
   width: 100%;
@@ -1862,7 +1881,7 @@ body {
 .section32 .sec_box .sec3_box2 .sec3_boxR .line p {
   position: absolute;
   left: 50%;
-  top: 10%;
+  line-height: 1.5rem;
   z-index: 1;
 }
 .section31 .sec_box .sec3_box2 .sec3_boxR .white,
@@ -1870,7 +1889,6 @@ body {
   background-color: #fff;
   height: 100%;
   width: 100%;
-  transform: translate(90%);
 }
 .section31 .sec_box .sec3_box2 .sec3_boxR .addMeatBox,
 .section32 .sec_box .sec3_box2 .sec3_boxR .addMeatBox {
@@ -2184,7 +2202,20 @@ body {
 }
 @media all and (max-width: 900px) {
   .section5 .sec_box .sec5_box2 {
+    height: 100%;
     width: 90%;
+  }
+}
+@media all and (max-width: 375px) {
+  .section5 .sec_box .sec5_box2 {
+    width: 75%;
+    height: 72%;
+  }
+}
+@media all and (max-width: 375px) {
+  .section5 .sec_box .sec5_box2 {
+    width: 75%;
+    height: 72%;
   }
 }
 
@@ -2249,6 +2280,7 @@ body {
   .swiper-button-next {
     position: absolute;
     right: 0px;
+    top: 40%;
   }
 }
 
@@ -2267,5 +2299,6 @@ body {
   .swiper-button-prev {
     position: absolute;
     left: 0px;
+    top: 40%;
   }
 }/*# sourceMappingURL=style.css.map */

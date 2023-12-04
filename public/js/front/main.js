@@ -83,9 +83,7 @@ function tab_btn(i) {
 // });
 
 // section3 進度條
-
-
-$(".line .white").attr("style", "transform: translate(10%);");
+// $(".line .white").attr("style", "transform: translate(10%);");
 
 // sliderL選單
 const button = document.querySelector(".button");

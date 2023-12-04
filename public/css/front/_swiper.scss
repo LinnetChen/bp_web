@@ -10,9 +10,6 @@
     bottom: 26px;
 }
 
-.swiper-pagination {
-}
-
 .swiper {
     border: 1px solid red;
 
@@ -58,6 +55,7 @@
     @include md() {
         position: absolute;
         right: 0px;
+        top: 40%;
     }
 }
 .swiper-button-prev {
@@ -73,11 +71,7 @@
     @include md() {
         position: absolute;
         left: 0px;
+        top: 40%;
     }
 }
 
-// @media screen and (min-width: 93.75rem) {
-//     .swiper {
-//         width: 45%;
-//     }
-// }

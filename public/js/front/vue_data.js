@@ -1,4 +1,4 @@
-var api = "";
+var api = "http://192.168.0.41:9001/api/prereg";
 
 const app = Vue.createApp({
     delimiters: ["%[", "]"],
@@ -6,11 +6,12 @@ const app = Vue.createApp({
         return {
             sec03: {
                 activityNum: {
-                    numBao: 1000,
-                    numHero: 1000,
-                    numMeat: 0,
+                    numBao: 0,
+                    numHero: 0,
+                    numMeat: 80,
                 },
             },
+            whiteStyle: {},
             sec02: {
                 selectedCountry: "+886",
                 phone: "",
@@ -22,6 +23,7 @@ const app = Vue.createApp({
                 isAndroid: false,
                 isiOS: false,
             },
+
             popup2: {
                 visible: false,
                 text: "",
@@ -36,7 +38,16 @@ const app = Vue.createApp({
                     imgUrl: "/img/front/cardHero2.png",
                 },
             },
+
+            popupEmpty: {
+                visible: false,
+                title: "",
+                text: "",
+            },
         };
+    },
+    watch: {
+        "sec03.activityNum.numMeat": "calculateTransform",
     },
     methods: {
         // 進畫面設定
@@ -92,6 +103,8 @@ const app = Vue.createApp({
                     if (phone.length == 9 && !isNaN(phone)) {
                         if (phone.substring(0, 1) !== 9) {
                             // 跳窗 請填入正確格式
+                            this.popupEmpty.title = "請填入正確格式";
+                            this.popupEmptyShow();
                         } else {
                             this.sec02.phonePro = phone;
                             this.phoneDateSubmit(country + this.sec02.phonePro);
@@ -99,6 +112,8 @@ const app = Vue.createApp({
                     } else if (phone.length == 10 && !isNaN(phone)) {
                         if (phone.substring(0, 1) != 0) {
                             // 跳窗 請填入正確格式
+                            this.popupEmpty.title = "請填入正確格式";
+                            this.popupEmptyShow();
                         } else {
                             this.sec02.phonePro = phone.substring(1, 10);
                             console.log(this.sec02.phonePro);
@@ -111,10 +126,14 @@ const app = Vue.createApp({
                         this.phoneDateSubmit(country + this.sec02.phonePro);
                     } else {
                         // 跳窗 請填入正確格式
+                        this.popupEmpty.title = "請填入正確格式";
+                        this.popupEmptyShow();
                     }
                 }
             } else {
                 //  跳窗 請勾選同意
+                this.popupEmpty.title = "請勾選同意事前登錄相關隱私權條款";
+                this.popupEmptyShow();
             }
         },
         async phoneDateSubmit(mobileNum) {
@@ -153,34 +172,20 @@ const app = Vue.createApp({
         },
         handleScroll() {
             const currentScroll = window.scrollY;
+            const offset = 100; // 設定的偏移值
 
             document.querySelectorAll(".section").forEach((section, index) => {
                 const sectionId = `section${index + 1}`;
                 const sectionElement = document.getElementById(sectionId);
 
                 if (sectionElement) {
-                    // 跳過 section01
-                    if (sectionId === "section01") {
-                        // 清除有 active 的區塊
-                        document
-                            .querySelectorAll(".menu_list_item a")
-                            .forEach((item) => {
-                                item.classList.remove("active");
-                            });
-                    }
-
-                    const sectionTop = sectionElement.offsetTop;
+                    const sectionTop = sectionElement.offsetTop - offset;
                     const sectionBottom =
-                        sectionTop + sectionElement.offsetHeight;
-
-                    // 檢查是否是 section3 的直接子區塊
-                    const isSection3Child =
-                        section.classList.contains("section3_boxM");
+                        sectionTop + sectionElement.offsetHeight + 2 * offset;
 
                     if (
                         currentScroll >= sectionTop &&
-                        currentScroll < sectionBottom &&
-                        !isSection3Child
+                        currentScroll < sectionBottom
                     ) {
                         this.menu.activeTab = index + 1;
                     }
@@ -214,23 +219,42 @@ const app = Vue.createApp({
             this.popup2.visible = true;
         },
         async chaVoteClick(cha) {
-            try {
-                const response = await axios.post(api, {
-                    type: "vote",
-                    choose: cha,
-                });
+            console.log("Before: popup2.visible", this.popup2.visible);
+            this.popup2.visible = false;
+            console.log("After: popup2.visible", this.popup2.visible);
 
-                if (response.status == 1) {
-                    // 跳窗 投票成功!
-                } else if( response.status == -99 ) {
-                    // 跳窗 您已投過票
-                }
-            } catch (error) {
-            }
+            // try {
+            //     const response = await axios.post(api, {
+            //         type: "vote",
+            //         choose: cha,
+            //     });
+
+            //     if (response.status == 1) {
+
+            // 跳窗 投票成功!
+
+            this.popupEmpty.title = "投票成功";
+            this.popupEmptyShow();
+
+            //     } else if (response.status == -99) {
+            //         // 跳窗 您已投過票
+            //     }
+            // } catch (error) {}
+        },
+        popupEmptyShow() {
+            this.popupEmpty.visible = true;
+            document.documentElement.style.overflow = "hidden";
         },
         closePopup() {
             document.documentElement.style.overflow = "auto";
             this.popup2.visible = false;
+            this.popupEmpty.visible = false;
+        },
+
+        // 進度條
+        calculateTransform() {
+            const whitePercentage = this.sec03.activityNum.numMeat;
+            this.whiteStyle.transform = `translateX(${whitePercentage}%)`;
         },
     },
     mounted() {
@@ -238,6 +262,7 @@ const app = Vue.createApp({
         this.getSetting();
         window.addEventListener("scroll", this.handleScroll);
         this.detectDevice();
+        this.calculateTransform();
     },
     beforeDestroy() {
         window.removeEventListener("scroll", this.handleScroll);

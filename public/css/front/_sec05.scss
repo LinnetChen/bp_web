@@ -37,8 +37,17 @@
                 height: 50%;
                 width: 60%;
             }
-            @include md {
+            @include md{
+                height: 100%;
                 width: 90%;
+            }
+            @include xsm{
+                width: 75%;
+                height: 72%;
+            }
+            @include xxs{
+                width: 75%;
+                height: 72%;
             }
         }
     }

@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:title" content="《小狗英雄》事前預約 汪汪開跑!" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="《小狗英雄》事前預約 汪汪開跑!" />
+    <meta property="og:description"
+        content="最可愛的放置手機遊戲《小狗英雄》，收集可愛小狗拯救世界，友好的放置系統，無須手動操作，多種離線獎勵即可自動成長，讓你從新手小狗成長為打倒魔王的英雄戰士狗！" />
     <meta property="og:url" content="《小狗英雄》事前預約 汪汪開跑!" />
     <meta property="og:site_name" content="" />
     <meta property="og:locale" content="zh_tw" />
@@ -39,7 +40,7 @@
 </head>
 
 <body>
-    {{-- <div class="overlay"></div> --}}
+    <div class="overlay"></div>
     {{-- <div class="black-screen" id="blackScreen"></div> --}}
     <div class="allBg"></div>
     <div class="wrap" id="app">
@@ -55,25 +56,23 @@
         </div>
 
         <div v-if="popup2.visible" class="popup2">
-            <div class="popup2">
-                <div class="popBox">
-                    <div class="info">
-                        <div class="text">%[ popup2 . text ]</div>
-                        <div class="img">
-                            <img :src="popup2.img" @click="chaVoteClick(popup2.currentCard)" />
-                        </div>
-                    </div>
-                </div>
-                <div @click='closePopup' class="xBtn">x</div>
-            </div>
-        </div>
-
-        <div class="popupEmpty">
             <div class="popBox">
                 <div class="info">
-                    <div class="title">恭喜完成事前預約</div>
-                    <div class="text"></div>
-                    <div onclick='closePopup()' class="yes">確認</div>
+                    <div class="text">%[ popup2 . text ]</div>
+                    <div class="img">
+                        <img :src="popup2.img" @click="chaVoteClick(popup2.currentCard)" />
+                    </div>
+                </div>
+            </div>
+            <div @click="closePopup" class="xBtn">x</div>
+        </div>
+
+        <div v-if="popupEmpty.visible" class="popupEmpty">
+            <div class="popBox">
+                <div class="info">
+                    <div class="title">%[popupEmpty.title]</div>
+                    <div class="text">%[popupEmpty.text]</div>
+                    <div @click="closePopup" class="yes">確認</div>
                 </div>
             </div>
         </div>
@@ -118,7 +117,8 @@
                 <span></span>
                 <ul id="menu">
                     <li class="menu_list_item"><a href="#section2">預約領獎勵</a></li>
-                    <li class="menu_list_item"><a href="#section3">狗狗肉投票活動</a></li>
+                    <li class="menu_list_item"><a href="#section31">狗狗肉投票活動一</a></li>
+                    <li class="menu_list_item"><a href="#section32">狗狗肉投票活動二</a></li>
                     <li class="menu_list_item"><a href="#section4">狗狗介紹 ​</a></li>
                     <li class="menu_list_item"><a href="#section5">遊戲特色</a></li>
                 </ul>
@@ -213,8 +213,8 @@
             </div>
 
             {{-- sec3 --}}
-            <div class="section3_boxPC">
-                <div class="section section3" id="section3">
+            <div class="section3_boxPC" id="section3">
+                <div class="section section3">
                     <div class="sec_box">
                         <div class="sec3_box1">
                             <img src="/img/front/sec03Title.png">
@@ -246,8 +246,7 @@
                                 </div>
                                 <div class="line">
                                     <p>%[sec03.activityNum.numMeat]%</p>
-                                    <div class="white">
-                                    </div>
+                                    <div class="white" :style="whiteStyle"></div>
                                 </div>
                                 <div class="addMeatBox">
                                     <div class="meatBtn500">加碼<br>500肉片</div>
@@ -266,7 +265,7 @@
                 </div>
             </div>
             <div class="section3_boxM">
-                <div class="section section31" id="section3">
+                <div class="section section31" id="section31">
                     <div class="sec_box">
                         <div class="sec3_box1">
                             <img src="/img/front/sec03Title.png">
@@ -279,11 +278,11 @@
                                 </div>
                                 <div class="card_box">
                                     <div class="card cardL">
-                                        <img src="/img/front/cardBao.png" onclick="pop2('bao')">
+                                        <img src="/img/front/cardBao.png" @click="pop2('bao')">
                                         <p>當前獲得骨頭數<br><span>%[sec03.activityNum.numBao]</span></p>
                                     </div>
                                     <div class="card cardR">
-                                        <img src="/img/front/cardHero.png" onclick="pop2('hero')">
+                                        <img src="/img/front/cardHero.png" @click="pop2('hero')">
                                         <p>當前獲得骨頭數<br><span>%[sec03.activityNum.numHero]</span></p>
                                     </div>
                                 </div>
@@ -291,7 +290,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="section section32" id="section3">
+                <div class="section section32" id="section32">
                     <div class="sec_box">
                         <div class="sec3_box1">
                             <img src="/img/front/sec03Title.png">
@@ -307,7 +306,7 @@
                                 </div>
                                 <div class="line">
                                     <p>%[sec03.activityNum.numMeat]%</p>
-                                    <div class="white">
+                                    <div class="white" :style="whiteStyle">
                                     </div>
                                 </div>
                                 <div class="addMeatBox">
@@ -401,10 +400,10 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/front/vue_data.js"></script>
-    <script src="js/front/view.js"></script>
-    <script src="js/front/swiper.js"></script>
-    <script src="js/front/main.js"></script>
+    <script src="js/front/vue_data.js?v=1.1"></script>
+    <script src="js/front/view.js?v=1.1"></script>
+    <script src="js/front/swiper.js?v=1.1"></script>
+    <script src="js/front/main.js?v=1.1"></script>
 </body>
 
 </html>

@@ -6,6 +6,7 @@ $md-media: 900px;
 $mmd-media: 800px;
 $sm-media: 768px;
 $xs-media: 500px;
+$xsm-media: 400px;
 $xxs-media: 375px;
 $x4s-media: 320px;
 
@@ -57,6 +58,11 @@ $x4s-media: 320px;
     }
 }
 
+@mixin xsm() {
+    @media all and (max-width: $xxs-media) {
+        @content;
+    }
+}
 @mixin xxs() {
     @media all and (max-width: $xxs-media) {
         @content;

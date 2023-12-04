@@ -97,14 +97,27 @@
         .info {
             padding: 20px;
             width: 26%;
-            height: 64%;
+            // height: 64%;
             border-radius: 30px;
             text-align: center;
             line-height: 35px;
             font-size: 1.3rem;
             font-weight: 800;
-
+            
             background-color: rgb(255, 255, 255);
+            
+            @include lmd{
+                width: 35%;
+            }
+            @include md{
+                width: 60%;
+                // height: 67%;
+            }
+            @include xs{
+                width: 75%;
+                // height: 71%;
+            }
+            
             .text,
             .title {
                 color: #2c0900;
@@ -137,6 +150,7 @@
         }
     }
     .xBtn {
+        z-index: 1;
         font-size: 4rem;
         color: #2c0900;
         position: fixed;
