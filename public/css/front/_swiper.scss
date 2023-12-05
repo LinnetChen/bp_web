@@ -6,12 +6,16 @@
 
 .swiper-pagination-bullet,
 .swiper-pagination-bullet-active {
-    background: #fff;
+    // background: #fff;
+    background: rgb(155, 184, 9);
     bottom: 26px;
 }
 
+.swiper-pagination {
+}
+
 .swiper {
-    border: 1px solid red;
+    // border: 1px solid red;
 
     @include md {
         width: 80%;
@@ -52,9 +56,13 @@
     &:after {
         content: "";
     }
+    @include xl() {
+        right: 20%;
+        top: 30%;
+    }
+    
     @include md() {
-        position: absolute;
-        right: 0px;
+        right: 0%;
         top: 40%;
     }
 }
@@ -68,9 +76,13 @@
     &:after {
         content: "";
     }
+    @include xl() {
+        top: 30%;
+        left: 20%;
+    }
     @include md() {
         position: absolute;
-        left: 0px;
+        left: 0%;
         top: 40%;
     }
 }

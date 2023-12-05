@@ -12,13 +12,13 @@
         z-index: 1;
         width: 100%;
         height: 90%;
-        border: 1px solid red;
+        // border: 1px solid red;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
 
-        @include xl{
+        @include xl {
             justify-content: space-evenly;
         }
         .sec3_box1 {
@@ -78,9 +78,13 @@
                 .card_box {
                     height: 85%;
                     width: 95%;
-                    border: 1px solid red;
+                    // border: 1px solid red;
                     display: flex;
                     justify-content: space-evenly;
+                    @include xl{
+                        height: 69%;
+                        align-items: center;
+                    }
                     .card {
                         font-size: 1.3rem;
                         line-height: 1.4rem;
@@ -90,6 +94,7 @@
                         img {
                             height: 90%;
                             width: 100%;
+                            cursor: pointer;
                             position: relative;
                             display: inline-block;
                             object-fit: contain;
@@ -138,8 +143,8 @@
                 align-items: center;
                 .bowl {
                     height: 60%;
-                    width: 55%;
-                    border: 1px solid red;
+                    width: 97%;
+                    // border: 1px solid red;
                     img {
                         height: 100%;
                         width: 100%;
@@ -180,11 +185,11 @@
                     .meatBtn500,
                     .meatBtn1000,
                     .meatBtn3000 {
-                        color: #fff;
-                        border: #452806 4px solid;
+                        color: #bababa;
+                        border: #452806 3px solid;
                         width: 25%;
                         height: 100%;
-                        border-radius: 50px;
+                        border-radius: 22px;
                         font-size: 1.3rem;
                         font-weight: 600;
                         line-height: 1.6rem;
@@ -192,15 +197,19 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        background-color: #fff;
                     }
-                    .meatBtn500 {
+                    .meatBtn500.arrived {
                         background-color: #ff797f;
+                        color: #fff;
                     }
-                    .meatBtn1000 {
+                    .meatBtn1000.arrived {
                         background-color: #ff5961;
+                        color: #fff;
                     }
-                    .meatBtn3000 {
+                    .meatBtn3000.arrived {
                         background-color: #ff3e47;
+                        color: #fff;
                     }
                 }
             }
@@ -210,6 +219,7 @@
             height: 6%;
             background-color: rgba(94, 135, 121, 0.549);
             .pointBox {
+                cursor: pointer;
                 width: 100%;
                 height: 100%;
                 background-image: linear-gradient(to left, #f8ff89 0%, #cbff3e 70%, #b2ff1e 100%);
@@ -244,7 +254,7 @@
         z-index: 1;
         width: 100%;
         height: 80%;
-        border: 1px solid red;
+        // border: 1px solid red;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -306,7 +316,7 @@
                 .card_box {
                     height: 85%;
                     width: 90%;
-                    border: 1px solid red;
+                    // border: 1px solid red;
                     display: flex;
                     justify-content: space-evenly;
                     @include xs() {
@@ -319,6 +329,7 @@
                         text-align: center;
                         margin: 0 10px;
                         img {
+                            cursor: pointer;
                             height: 90%;
                             width: 100%;
                             position: relative;
@@ -364,10 +375,10 @@
                 align-items: center;
                 .bowl {
                     height: 60%;
-                    width: 55%;
-                    border: 1px solid red;
+                    width: 97%;
+                    // border: 1px solid red;
                     @include xs() {
-                    height: 50%;
+                        height: 50%;
                     }
                     img {
                         height: 100%;
@@ -412,11 +423,11 @@
                     .meatBtn500,
                     .meatBtn1000,
                     .meatBtn3000 {
-                        color: #fff;
-                        border: #452806 4px solid;
+                        color: #bababa;
+                        border: #452806 3px solid;
                         width: 25%;
                         height: 100%;
-                        border-radius: 50px;
+                        border-radius: 22px;
                         font-size: 1.3rem;
                         font-weight: 600;
                         line-height: 1.6rem;
@@ -424,15 +435,19 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        background-color: #fff;
                     }
-                    .meatBtn500 {
+                    .meatBtn500.arrived {
                         background-color: #ff797f;
+                        color: #fff;
                     }
-                    .meatBtn1000 {
+                    .meatBtn1000.arrived {
                         background-color: #ff5961;
+                        color: #fff;
                     }
-                    .meatBtn3000 {
+                    .meatBtn3000.arrived {
                         background-color: #ff3e47;
+                        color: #fff;
                     }
                 }
             }
@@ -443,6 +458,7 @@
             background-color: rgba(94, 135, 121, 0.549);
             margin-top: 1.5rem;
             .pointBox {
+                cursor: pointer;
                 width: 100%;
                 height: 100%;
                 background-image: linear-gradient(to left, #f8ff89 0%, #cbff3e 70%, #b2ff1e 100%);

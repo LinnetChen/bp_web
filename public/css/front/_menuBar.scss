@@ -1,15 +1,22 @@
 .slideBarL {
-    opacity: 1;
+    opacity: 0;
     position: fixed;
     bottom: 50%;
     left: 1%;
     transform: translate(0%, 50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    // width: 12%;
-    // height: 18%;
+    // background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
     @include md() {
         display: none;
+    }
+
+    .line{
+        background: #94c700;
+        width: 3px;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        left: 8%;
     }
     .button {
         position: absolute;
@@ -17,14 +24,17 @@
         height: 8%;
         top: 45%;
         left: 10%;
+
         .triangle {
             width: 100%;
             height: 100%;
             background: #94c700;
             clip-path: polygon(100% 0, 0 50%, 100% 100%);
+            transform: rotate(180deg); /* 旋转180度 */
         }
         .rotate {
-            transform: rotate(180deg); /* 旋转180度 */
+            transform: rotate(0deg); /* 旋转180度 */
+            left: -14px;
         }
     }
 
@@ -62,7 +72,19 @@
                 color: #fff;
                 background-color: #ffb72c;
                 clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
-                padding: 16px 30px 16px 16px;
+                padding-left: 43px;
+                &::before{
+                    content: '';
+                    position:absolute;
+                    top: 36%;
+                    left: 16px;
+                    background-image: url(/img/front/barDeco.png);
+                    width:21px;
+                    height:21px;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                }
             }
         }
     }
@@ -77,12 +99,12 @@
         }
         70% {
             opacity: 1;
-            left: 50px;
+            left: 19px;
             animation-timing-function: ease-out;
         }
         100% {
             opacity: 1;
-            left: 50px;
+            left: 19px;
             animation-timing-function: ease-out;
         }
     }
@@ -106,7 +128,7 @@
     bottom: 50%;
     right: 0px;
     transform: translate(0%, 50%);
-    background-color: rgb(255, 211, 211, 0.5);
+    // background-color: rgb(255, 211, 211, 0.5);
     width: 10%;
     height: 65%;
     z-index: 2;
@@ -168,7 +190,7 @@
             max-height: 59px;
         }
         .top {
-            border: 1px solid red;
+            // border: 1px solid red;
             background: url(/img/front/top.png);
             background-repeat: no-repeat;
             background-size: contain;
@@ -232,7 +254,7 @@
             width: 30%;
             max-width: 100px;
             max-height: 94px;
-            border: 1px solid red;
+            // border: 1px solid red;
             @include xxs {
                 width: 26%;
             }
@@ -255,7 +277,7 @@
             width: 50%;
             max-width: 202px;
             max-height: 59px;
-            border: 1px solid red;
+            // border: 1px solid red;
         }
 
         .fb {
@@ -266,7 +288,7 @@
         }
         .top,
         .fb {
-            border: 1px solid red;
+            // border: 1px solid red;
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;

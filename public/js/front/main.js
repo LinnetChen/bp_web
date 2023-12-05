@@ -8,10 +8,13 @@ $(document).ready(function () {
     });
 });
 
+
+
 tab_btn(0);
 
 // 小狗介紹tab
 function tab_btn(i) {
+    $(".btn img").removeClass("active");
     switch (i) {
         case 0:
             value = char0;
@@ -38,6 +41,7 @@ function tab_btn(i) {
             img = "char5";
             break;
     }
+    $(".btn").eq(i).find("img").addClass("active");
     $(".text1_box .title").html(value.title1);
     $(".text1_box p").html(value.text1);
     $(".text2_box .title").html(value.title2);
@@ -45,45 +49,8 @@ function tab_btn(i) {
     $(".sec4_box3 .imgBox").html('<img src="/img/front/sec4_' + img + '.png">');
 }
 
-// 預約按鈕
-// $(".reserve").on("click", function () {
-//     $(".sec2_box5").html(`<div class="reserved"></div>`);
-// });
 
-// 輸入電話號碼
-
-// var selectValue = "";
-// selectValue = "+886";
-
-// $("#mobile_select").on("change", function () {
-//     selectValue = $(this).val();
-//     console.log(selectValue);
-// });
-
-// $("#mobile_input").on("input", function () {
-//     var input = document.getElementById("mobile_input");
-//     if (selectValue === "+886") {
-//         input.maxLength = 10;
-//     } else if (selectValue === "+852" || selectValue === "+853") {
-//         input.maxLength = 8;
-//     }
-//     var inputValue = $(this).val();
-//     console.log(inputValue);
-// });
-
-// 同意框
-// var checkboxValue = $("#checkbox").val();
-// console.log(checkboxValue);
-
-// $("#checkbox").click(function () {
-//     var isChecked = $(this).is(":checked");
-//     checkboxValue = isChecked;
-//     console.log(isChecked);
-//     console.log(checkboxValue);
-// });
-
-// section3 進度條
-// $(".line .white").attr("style", "transform: translate(10%);");
+var a = '只是個分隔線'
 
 // sliderL選單
 const button = document.querySelector(".button");

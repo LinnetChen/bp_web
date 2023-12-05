@@ -18,6 +18,6 @@ Route::get('/', function () {
 });
 
 // 事前預約
-Route::get('/prereg', function () {
+Route::get('/', function () {
     return view('front/prereg');
 });

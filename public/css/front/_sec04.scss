@@ -6,7 +6,7 @@
         z-index: 1;
         width: 100%;
         height: 80%;
-        border: 1px solid red;
+        // border: 1px solid red;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -17,7 +17,7 @@
         .sec4_box1 {
             width: 50%;
             height: 20%;
-            background-color: rgba(116, 146, 136, 0.549);
+            // background-color: rgba(116, 146, 136, 0.549);
             @include md(){
                 width: 90%;
             }
@@ -32,21 +32,26 @@
         .sec4_box2 {
             width: 60%;
             height: 80%;
-            background-color: rgba(83, 106, 98, 0.549);
+            // background-color: rgba(83, 106, 98, 0.549);
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin: 15px 0 0 0;
             @include md(){
+                margin: 0 0 0 0;
                 width: 80%;
                 flex-direction: row;
             }
             @include sm(){
                 width: 90%;
             }
+            @include xs{
+                align-items: flex-start;
+            }
             .sec4_box3 {
                 height: 85%;
                 width: 100%;
-                background-color: rgba(116, 146, 136, 0.549);
+                // background-color: rgba(116, 146, 136, 0.549);
                 display: flex;
                 flex-direction: row;
                 @include md(){
@@ -79,14 +84,15 @@
                         width: 100%;
                     }
                     .text1_box {
-                        border: red 1px solid;
+                        // border: red 1px solid;
                         height: 60%;
                         width: 100%;
                         @include md(){
+                            width: 95%;
                             height: 100%;
                         }
                         .title {
-                            border: blue 1px solid;
+                            // border: blue 1px solid;
                             background: url(/img/front/sec4_t1bg.png);
                             background-repeat: no-repeat;
                             background-size: cover;
@@ -112,14 +118,14 @@
                         }
                     }
                     .text2_box {
-                        border: red 1px solid;
+                        // border: red 1px solid;
                         height: 40%;
                         width: 100%;
                         @include md(){
                             display: none;
                         }
                         .title {
-                            border: blue 1px solid;
+                            // border: blue 1px solid;
                             background: url(/img/front/sec4_t2bg.png);
                             background-repeat: no-repeat;
                             background-size: cover;
@@ -146,7 +152,6 @@
             .sec4_box4 {
                 height: 15%;
                 width: 68%;
-                background-color: rgba(83, 106, 98, 0.549);
                 display: flex;
                 justify-content: space-between;
                 flex-direction: row;
@@ -161,11 +166,16 @@
                     width: 15%;
                 }
                 img {
+                    cursor: pointer;
                     position: relative;
                     display: inline-block;
                     height: 100%;
                     width: 100%;
                     object-fit: contain;
+                    -webkit-filter:brightness(.5);
+                    &.active{
+                        -webkit-filter:brightness(1);
+                    }
                 }
             }
         }

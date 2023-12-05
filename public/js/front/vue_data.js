@@ -1,15 +1,17 @@
-var api = "http://192.168.0.41:9001/api/prereg";
+// var api = "http://192.168.0.41:9001/api/prereg";
 
 const app = Vue.createApp({
     delimiters: ["%[", "]"],
     data() {
         return {
+
             sec03: {
                 activityNum: {
                     numBao: 0,
                     numHero: 0,
                     numMeat: 80,
                 },
+                bowlImgUrl: "",
             },
             whiteStyle: {},
             sec02: {
@@ -41,6 +43,7 @@ const app = Vue.createApp({
 
             popupEmpty: {
                 visible: false,
+                // visible: true,
                 title: "",
                 text: "",
             },
@@ -52,23 +55,36 @@ const app = Vue.createApp({
     methods: {
         // 進畫面設定
         async getSetting() {
-            try {
-                const response = await axios.post(api, {
-                    type: "get",
-                });
+            // try {
+            //     const response = await axios.post(api, {
+            //         type: "access",
+            //     });
 
-                if (response.status === 1) {
-                    const numArray = response.num;
+            //     if (response.data.status == 1) {
+            //         const numArray = response.data.num;
 
-                    this.sec03.activityNum.numBao = numArray[0] || 0;
-                    this.sec03.activityNum.numHero = numArray[1] || 0;
-                    this.sec03.activityNum.numMeat = numArray[2] || 0;
+            //         this.sec03.activityNum.numBao = numArray[0] || 0;
+            //         this.sec03.activityNum.numHero = numArray[1] || 0;
+            //         this.sec03.activityNum.numMeat = numArray[2] || 0;
+
+            if (this.sec03.activityNum.numMeat >= 20) {
+                if (this.sec03.activityNum.numMeat >= 50) {
+                    if (this.sec03.activityNum.numMeat == 100) {
+                        this.sec03.bowlImgUrl = "/img/front/dogBowl100.png";
+                    } else {
+                        this.sec03.bowlImgUrl = "/img/front/dogBowl50.png";
+                    }
                 } else {
-                    console.error("Status is not 1:", response.data);
+                    this.sec03.bowlImgUrl = "/img/front/dogBowl20.png";
                 }
-            } catch (error) {
-                console.error("Error:", error);
             }
+
+            //     } else {
+            //         console.error("Status is not 1:", response.data);
+            //     }
+            // } catch (error) {
+            //     console.error("Error:", error);
+            // }
         },
 
         // sec02
@@ -103,7 +119,9 @@ const app = Vue.createApp({
                     if (phone.length == 9 && !isNaN(phone)) {
                         if (phone.substring(0, 1) !== 9) {
                             // 跳窗 請填入正確格式
-                            this.popupEmpty.title = "請填入正確格式";
+                            this.popupEmpty.title = `請填寫正確手機號碼​​`;
+                            this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
+                            港/澳區，不含特殊符號的半形數字8碼​`;
                             this.popupEmptyShow();
                         } else {
                             this.sec02.phonePro = phone;
@@ -112,7 +130,9 @@ const app = Vue.createApp({
                     } else if (phone.length == 10 && !isNaN(phone)) {
                         if (phone.substring(0, 1) != 0) {
                             // 跳窗 請填入正確格式
-                            this.popupEmpty.title = "請填入正確格式";
+                            this.popupEmpty.title = `請填寫正確手機號碼​​`;
+                            this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
+                            港/澳區，不含特殊符號的半形數字8碼​`;
                             this.popupEmptyShow();
                         } else {
                             this.sec02.phonePro = phone.substring(1, 10);
@@ -126,7 +146,9 @@ const app = Vue.createApp({
                         this.phoneDateSubmit(country + this.sec02.phonePro);
                     } else {
                         // 跳窗 請填入正確格式
-                        this.popupEmpty.title = "請填入正確格式";
+                        this.popupEmpty.title = `請填寫正確手機號碼​​`;
+                        this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
+                        港/澳區，不含特殊符號的半形數字8碼​`;
                         this.popupEmptyShow();
                     }
                 }
@@ -137,34 +159,45 @@ const app = Vue.createApp({
             }
         },
         async phoneDateSubmit(mobileNum) {
-            console.log("call api");
-            console.log(mobileNum);
-
             try {
                 const response = await axios.post(api, {
                     type: "phone",
                     mobile: mobileNum,
                 });
 
-                if (response.status == 1) {
+                if (response.data.status == 1) {
                     // 跳窗 預約成功
+                    this.popupEmpty.title = "恭喜預約成功";
+                    this.popupEmpty.text = `已完成預約​<br>
+                    撿到【骨頭】，前往下頁活動，送給心儀汪汪​`;
+                    this.popupEmptyShow();
 
                     this.$nextTick(() => {
                         $(".sec2_box5").html(`<div class="reserved"></div>`);
                     });
-                } else if (response.status == -99) {
+                } else if (response.data.status == -99) {
                     // 跳窗 此號碼已預約
+                    this.popupEmpty.title = "該門號已參加過事前預約";
+                    this.popupEmpty.text = `已完成預約​<br>
+                    撿到【骨頭】，前往下頁活動，送給心儀汪汪​`;
+                    this.popupEmptyShow();
 
                     this.$nextTick(() => {
                         $(".sec2_box5").html(`<div class="reserved"></div>`);
                     });
-                } else if (response.status == -98) {
+                } else if (response.data.status == -98) {
                     // 跳窗 長度錯誤或未勾
+                    this.popupEmpty.title = `請填寫正確手機號碼​​`;
+                    this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
+                    港/澳區，不含特殊符號的半形數字8碼​`;
+                    this.popupEmptyShow();
                 }
             } catch (error) {
                 console.error("Error:", error);
             }
         },
+
+
 
         // menu
         addActive(tabNumber) {
@@ -219,27 +252,25 @@ const app = Vue.createApp({
             this.popup2.visible = true;
         },
         async chaVoteClick(cha) {
-            console.log("Before: popup2.visible", this.popup2.visible);
             this.popup2.visible = false;
-            console.log("After: popup2.visible", this.popup2.visible);
 
-            // try {
-            //     const response = await axios.post(api, {
-            //         type: "vote",
-            //         choose: cha,
-            //     });
+            try {
+                const response = await axios.post(api, {
+                    type: "vote",
+                    choose: cha,
+                });
 
-            //     if (response.status == 1) {
-
-            // 跳窗 投票成功!
-
-            this.popupEmpty.title = "投票成功";
-            this.popupEmptyShow();
-
-            //     } else if (response.status == -99) {
-            //         // 跳窗 您已投過票
-            //     }
-            // } catch (error) {}
+                if (response.data.status == 1) {
+                    // 跳窗 投票成功!
+                    this.popupEmpty.title = "投票成功";
+                    this.popupEmpty.text = "雙方票數於每日0:00更新";
+                    this.popupEmptyShow();
+                } else if (response.data.status == -99) {
+                    // 跳窗 您已投過票
+                    this.popupEmpty.title = "您已經投過票了~";
+                    this.popupEmptyShow();
+                }
+            } catch (error) {}
         },
         popupEmptyShow() {
             this.popupEmpty.visible = true;

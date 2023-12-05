@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 
+<link rel="stylesheet" href="css/front/style.css">
+
+{{-- loading --}}
+<div class="loading">
+    <div class="dancing-lao">
+        <div class="left-dots">
+            <div class="dot dot-1"></div>
+            <div class="dot dot-2"></div>
+            <div class="circle-dot"></div>
+        </div>
+        <div class="right-dots">
+            <div class="dot dot-1"></div>
+            <div class="dot dot-2"></div>
+            <div class="circle-dot"></div>
+        </div>
+
+        <img class="dog" src="/img/front/dog.png" alt="">
+    </div>
+</div>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +56,10 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+
     <link rel="stylesheet" href="css/front/style.css">
+
+
 </head>
 
 <body>
@@ -93,6 +116,7 @@
                                 :class="{ 'active': menu.activeTab === 5 }">遊戲特色</a></li>
                     </ul>
                 </div>
+                <div class="line"></div>
                 <div class="button">
                     <div class="triangle"></div>
                 </div>
@@ -102,8 +126,8 @@
                     <div class="btnBox">
                         <a class="fb" target="_blank"
                             href="https://www.facebook.com/profile.php?id=61553615279273"></a>
-                        <a class="google" href="#"></a>
-                        <a class="ios" href="#"></a>
+                        <a class="google" href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
+                        <a class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
                         <div class="top"><a href="#section1"></a></div>
                     </div>
                 </div>
@@ -130,11 +154,12 @@
                         <div class="top"><a href="#section1"></a></div>
                         <a class="fb" target="_blank"
                             href="https://www.facebook.com/profile.php?id=61553615279273"></a>
-                        {{-- <div class="google"><a href="#"></a></div> --}}
-                        <div class="ios"><a href="#"></a></div>
+                        {{-- <div class="google"><a href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a></div> --}}
+                        {{-- <div class="ios"><a href="https://apps.apple.com/us/app/id6470368870"></a></div> --}}
 
-                        {{-- <a v-if="menu.isAndroid" class="google" href="#android-link"></a>
-                        <a v-if="menu.isiOS" class="ios" href="#ios-link"></a> --}}
+                        <a v-if="menu.isAndroid" class="google"
+                            href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
+                        <a v-if="menu.isiOS" class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
                     </div>
                 </div>
             </div>
@@ -143,6 +168,9 @@
 
 
         <div class="container">
+
+
+
 
             {{-- sec1 --}}
             <div class="section section1" id="section1">
@@ -242,16 +270,19 @@
                                     <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！</div>
                                 </div>
                                 <div class="bowl">
-                                    <img src="/img/front/dogBowl100.png">
+                                    <img :src="sec03.bowlImgUrl">
                                 </div>
                                 <div class="line">
                                     <p>%[sec03.activityNum.numMeat]%</p>
                                     <div class="white" :style="whiteStyle"></div>
                                 </div>
                                 <div class="addMeatBox">
-                                    <div class="meatBtn500">加碼<br>500肉片</div>
-                                    <div class="meatBtn1000">加碼<br>1000肉片</div>
-                                    <div class="meatBtn3000">加碼<br>3000肉片</div>
+                                    <div class="meatBtn500" :class="{ 'arrived': sec03.activityNum.numMeat >= 20 }">
+                                        加碼<br>500肉片</div>
+                                    <div class="meatBtn1000" :class="{ 'arrived': sec03.activityNum.numMeat >= 50 }">
+                                        加碼<br>1000肉片</div>
+                                    <div class="meatBtn3000" :class="{ 'arrived': sec03.activityNum.numMeat == 100 }">
+                                        加碼<br>3000肉片</div>
                                 </div>
 
                             </div>
@@ -302,7 +333,7 @@
                                     <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！</div>
                                 </div>
                                 <div class="bowl">
-                                    <img src="/img/front/dogBowl100.png">
+                                    <img :src="sec03.bowlImgUrl">
                                 </div>
                                 <div class="line">
                                     <p>%[sec03.activityNum.numMeat]%</p>
@@ -310,9 +341,12 @@
                                     </div>
                                 </div>
                                 <div class="addMeatBox">
-                                    <div class="meatBtn500">加碼<br>500肉片</div>
-                                    <div class="meatBtn1000">加碼<br>1000肉片</div>
-                                    <div class="meatBtn3000">加碼<br>3000肉片</div>
+                                    <div class="meatBtn500" :class="{ 'arrived': sec03.activityNum.numMeat >= 20 }">
+                                        加碼<br>500肉片</div>
+                                    <div class="meatBtn1000" :class="{ 'arrived': sec03.activityNum.numMeat >= 50 }">
+                                        加碼<br>1000肉片</div>
+                                    <div class="meatBtn3000" :class="{ 'arrived': sec03.activityNum.numMeat == 100 }">
+                                        加碼<br>3000肉片</div>
                                 </div>
 
                             </div>
@@ -394,16 +428,43 @@
 
 
 
-            <div class="section footer"></div>
+            <footer class="section footer">
+                <div class="footerbox_logo">
+                    <img class="logo_digeam" src="/img/front/footer/LOGO.png">
+                    <img class="FIX_CI" src="/img/front/footer/FIX_CI.png">
+                </div>
+                <div class="spec">
+                    <a href="https://www.digeam.com/terms" target="_blank">會員服務條款</a>
+                    <a href="https://www.digeam.com/terms2" target="_blank">隱私條款</a>
+                    <a href="https://www.digeam.com/cs" target="_blank">客服中心</a>
+                    <p class="Copyright">Copyright © DiGeam Corporation. All Rights Reserved.</p>
+                </div>
+                <div class="classlavel">
+                    <img src="/img/front/footer/0plus.png" alt="普遍級">
+                    <ul>
+                        <li>本遊戲為免費使用，遊戲內另提供購買虛擬遊戲幣、等付費服務。</li>
+                        <li>請注意遊戲時間，避免沉迷。</li>
+                        <li>本遊戲服務區域包含台灣、香港、澳門。</li>
+                    </ul>
+                </div>
+            </footer>
+
+
+
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/front/vue_data.js?v=1.1"></script>
+    <script src="js/front/vue_data.js?v=1.9"></script>
     <script src="js/front/view.js?v=1.1"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>
 </body>
 
 </html>
+
+
+<script>
+    $('.loading').hide();
+</script>

@@ -25,15 +25,15 @@
         height: 85%;
         // max-width: 1920px;
         // max-height: 950px;
-        border: 1px solid red;
+        // border: 1px solid red;
         .logoBox {
             display: none;
             @include md {
                 display: block;
-                top: 10%;
+                top: 0%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background-color: rgba(116, 146, 136, 0.549);
+                // background-color: rgba(116, 146, 136, 0.549);
                 display: flex;
                 justify-content: space-evenly;
                 height: 10%;
@@ -60,7 +60,7 @@
         .box3 {
             display: flex;
             justify-content: space-evenly;
-            img{
+            img {
                 position: relative;
                 display: inline-block;
                 height: 100%;
@@ -73,11 +73,14 @@
             left: 50%;
             height: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(116, 146, 136, 0.549);
+            // background-color: rgba(116, 146, 136, 0.549);
             @include md {
                 height: 50%;
                 width: 95%;
-                top: 29%;
+                top: 25%;
+            }
+            @include xs {
+                top: 18%;
             }
             img {
                 max-width: 1181px;
@@ -102,8 +105,8 @@
                 }
             }
         }
-        .box2{
-            background-color: rgba(73, 97, 89, 0.549);
+        .box2 {
+            // background-color: rgba(73, 97, 89, 0.549);
             display: none;
             @include md {
                 display: block;
@@ -111,7 +114,10 @@
                 width: 100%;
                 bottom: 2%;
             }
-            .sec01dogM{
+            @include xs {
+                bottom: 6%;
+            }
+            .sec01dogM {
                 background: url(/img/front/sec01dogM.png);
                 background-repeat: no-repeat;
                 background-size: contain;
@@ -124,8 +130,8 @@
                 max-height: 576px;
             }
         }
-        .box3{
-            background-color: rgba(116, 146, 136, 0.549);
+        .box3 {
+            // background-color: rgba(116, 146, 136, 0.549);
             transform: translate(-50%, -50%);
             top: 39%;
             left: 50%;
@@ -134,30 +140,32 @@
             @include md {
                 top: 2%;
             }
+            @include xs {
+                top: -9%;
+            }
             img {
                 max-width: 109px;
                 max-height: 81px;
             }
-            .scrollToNextSection{
+            .scrollToNextSection {
                 animation-name: move; /* 套用的 keyframe */
-                animation-duration: 1.3s;          /* 動畫持續時間 */
+                animation-duration: 1.3s; /* 動畫持續時間 */
                 animation-iteration-count: infinite; /* 動畫播放次數 */
-                animation-timing-function: linear;   /* 影片加速速率 */
+                animation-timing-function: linear; /* 影片加速速率 */
             }
             @keyframes move {
-                0%{
+                0% {
                     transform: translateY(0%);
                     opacity: 1;
                 }
-                50%{
+                50% {
                     opacity: 1;
                     transform: translateY(40%);
                 }
-                100%{
+                100% {
                     opacity: 0;
                     transform: translateY(80%);
                 }
-                
             }
         }
     }

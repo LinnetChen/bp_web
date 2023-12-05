@@ -59,7 +59,7 @@ $x4s-media: 320px;
 }
 
 @mixin xsm() {
-    @media all and (max-width: $xxs-media) {
+    @media all and (max-width: $xsm-media) {
         @content;
     }
 }
