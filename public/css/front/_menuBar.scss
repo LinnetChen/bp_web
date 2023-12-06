@@ -4,13 +4,12 @@
     bottom: 50%;
     left: 1%;
     transform: translate(0%, 50%);
-    // background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
     @include md() {
         display: none;
     }
 
-    .line{
+    .line {
         background: #94c700;
         width: 3px;
         height: 100%;
@@ -56,6 +55,11 @@
         opacity: 0;
         a {
             color: #94c700;
+            text-shadow:
+                0px 0px 5px #ffff81,
+                0px 0px 5px #ffff81,
+                0px 0px 5px #ffff81,
+                0px 0px 5px #ffff81;
             text-decoration: none;
             text-align: left;
             font-size: 1.4rem;
@@ -69,18 +73,19 @@
             }
 
             &.active {
+                text-shadow: 0px 0px 0px #ffff81;
                 color: #fff;
                 background-color: #ffb72c;
                 clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
                 padding-left: 43px;
-                &::before{
-                    content: '';
-                    position:absolute;
+                &::before {
+                    content: "";
+                    position: absolute;
                     top: 36%;
                     left: 16px;
                     background-image: url(/img/front/barDeco.png);
-                    width:21px;
-                    height:21px;
+                    width: 21px;
+                    height: 21px;
                     background-repeat: no-repeat;
                     background-size: contain;
                     background-position: center;
@@ -128,7 +133,6 @@
     bottom: 50%;
     right: 0px;
     transform: translate(0%, 50%);
-    // background-color: rgb(255, 211, 211, 0.5);
     width: 10%;
     height: 65%;
     z-index: 2;
@@ -190,7 +194,6 @@
             max-height: 59px;
         }
         .top {
-            // border: 1px solid red;
             background: url(/img/front/top.png);
             background-repeat: no-repeat;
             background-size: contain;
@@ -218,7 +221,7 @@
     @include md() {
         display: block;
     }
-    @include xxs{
+    @include xxs {
         background-color: #ffb72a;
     }
     .bg {

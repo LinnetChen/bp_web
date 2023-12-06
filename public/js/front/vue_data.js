@@ -1,15 +1,14 @@
-// var api = "http://192.168.0.41:9001/api/prereg";
+var api = "http://192.168.0.41:9001/api/prereg";
 
 const app = Vue.createApp({
     delimiters: ["%[", "]"],
     data() {
         return {
-
             sec03: {
                 activityNum: {
                     numBao: 0,
                     numHero: 0,
-                    numMeat: 80,
+                    numMeat: 20,
                 },
                 bowlImgUrl: "",
             },
@@ -55,36 +54,39 @@ const app = Vue.createApp({
     methods: {
         // 進畫面設定
         async getSetting() {
-            // try {
-            //     const response = await axios.post(api, {
-            //         type: "access",
-            //     });
+            try {
+                const response = await axios.post(api, {
+                    type: "access",
+                });
 
-            //     if (response.data.status == 1) {
-            //         const numArray = response.data.num;
+                if (response.data.status == 1) {
+                    const numArray = response.data.num;
 
-            //         this.sec03.activityNum.numBao = numArray[0] || 0;
-            //         this.sec03.activityNum.numHero = numArray[1] || 0;
-            //         this.sec03.activityNum.numMeat = numArray[2] || 0;
+                    this.sec03.activityNum.numBao = numArray[0] || 0;
+                    this.sec03.activityNum.numHero = numArray[1] || 0;
+                    this.sec03.activityNum.numMeat = numArray[2] || 0;
 
-            if (this.sec03.activityNum.numMeat >= 20) {
-                if (this.sec03.activityNum.numMeat >= 50) {
-                    if (this.sec03.activityNum.numMeat == 100) {
-                        this.sec03.bowlImgUrl = "/img/front/dogBowl100.png";
+                    if (this.sec03.activityNum.numMeat >= 0) {
+                        if (this.sec03.activityNum.numMeat >= 50) {
+                            if (this.sec03.activityNum.numMeat == 100) {
+                                this.sec03.bowlImgUrl =
+                                    "/img/front/dogBowl100.png";
+                            } else {
+                                this.sec03.bowlImgUrl =
+                                    "/img/front/dogBowl50.png";
+                            }
+                        } else {
+                            this.sec03.bowlImgUrl = "/img/front/dogBowl20.png";
+                        }
                     } else {
-                        this.sec03.bowlImgUrl = "/img/front/dogBowl50.png";
+                        this.sec03.bowlImgUrl = "/img/front/dogBowl20.png";
                     }
                 } else {
-                    this.sec03.bowlImgUrl = "/img/front/dogBowl20.png";
+                    console.error("Status is not 1:", response.data);
                 }
+            } catch (error) {
+                console.error("Error:", error);
             }
-
-            //     } else {
-            //         console.error("Status is not 1:", response.data);
-            //     }
-            // } catch (error) {
-            //     console.error("Error:", error);
-            // }
         },
 
         // sec02
@@ -117,15 +119,15 @@ const app = Vue.createApp({
             if (check == true) {
                 if (country == "+886") {
                     if (phone.length == 9 && !isNaN(phone)) {
-                        if (phone.substring(0, 1) !== 9) {
+                        if (phone.substring(0, 1) == 9) {
+                            this.sec02.phonePro = phone;
+                            this.phoneDateSubmit(country + this.sec02.phonePro);
+                        } else {
                             // 跳窗 請填入正確格式
                             this.popupEmpty.title = `請填寫正確手機號碼​​`;
                             this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
                             港/澳區，不含特殊符號的半形數字8碼​`;
                             this.popupEmptyShow();
-                        } else {
-                            this.sec02.phonePro = phone;
-                            this.phoneDateSubmit(country + this.sec02.phonePro);
                         }
                     } else if (phone.length == 10 && !isNaN(phone)) {
                         if (phone.substring(0, 1) != 0) {
@@ -136,9 +138,14 @@ const app = Vue.createApp({
                             this.popupEmptyShow();
                         } else {
                             this.sec02.phonePro = phone.substring(1, 10);
-                            console.log(this.sec02.phonePro);
                             this.phoneDateSubmit(country + this.sec02.phonePro);
                         }
+                    } else {
+                        // 跳窗 請填入正確格式
+                        this.popupEmpty.title = `請填寫正確手機號碼​​`;
+                        this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
+                                                港/澳區，不含特殊符號的半形數字8碼​`;
+                        this.popupEmptyShow();
                     }
                 } else if (country == "+852" || country == "+853") {
                     if (phone.length == 8 && !isNaN(phone)) {
@@ -169,7 +176,7 @@ const app = Vue.createApp({
                     // 跳窗 預約成功
                     this.popupEmpty.title = "恭喜預約成功";
                     this.popupEmpty.text = `已完成預約​<br>
-                    撿到【骨頭】，前往下頁活動，送給心儀汪汪​`;
+                    撿到【骨頭】，前往下頁活動<br>送給心儀汪汪​`;
                     this.popupEmptyShow();
 
                     this.$nextTick(() => {
@@ -177,9 +184,9 @@ const app = Vue.createApp({
                     });
                 } else if (response.data.status == -99) {
                     // 跳窗 此號碼已預約
-                    this.popupEmpty.title = "該門號已參加過事前預約";
+                    this.popupEmpty.title = "該門號已參加預約";
                     this.popupEmpty.text = `已完成預約​<br>
-                    撿到【骨頭】，前往下頁活動，送給心儀汪汪​`;
+                    撿到【骨頭】，前往下頁活動<br>送給心儀汪汪​`;
                     this.popupEmptyShow();
 
                     this.$nextTick(() => {
@@ -196,8 +203,6 @@ const app = Vue.createApp({
                 console.error("Error:", error);
             }
         },
-
-
 
         // menu
         addActive(tabNumber) {

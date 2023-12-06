@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 
-<link rel="stylesheet" href="css/front/style.css">
+<link rel="stylesheet" href="css/front/style.css?v=1.2">
 
 {{-- loading --}}
 <div class="loading">
@@ -63,7 +63,7 @@
 </head>
 
 <body>
-    <div class="overlay"></div>
+    {{-- <div class="overlay"></div> --}}
     {{-- <div class="black-screen" id="blackScreen"></div> --}}
     <div class="allBg"></div>
     <div class="wrap" id="app">
@@ -94,7 +94,7 @@
             <div class="popBox">
                 <div class="info">
                     <div class="title">%[popupEmpty.title]</div>
-                    <div class="text">%[popupEmpty.text]</div>
+                    <div class="text" v-html="popupEmpty.text"></div>
                     <div @click="closePopup" class="yes">確認</div>
                 </div>
             </div>
@@ -276,6 +276,11 @@
                                     <p>%[sec03.activityNum.numMeat]%</p>
                                     <div class="white" :style="whiteStyle"></div>
                                 </div>
+                                <div class="numLine">
+                                    <div class="lineStr"></div>
+                                    <div class="lineStr"></div>
+                                    <div class="lineStr"></div>
+                                </div>
                                 <div class="addMeatBox">
                                     <div class="meatBtn500" :class="{ 'arrived': sec03.activityNum.numMeat >= 20 }">
                                         加碼<br>500肉片</div>
@@ -339,6 +344,11 @@
                                     <p>%[sec03.activityNum.numMeat]%</p>
                                     <div class="white" :style="whiteStyle">
                                     </div>
+                                </div>
+                                <div class="numLine">
+                                    <div class="lineStr"></div>
+                                    <div class="lineStr"></div>
+                                    <div class="lineStr"></div>
                                 </div>
                                 <div class="addMeatBox">
                                     <div class="meatBtn500" :class="{ 'arrived': sec03.activityNum.numMeat >= 20 }">
@@ -456,8 +466,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/front/vue_data.js?v=1.9"></script>
-    <script src="js/front/view.js?v=1.1"></script>
+    <script src="js/front/vue_data.js?v=1.19"></script>
+    <script src="js/front/view.js?v=1.2"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>
 </body>

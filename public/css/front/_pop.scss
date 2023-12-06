@@ -47,6 +47,10 @@
                 display: flex;
                 justify-content: center;
                 ul {
+                    width: 58%;
+                    @include md{
+                        width: 100%;
+                    }
                     li {
                         color: #2c0900;
                         list-style-type: decimal;
@@ -220,8 +224,7 @@
                 line-height: 2.9rem;
             }
             .text {
-                // border: 1px solid red;
-                text-align: left;
+                text-align: center;
                 display: flex;
                 justify-content: center;
             }

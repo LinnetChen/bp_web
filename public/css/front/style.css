@@ -478,6 +478,14 @@ textarea {
   display: flex;
   justify-content: center;
 }
+.popup .popBox .info .text ul {
+  width: 58%;
+}
+@media all and (max-width: 900px) {
+  .popup .popBox .info .text ul {
+    width: 100%;
+  }
+}
 .popup .popBox .info .text ul li {
   color: #2c0900;
   list-style-type: decimal;
@@ -645,7 +653,7 @@ textarea {
   line-height: 2.9rem;
 }
 .popupEmpty .popBox .info .text {
-  text-align: left;
+  text-align: center;
   display: flex;
   justify-content: center;
 }
@@ -718,6 +726,7 @@ textarea {
 }
 .slideBarL .menu_list_item a {
   color: #94c700;
+  text-shadow: 0px 0px 5px #ffff81, 0px 0px 5px #ffff81, 0px 0px 5px #ffff81, 0px 0px 5px #ffff81;
   text-decoration: none;
   text-align: left;
   font-size: 1.4rem;
@@ -733,6 +742,7 @@ textarea {
   }
 }
 .slideBarL .menu_list_item a.active {
+  text-shadow: 0px 0px 0px #ffff81;
   color: #fff;
   background-color: #ffb72c;
   -webkit-clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
@@ -1681,7 +1691,6 @@ body {
 .section3 .sec_box .sec3_box2 {
   width: 70%;
   height: 70%;
-  background-color: rgba(70, 111, 97, 0.549);
   display: flex;
   justify-content: space-between;
 }
@@ -1805,23 +1814,34 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
-  margin: 15px 0;
+  margin: 15px 0 0;
 }
 .section3 .sec_box .sec3_box2 .sec3_boxR .line p {
   position: absolute;
   left: 50%;
   line-height: 1rem;
   z-index: 2;
+  transform: translate(-50%, 0px);
 }
 .section3 .sec_box .sec3_box2 .sec3_boxR .white {
   background-color: #fff;
   height: 100%;
   width: 100%;
 }
+.section3 .sec_box .sec3_box2 .sec3_boxR .numLine {
+  width: 63%;
+  height: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+.section3 .sec_box .sec3_box2 .sec3_boxR .numLine .lineStr {
+  background-color: #452806;
+  width: 1%;
+  height: 100%;
+}
 .section3 .sec_box .sec3_box2 .sec3_boxR .addMeatBox {
   width: 100%;
   height: 15%;
-  background-color: rgba(31, 64, 53, 0.549);
   display: flex;
   justify-content: space-evenly;
 }
@@ -1857,7 +1877,6 @@ body {
 .section3 .sec_box .sec3_box3 {
   width: 10%;
   height: 6%;
-  background-color: rgba(94, 135, 121, 0.549);
 }
 .section3 .sec_box .sec3_box3 .pointBox {
   cursor: pointer;
@@ -1903,7 +1922,6 @@ body {
 .section32 .sec_box .sec3_box1 {
   width: 100%;
   height: 18%;
-  background-color: rgba(116, 146, 136, 0.549);
 }
 .section31 .sec_box .sec3_box1 img,
 .section32 .sec_box .sec3_box1 img {
@@ -1918,7 +1936,6 @@ body {
 .section32 .sec_box .sec3_box2 {
   width: 100%;
   height: 78%;
-  background-color: rgba(70, 111, 97, 0.549);
   display: flex;
   justify-content: space-between;
 }
@@ -2066,7 +2083,7 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
-  margin: 10px 0;
+  margin: 10px 0 0;
 }
 @media all and (max-width: 900px) {
   .section31 .sec_box .sec3_box2 .sec3_boxR .line,
@@ -2080,6 +2097,7 @@ body {
   left: 50%;
   line-height: 1.5rem;
   z-index: 1;
+  transform: translate(-50%, 0px);
 }
 .section31 .sec_box .sec3_box2 .sec3_boxR .white,
 .section32 .sec_box .sec3_box2 .sec3_boxR .white {
@@ -2087,11 +2105,23 @@ body {
   height: 100%;
   width: 100%;
 }
+.section31 .sec_box .sec3_box2 .sec3_boxR .numLine,
+.section32 .sec_box .sec3_box2 .sec3_boxR .numLine {
+  width: 63%;
+  height: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+.section31 .sec_box .sec3_box2 .sec3_boxR .numLine .lineStr,
+.section32 .sec_box .sec3_box2 .sec3_boxR .numLine .lineStr {
+  background-color: #452806;
+  width: 1%;
+  height: 100%;
+}
 .section31 .sec_box .sec3_box2 .sec3_boxR .addMeatBox,
 .section32 .sec_box .sec3_box2 .sec3_boxR .addMeatBox {
   width: 100%;
   height: 15%;
-  background-color: rgba(31, 64, 53, 0.549);
   display: flex;
   justify-content: space-evenly;
 }
@@ -2134,7 +2164,6 @@ body {
 .section32 .sec_box .sec3_box3 {
   width: 25%;
   height: 7%;
-  background-color: rgba(94, 135, 121, 0.549);
   margin-top: 1.5rem;
 }
 .section31 .sec_box .sec3_box3 .pointBox,
@@ -2628,7 +2657,6 @@ footer.section {
   }
 }
 .classlavel img {
-  border: 1px solid red;
   width: 12%;
   height: 100%;
   -o-object-fit: contain;
