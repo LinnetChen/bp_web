@@ -102,11 +102,11 @@
 
 
 
-        
-        
-        
+
+
+
         <div class="container">
-            
+
             <div class="slider">
                 <div class="slideBarL">
                     <div class="menu">
@@ -131,13 +131,14 @@
                         <div class="btnBox">
                             <a class="fb" target="_blank"
                                 href="https://www.facebook.com/profile.php?id=61553615279273"></a>
-                            <a class="google" href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
+                            <a class="google"
+                                href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
                             <a class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
                             <div class="top"><a href="#section1"></a></div>
                         </div>
                     </div>
                 </div>
-    
+
                 {{-- 手機版MENU --}}
                 <div id="menuToggle">
                     <input type="checkbox">
@@ -161,10 +162,11 @@
                                 href="https://www.facebook.com/profile.php?id=61553615279273"></a>
                             {{-- <div class="google"><a href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a></div> --}}
                             {{-- <div class="ios"><a href="https://apps.apple.com/us/app/id6470368870"></a></div> --}}
-    
+
                             <a v-if="menu.isAndroid" class="google"
                                 href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
-                            <a v-if="menu.isiOS" class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
+                            <a v-if="menu.isiOS" class="ios"
+                                href="https://apps.apple.com/us/app/id6470368870"></a>
                         </div>
                     </div>
                 </div>
@@ -440,7 +442,8 @@
 
             <footer class="section footer">
                 <div class="footerbox_logo">
-                    <a href="https://www.digeam.com/index" target="_blank"><img class="logo_digeam" src="/img/front/footer/LOGO.png"></a>
+                    <a href="https://www.digeam.com/index" target="_blank"><img class="logo_digeam"
+                            src="/img/front/footer/LOGO.png"></a>
                     <img class="FIX_CI" src="/img/front/footer/FIX_CI.png">
                 </div>
                 <div class="spec">
@@ -466,7 +469,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/front/vue_data.js?v=1.23"></script>
+    <script src="js/front/vue_data.js?v=1.24"></script>
     <script src="js/front/view.js?v=1.2"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>
