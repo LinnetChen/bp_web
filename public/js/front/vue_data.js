@@ -1,4 +1,5 @@
-var api = "http://192.168.0.41:9001/api/prereg";
+// var api = "http://192.168.0.41:9001/api/prereg";。
+var api = "/api/prereg";
 
 const app = Vue.createApp({
     delimiters: ["%[", "]"],
