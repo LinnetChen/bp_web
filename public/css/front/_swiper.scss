@@ -33,12 +33,17 @@
     }
     .swiper-slide {
         -webkit-filter: brightness(0.5);
+        opacity: .7;
+        scale: .9;
         @include md() {
+            opacity: 1;
             -webkit-filter: none;
         }
     }
     .swiper-slide-active + .swiper-slide {
         -webkit-filter: brightness(1);
+        scale: 1;
+        opacity: 1;
     }
 
     .swiper-3d .swiper-slide-shadow-left,

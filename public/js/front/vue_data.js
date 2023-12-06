@@ -4,6 +4,8 @@ const app = Vue.createApp({
     delimiters: ["%[", "]"],
     data() {
         return {
+            isClickable: true,
+
             sec03: {
                 activityNum: {
                     numBao: 0,
@@ -12,13 +14,16 @@ const app = Vue.createApp({
                 },
                 bowlImgUrl: "",
             },
+
             whiteStyle: {},
+
             sec02: {
                 selectedCountry: "+886",
                 phone: "",
                 phonePro: "",
                 privacyChecked: false,
             },
+
             menu: {
                 activeTab: 0,
                 isAndroid: false,
@@ -112,57 +117,67 @@ const app = Vue.createApp({
         },
 
         phoneDateWall() {
-            const country = this.sec02.selectedCountry;
-            const check = this.sec02.privacyChecked;
-            const phone = this.sec02.phone;
+            if (this.isClickable) {
+                const country = this.sec02.selectedCountry;
+                const check = this.sec02.privacyChecked;
+                const phone = this.sec02.phone;
 
-            if (check == true) {
-                if (country == "+886") {
-                    if (phone.length == 9 && !isNaN(phone)) {
-                        if (phone.substring(0, 1) == 9) {
+                if (check == true) {
+                    if (country == "+886") {
+                        if (phone.length == 9 && !isNaN(phone)) {
+                            if (phone.substring(0, 1) == 9) {
+                                this.sec02.phonePro = phone;
+                                this.phoneDateSubmit(
+                                    country + this.sec02.phonePro
+                                );
+                            } else {
+                                // 跳窗 請填入正確格式
+                                this.popupEmpty.title = `請填寫正確手機號碼​​`;
+                                this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
+                            港/澳區，不含特殊符號的半形數字8碼​`;
+                                this.popupEmptyShow();
+                            }
+                        } else if (phone.length == 10 && !isNaN(phone)) {
+                            if (phone.substring(0, 1) != 0) {
+                                // 跳窗 請填入正確格式
+                                this.popupEmpty.title = `請填寫正確手機號碼​​`;
+                                this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
+                            港/澳區，不含特殊符號的半形數字8碼​`;
+                                this.popupEmptyShow();
+                            } else {
+                                this.sec02.phonePro = phone.substring(1, 10);
+                                this.phoneDateSubmit(
+                                    country + this.sec02.phonePro
+                                );
+                            }
+                        } else {
+                            // 跳窗 請填入正確格式
+                            this.popupEmpty.title = `請填寫正確手機號碼​​`;
+                            this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
+                                                港/澳區，不含特殊符號的半形數字8碼​`;
+                            this.popupEmptyShow();
+                        }
+                    } else if (country == "+852" || country == "+853") {
+                        if (phone.length == 8 && !isNaN(phone)) {
                             this.sec02.phonePro = phone;
                             this.phoneDateSubmit(country + this.sec02.phonePro);
                         } else {
                             // 跳窗 請填入正確格式
                             this.popupEmpty.title = `請填寫正確手機號碼​​`;
                             this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
-                            港/澳區，不含特殊符號的半形數字8碼​`;
-                            this.popupEmptyShow();
-                        }
-                    } else if (phone.length == 10 && !isNaN(phone)) {
-                        if (phone.substring(0, 1) != 0) {
-                            // 跳窗 請填入正確格式
-                            this.popupEmpty.title = `請填寫正確手機號碼​​`;
-                            this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
-                            港/澳區，不含特殊符號的半形數字8碼​`;
-                            this.popupEmptyShow();
-                        } else {
-                            this.sec02.phonePro = phone.substring(1, 10);
-                            this.phoneDateSubmit(country + this.sec02.phonePro);
-                        }
-                    } else {
-                        // 跳窗 請填入正確格式
-                        this.popupEmpty.title = `請填寫正確手機號碼​​`;
-                        this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
-                                                港/澳區，不含特殊符號的半形數字8碼​`;
-                        this.popupEmptyShow();
-                    }
-                } else if (country == "+852" || country == "+853") {
-                    if (phone.length == 8 && !isNaN(phone)) {
-                        this.sec02.phonePro = phone;
-                        this.phoneDateSubmit(country + this.sec02.phonePro);
-                    } else {
-                        // 跳窗 請填入正確格式
-                        this.popupEmpty.title = `請填寫正確手機號碼​​`;
-                        this.popupEmpty.text = `台灣區，不含特殊符號的半形數字10碼​<br>
                         港/澳區，不含特殊符號的半形數字8碼​`;
-                        this.popupEmptyShow();
+                            this.popupEmptyShow();
+                        }
                     }
+                } else {
+                    //  跳窗 請勾選同意
+                    this.popupEmpty.title = "請勾選同意事前登錄相關隱私權條款";
+                    this.popupEmptyShow();
                 }
-            } else {
-                //  跳窗 請勾選同意
-                this.popupEmpty.title = "請勾選同意事前登錄相關隱私權條款";
-                this.popupEmptyShow();
+
+                setTimeout(() => {
+                    this.isClickable = true;
+                }, 500);
             }
         },
         async phoneDateSubmit(mobileNum) {
@@ -257,25 +272,32 @@ const app = Vue.createApp({
             this.popup2.visible = true;
         },
         async chaVoteClick(cha) {
-            this.popup2.visible = false;
+            if (this.isClickable) {
+                this.popup2.visible = false;
 
-            try {
-                const response = await axios.post(api, {
-                    type: "vote",
-                    choose: cha,
-                });
+                try {
+                    const response = await axios.post(api, {
+                        type: "vote",
+                        choose: cha,
+                    });
 
-                if (response.data.status == 1) {
-                    // 跳窗 投票成功!
-                    this.popupEmpty.title = "投票成功";
-                    this.popupEmpty.text = "雙方票數於每日0:00更新";
-                    this.popupEmptyShow();
-                } else if (response.data.status == -99) {
-                    // 跳窗 您已投過票
-                    this.popupEmpty.title = "您已經投過票了~";
-                    this.popupEmptyShow();
-                }
-            } catch (error) {}
+                    if (response.data.status == 1) {
+                        // 跳窗 投票成功!
+                        this.popupEmpty.title = "投票成功";
+                        this.popupEmpty.text = "雙方票數於每日0:00更新";
+                        this.popupEmptyShow();
+                    } else if (response.data.status == -99) {
+                        // 跳窗 您已投過票
+                        this.popupEmpty.title = "您已經投過票了~";
+                        this.popupEmpty.text = "雙方票數於每日0:00更新";
+                        this.popupEmptyShow();
+                    }
+                } catch (error) {}
+
+                setTimeout(() => {
+                    this.isClickable = true;
+                }, 500);
+            }
         },
         popupEmptyShow() {
             this.popupEmpty.visible = true;

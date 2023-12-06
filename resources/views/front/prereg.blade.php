@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 
-<link rel="stylesheet" href="css/front/style.css?v=1.2">
+<link rel="stylesheet" href="css/front/style.css?v=1.7">
 
 {{-- loading --}}
 <div class="loading">
@@ -102,73 +102,73 @@
 
 
 
-        <div class="slider">
-            <div class="slideBarL">
-                <div class="menu">
-                    <ul class="menu_list">
-                        <li class="menu_list_item" @click="addActive(2)"><a href="#section2"
-                                :class="{ 'active': menu.activeTab === 2 }">預約領獎勵</a></li>
-                        <li class="menu_list_item" @click="addActive(3)"><a href="#section3"
-                                :class="{ 'active': menu.activeTab === 3 }">狗狗肉投票活動</a></li>
-                        <li class="menu_list_item" @click="addActive(4)"><a href="#section4"
-                                :class="{ 'active': menu.activeTab === 4 }">狗狗介紹 ​</a></li>
-                        <li class="menu_list_item" @click="addActive(5)"><a href="#section5"
-                                :class="{ 'active': menu.activeTab === 5 }">遊戲特色</a></li>
+        
+        
+        
+        <div class="container">
+            
+            <div class="slider">
+                <div class="slideBarL">
+                    <div class="menu">
+                        <ul class="menu_list">
+                            <li class="menu_list_item" @click="addActive(2)"><a href="#section2"
+                                    :class="{ 'active': menu.activeTab === 2 }">預約領獎勵</a></li>
+                            <li class="menu_list_item" @click="addActive(3)"><a href="#section3"
+                                    :class="{ 'active': menu.activeTab === 3 }">狗狗肉投票活動</a></li>
+                            <li class="menu_list_item" @click="addActive(4)"><a href="#section4"
+                                    :class="{ 'active': menu.activeTab === 4 }">狗狗介紹 ​</a></li>
+                            <li class="menu_list_item" @click="addActive(5)"><a href="#section5"
+                                    :class="{ 'active': menu.activeTab === 5 }">遊戲特色</a></li>
+                        </ul>
+                    </div>
+                    <div class="line"></div>
+                    <div class="button">
+                        <div class="triangle"></div>
+                    </div>
+                </div>
+                <div class="slideBarR">
+                    <div class="bg">
+                        <div class="btnBox">
+                            <a class="fb" target="_blank"
+                                href="https://www.facebook.com/profile.php?id=61553615279273"></a>
+                            <a class="google" href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
+                            <a class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
+                            <div class="top"><a href="#section1"></a></div>
+                        </div>
+                    </div>
+                </div>
+    
+                {{-- 手機版MENU --}}
+                <div id="menuToggle">
+                    <input type="checkbox">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <ul id="menu">
+                        <li class="menu_list_item"><a href="#section2">預約領獎勵</a></li>
+                        <li class="menu_list_item"><a href="#section31">狗狗肉投票活動一</a></li>
+                        <li class="menu_list_item"><a href="#section32">狗狗肉投票活動二</a></li>
+                        <li class="menu_list_item"><a href="#section4">狗狗介紹 ​</a></li>
+                        <li class="menu_list_item"><a href="#section5">遊戲特色</a></li>
                     </ul>
                 </div>
-                <div class="line"></div>
-                <div class="button">
-                    <div class="triangle"></div>
-                </div>
-            </div>
-            <div class="slideBarR">
-                <div class="bg">
-                    <div class="btnBox">
-                        <a class="fb" target="_blank"
-                            href="https://www.facebook.com/profile.php?id=61553615279273"></a>
-                        <a class="google" href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
-                        <a class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
-                        <div class="top"><a href="#section1"></a></div>
+                <div class="slideBarDown">
+                    <div class="bg">
+                        <div class="btnBox">
+                            <div class="empty"></div>
+                            <div class="top"><a href="#section1"></a></div>
+                            <a class="fb" target="_blank"
+                                href="https://www.facebook.com/profile.php?id=61553615279273"></a>
+                            {{-- <div class="google"><a href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a></div> --}}
+                            {{-- <div class="ios"><a href="https://apps.apple.com/us/app/id6470368870"></a></div> --}}
+    
+                            <a v-if="menu.isAndroid" class="google"
+                                href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
+                            <a v-if="menu.isiOS" class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            {{-- 手機版MENU --}}
-            <div id="menuToggle">
-                <input type="checkbox">
-                <span></span>
-                <span></span>
-                <span></span>
-                <ul id="menu">
-                    <li class="menu_list_item"><a href="#section2">預約領獎勵</a></li>
-                    <li class="menu_list_item"><a href="#section31">狗狗肉投票活動一</a></li>
-                    <li class="menu_list_item"><a href="#section32">狗狗肉投票活動二</a></li>
-                    <li class="menu_list_item"><a href="#section4">狗狗介紹 ​</a></li>
-                    <li class="menu_list_item"><a href="#section5">遊戲特色</a></li>
-                </ul>
-            </div>
-            <div class="slideBarDown">
-                <div class="bg">
-                    <div class="btnBox">
-                        <div class="empty"></div>
-                        <div class="top"><a href="#section1"></a></div>
-                        <a class="fb" target="_blank"
-                            href="https://www.facebook.com/profile.php?id=61553615279273"></a>
-                        {{-- <div class="google"><a href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a></div> --}}
-                        {{-- <div class="ios"><a href="https://apps.apple.com/us/app/id6470368870"></a></div> --}}
-
-                        <a v-if="menu.isAndroid" class="google"
-                            href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
-                        <a v-if="menu.isiOS" class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="container">
-
 
 
 
@@ -440,7 +440,7 @@
 
             <footer class="section footer">
                 <div class="footerbox_logo">
-                    <img class="logo_digeam" src="/img/front/footer/LOGO.png">
+                    <a href="https://www.digeam.com/index" target="_blank"><img class="logo_digeam" src="/img/front/footer/LOGO.png"></a>
                     <img class="FIX_CI" src="/img/front/footer/FIX_CI.png">
                 </div>
                 <div class="spec">
@@ -452,7 +452,7 @@
                 <div class="classlavel">
                     <img src="/img/front/footer/0plus.png" alt="普遍級">
                     <ul>
-                        <li>本遊戲為免費使用，遊戲內另提供購買虛擬遊戲幣、等付費服務。</li>
+                        <li>本遊戲為免費使用，遊戲內另提供購買虛擬遊戲幣、物品等付費服務。</li>
                         <li>請注意遊戲時間，避免沉迷。</li>
                         <li>本遊戲服務區域包含台灣、香港、澳門。</li>
                     </ul>
@@ -466,7 +466,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/front/vue_data.js?v=1.19"></script>
+    <script src="js/front/vue_data.js?v=1.23"></script>
     <script src="js/front/view.js?v=1.2"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>
