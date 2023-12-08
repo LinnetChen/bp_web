@@ -33,7 +33,7 @@
     <meta property="og:site_name" content="" />
     <meta property="og:locale" content="zh_tw" />
     <meta property="article:author" content="" />
-    <meta property="og:image" content="/img/front/share_bg.png" />
+    <meta property="og:image" content="/img/front/FB_share.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
@@ -86,8 +86,9 @@
                         <img :src="popup2.img" @click="chaVoteClick(popup2.currentCard)" />
                     </div>
                 </div>
+                <div @click="closePopup" class="mask2"></div>
             </div>
-            <div @click="closePopup" class="xBtn">x</div>
+            <div @click="closePopup" class="mask2"></div>
         </div>
 
         <div v-if="popupEmpty.visible" class="popupEmpty">
@@ -97,7 +98,9 @@
                     <div class="text" v-html="popupEmpty.text"></div>
                     <div @click="closePopup" class="yes">確認</div>
                 </div>
+                <div @click="closePopup" class="mask2"></div>
             </div>
+            <div @click="closePopup" class="mask2"></div>
         </div>
 
 
@@ -267,7 +270,7 @@
                             <div class="sec3_boxR">
                                 <div class="activity_t">
                                     <div class="title">活動二</div>
-                                    <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！</div>
+                                    <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！<br><span>※加碼肉片為本遊戲的點數道具</span></div>
                                 </div>
                                 <div class="bowl">
                                     <img :src="sec03.bowlImgUrl">
@@ -335,7 +338,7 @@
                             <div class="sec3_boxR">
                                 <div class="activity_t">
                                     <div class="title">活動二</div>
-                                    <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！</div>
+                                    <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！<br><span>※加碼肉片為本遊戲的點數道具</span></div>
                                 </div>
                                 <div class="bowl">
                                     <img :src="sec03.bowlImgUrl">
@@ -467,7 +470,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/front/vue_data.js?v=1.23"></script>
-    <script src="js/front/view.js?v=1.2"></script>
+    <script src="js/front/view.js?v=1.3"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>
 </body>

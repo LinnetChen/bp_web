@@ -304,6 +304,7 @@ const app = Vue.createApp({
             document.documentElement.style.overflow = "hidden";
         },
         closePopup() {
+            console.log(999);
             document.documentElement.style.overflow = "auto";
             this.popup2.visible = false;
             this.popupEmpty.visible = false;
