@@ -1,4 +1,4 @@
-// var api = "http://192.168.0.41:9001/api/prereg";
+// var api = "http://192.168.0.41:9001/api/prereg";。
 var api = "/api/prereg";
 
 const app = Vue.createApp({
@@ -305,7 +305,6 @@ const app = Vue.createApp({
             document.documentElement.style.overflow = "hidden";
         },
         closePopup() {
-            console.log(999);
             document.documentElement.style.overflow = "auto";
             this.popup2.visible = false;
             this.popupEmpty.visible = false;
