@@ -315,13 +315,56 @@ const app = Vue.createApp({
             const whitePercentage = this.sec03.activityNum.numMeat;
             this.whiteStyle.transform = `translateX(${whitePercentage}%)`;
         },
+
+        // 確認當前時間
+        checkTime() {
+            console.log(123);
+            const currentTime = new Date();
+            const currentHour = currentTime.getHours();
+            console.log(currentTime);
+            if (currentHour >= 0 && currentHour < 12) {
+                // 如果是，则调用 getSetting 函数
+                this.getSetting();
+            }
+        },
     },
     mounted() {
-        // 在 mounted 钩子中调用1次 getSetting 方法
+        // 在 mounted 鉤子中調用1次 getSetting 方法
         this.getSetting();
         window.addEventListener("scroll", this.handleScroll);
         this.detectDevice();
         this.calculateTransform();
+
+        // 計算距離午夜12點的時間差
+        const currentTime = new Date();
+        const currentL2 = currentTime.toLocaleTimeString("Taiwan", {
+            hour12: false,
+        });
+        // 目標時間 今天00:00:00
+        const targetTime = new Date(currentTime);
+        targetTime.setDate(currentTime.getDate() + 1); // 将日期设置为明天
+        targetTime.setHours(0, 0, 0, 0);
+
+        const timeDifference = targetTime.getTime() - currentTime.getTime();
+        console.log("距离今天 00:00:00 的时间差（毫秒）：", timeDifference);
+
+        const hours = Math.floor(timeDifference / (60 * 60 * 1000));
+        const minutes = Math.floor(
+            (timeDifference % (60 * 60 * 1000)) / (60 * 1000)
+        );
+        const seconds = Math.floor((timeDifference % (60 * 1000)) / 1000);
+
+        console.log(
+            `距离今天 00:00:00 的时间差：${hours} 小时 ${minutes} 分钟 ${seconds} 秒`
+        );
+        setTimeout(
+            () => {
+                if (timeDifference > 0) {
+                    this.checkTime();
+                }
+            },
+            timeDifference > 0 ? timeDifference : 0
+        );
     },
     beforeDestroy() {
         window.removeEventListener("scroll", this.handleScroll);
