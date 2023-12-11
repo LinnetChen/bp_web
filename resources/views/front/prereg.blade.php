@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 
-<link rel="stylesheet" href="css/front/style.css?v=1.7">
+<link rel="stylesheet" href="css/front/style.css?v=1.8">
 
 {{-- loading --}}
 <div class="loading">
@@ -119,7 +119,7 @@
                             <li class="menu_list_item" @click="addActive(3)"><a href="#section3"
                                     :class="{ 'active': menu.activeTab === 3 }">狗狗肉投票活動</a></li>
                             <li class="menu_list_item" @click="addActive(4)"><a href="#section4"
-                                    :class="{ 'active': menu.activeTab === 4 }">狗狗介紹 ​</a></li>
+                                    :class="{ 'active': menu.activeTab === 4 }">狗狗介紹​</a></li>
                             <li class="menu_list_item" @click="addActive(5)"><a href="#section5"
                                     :class="{ 'active': menu.activeTab === 5 }">遊戲特色</a></li>
                         </ul>
@@ -151,7 +151,7 @@
                         <li class="menu_list_item"><a href="#section2">預約領獎勵</a></li>
                         <li class="menu_list_item"><a href="#section31">狗狗肉投票活動一</a></li>
                         <li class="menu_list_item"><a href="#section32">狗狗肉投票活動二</a></li>
-                        <li class="menu_list_item"><a href="#section4">狗狗介紹 ​</a></li>
+                        <li class="menu_list_item"><a href="#section4">狗狗介紹</a></li>
                         <li class="menu_list_item"><a href="#section5">遊戲特色</a></li>
                     </ul>
                 </div>
