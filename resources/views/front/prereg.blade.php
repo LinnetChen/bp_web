@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 
-<link rel="stylesheet" href="css/front/style.css?v=1.7">
+<link rel="stylesheet" href="css/front/style.css?v=1.8">
 
 {{-- loading --}}
 <div class="loading">
@@ -33,7 +33,7 @@
     <meta property="og:site_name" content="" />
     <meta property="og:locale" content="zh_tw" />
     <meta property="article:author" content="" />
-    <meta property="og:image" content="/img/front/share_bg.png" />
+    <meta property="og:image" content="/img/front/FB_share.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
@@ -86,8 +86,9 @@
                         <img :src="popup2.img" @click="chaVoteClick(popup2.currentCard)" />
                     </div>
                 </div>
+                <div @click="closePopup" class="mask2"></div>
             </div>
-            <div @click="closePopup" class="xBtn">x</div>
+            <div @click="closePopup" class="mask2"></div>
         </div>
 
         <div v-if="popupEmpty.visible" class="popupEmpty">
@@ -97,16 +98,18 @@
                     <div class="text" v-html="popupEmpty.text"></div>
                     <div @click="closePopup" class="yes">確認</div>
                 </div>
+                <div @click="closePopup" class="mask2"></div>
             </div>
+            <div @click="closePopup" class="mask2"></div>
         </div>
 
 
 
-
-
-
+        
+        
+        
         <div class="container">
-
+            
             <div class="slider">
                 <div class="slideBarL">
                     <div class="menu">
@@ -116,7 +119,7 @@
                             <li class="menu_list_item" @click="addActive(3)"><a href="#section3"
                                     :class="{ 'active': menu.activeTab === 3 }">狗狗肉投票活動</a></li>
                             <li class="menu_list_item" @click="addActive(4)"><a href="#section4"
-                                    :class="{ 'active': menu.activeTab === 4 }">狗狗介紹 ​</a></li>
+                                    :class="{ 'active': menu.activeTab === 4 }">狗狗介紹​</a></li>
                             <li class="menu_list_item" @click="addActive(5)"><a href="#section5"
                                     :class="{ 'active': menu.activeTab === 5 }">遊戲特色</a></li>
                         </ul>
@@ -131,14 +134,13 @@
                         <div class="btnBox">
                             <a class="fb" target="_blank"
                                 href="https://www.facebook.com/profile.php?id=61553615279273"></a>
-                            <a class="google"
-                                href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
+                            <a class="google" href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
                             <a class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
                             <div class="top"><a href="#section1"></a></div>
                         </div>
                     </div>
                 </div>
-
+    
                 {{-- 手機版MENU --}}
                 <div id="menuToggle">
                     <input type="checkbox">
@@ -149,7 +151,7 @@
                         <li class="menu_list_item"><a href="#section2">預約領獎勵</a></li>
                         <li class="menu_list_item"><a href="#section31">狗狗肉投票活動一</a></li>
                         <li class="menu_list_item"><a href="#section32">狗狗肉投票活動二</a></li>
-                        <li class="menu_list_item"><a href="#section4">狗狗介紹 ​</a></li>
+                        <li class="menu_list_item"><a href="#section4">狗狗介紹</a></li>
                         <li class="menu_list_item"><a href="#section5">遊戲特色</a></li>
                     </ul>
                 </div>
@@ -162,11 +164,10 @@
                                 href="https://www.facebook.com/profile.php?id=61553615279273"></a>
                             {{-- <div class="google"><a href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a></div> --}}
                             {{-- <div class="ios"><a href="https://apps.apple.com/us/app/id6470368870"></a></div> --}}
-
+    
                             <a v-if="menu.isAndroid" class="google"
                                 href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
-                            <a v-if="menu.isiOS" class="ios"
-                                href="https://apps.apple.com/us/app/id6470368870"></a>
+                            <a v-if="menu.isiOS" class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
                         </div>
                     </div>
                 </div>
@@ -269,7 +270,7 @@
                             <div class="sec3_boxR">
                                 <div class="activity_t">
                                     <div class="title">活動二</div>
-                                    <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！</div>
+                                    <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！<br><span>※加碼肉片為本遊戲的點數道具</span></div>
                                 </div>
                                 <div class="bowl">
                                     <img :src="sec03.bowlImgUrl">
@@ -337,7 +338,7 @@
                             <div class="sec3_boxR">
                                 <div class="activity_t">
                                     <div class="title">活動二</div>
-                                    <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！</div>
+                                    <div class="text">投票同時餵食小狗，<br>吃得越飽就能加碼肉片獎勵！<br><span>※加碼肉片為本遊戲的點數道具</span></div>
                                 </div>
                                 <div class="bowl">
                                     <img :src="sec03.bowlImgUrl">
@@ -442,8 +443,7 @@
 
             <footer class="section footer">
                 <div class="footerbox_logo">
-                    <a href="https://www.digeam.com/index" target="_blank"><img class="logo_digeam"
-                            src="/img/front/footer/LOGO.png"></a>
+                    <a href="https://www.digeam.com/index" target="_blank"><img class="logo_digeam" src="/img/front/footer/LOGO.png"></a>
                     <img class="FIX_CI" src="/img/front/footer/FIX_CI.png">
                 </div>
                 <div class="spec">

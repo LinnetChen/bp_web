@@ -95,6 +95,7 @@
         align-items: center;
         justify-content: center;
         .info {
+            z-index: 1;
             padding: 20px;
             width: 26%;
             border-radius: 30px;
@@ -153,6 +154,15 @@
         top: 72px;
         right: 24px;
         cursor: pointer;
+    }
+    .mask2{
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        
     }
 }
 .popupEmpty {
@@ -239,5 +249,14 @@
                 border-radius: 30px;
             }
         }
+    }
+    .mask2{
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        
     }
 }
