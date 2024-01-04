@@ -123,3 +123,6 @@ function closePopup() {
             });
         });
     });
+
+    var a = '0001a6'
+    console.log(Number(a));

@@ -38,7 +38,7 @@
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
     <meta name="Resource-type" content="Document" />
-    <link rel="icon" sizes="192x192" href="/img/front/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/front/dog.png">
     <meta name="description" content="《小狗英雄》事前預約 汪汪開跑!" />
     <link rel="pingback" href="" />
     <title>《小狗英雄》事前預約 汪汪開跑!</title>
