@@ -190,7 +190,7 @@ const app = Vue.createApp({
 
                 if (response.data.status == 1) {
                     // 跳窗 預約成功
-                    this.popupEmpty.title = "恭喜預約成功";
+                    this.popupEmpty.title = "<span>恭喜預約成功</span>";
                     this.popupEmpty.text = `已完成預約​<br>
                     撿到【骨頭】，前往下頁活動<br>送給心儀汪汪​`;
                     this.popupEmptyShow();
