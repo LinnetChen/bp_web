@@ -53,16 +53,33 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js.map"></script>
 
-
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
 
     <link rel="stylesheet" href="css/front/style.css">
 
-
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PB8RXNM');
+    </script>
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB8RXNM" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     {{-- <div class="overlay"></div> --}}
     {{-- <div class="black-screen" id="blackScreen"></div> --}}
     <div class="allBg"></div>
@@ -94,7 +111,7 @@
         <div v-if="popupEmpty.visible" class="popupEmpty">
             <div class="popBox">
                 <div class="info">
-                    <div class="title">%[popupEmpty.title]</div>
+                    <div class="title" v-html="popupEmpty.title"></div>
                     <div class="text" v-html="popupEmpty.text"></div>
                     <div @click="closePopup" class="yes">確認</div>
                 </div>
@@ -469,7 +486,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/front/vue_data.js?v=1.24"></script>
+    <script src="js/front/vue_data.js?v=1.25"></script>
     <script src="js/front/view.js?v=1.2"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>
