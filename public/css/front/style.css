@@ -1311,6 +1311,11 @@ body {
   max-width: 321px;
   max-height: 106px;
 }
+@media all and (max-width: 900px) {
+  .section1 .box .logoBox .LOGO {
+    scale: 1.3;
+  }
+}
 .section1 .box .box1,
 .section1 .box .box2,
 .section1 .box .box3 {

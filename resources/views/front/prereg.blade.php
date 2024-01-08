@@ -57,14 +57,12 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 
-    <link rel="stylesheet" href="css/front/style.css">
+    <link rel="stylesheet" href="css/front/style.css?v=1.0.1">
 
 
 </head>
 
 <body>
-    {{-- <div class="overlay"></div> --}}
-    {{-- <div class="black-screen" id="blackScreen"></div> --}}
     <div class="allBg"></div>
     <div class="wrap" id="app">
         <div class="popup">
@@ -203,7 +201,7 @@
                     <div class="sec2_box2">
                         <div class="sec2_box3">
                             <div class="numberbox">
-                                <select name="selected" class="select" id="mobile_select" @change="selectChange"
+                                <select name="selected" class="select" id="mobile_select"
                                     v-model="sec02.selectedCountry">
                                     <option value="+886">台灣(+886)</option>
                                     <option value="+852">香港(+852)</option>
@@ -469,7 +467,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/front/vue_data.js?v=1.24"></script>
+    <script src="js/front/vue_data.js?v=1.25"></script>
     <script src="js/front/view.js?v=1.2"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>
