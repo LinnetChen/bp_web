@@ -3,24 +3,6 @@
 
 <link rel="stylesheet" href="css/front/style.css?v=1.8">
 
-{{-- loading --}}
-<div class="loading">
-    <div class="dancing-lao">
-        <div class="left-dots">
-            <div class="dot dot-1"></div>
-            <div class="dot dot-2"></div>
-            <div class="circle-dot"></div>
-        </div>
-        <div class="right-dots">
-            <div class="dot dot-1"></div>
-            <div class="dot dot-2"></div>
-            <div class="circle-dot"></div>
-        </div>
-
-        <img class="dog" src="/img/front/dog.png" alt="">
-    </div>
-</div>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +20,7 @@
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
     <meta name="Resource-type" content="Document" />
-    <link rel="icon" sizes="192x192" href="/img/front/dog.png">
+    <link rel="icon" sizes="192x192" href="/img/front/dog.ico">
     <meta name="description" content="《小狗英雄》事前預約 汪汪開跑!" />
     <link rel="pingback" href="" />
     <title>《小狗英雄》事前預約 汪汪開跑!</title>
@@ -63,8 +45,25 @@
 </head>
 
 <body>
+
     <div class="allBg"></div>
     <div class="wrap" id="app">
+        <div class="loading" v-if="loading">
+            <div class="dancing-lao">
+                <div class="left-dots">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="circle-dot"></div>
+                </div>
+                <div class="right-dots">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="circle-dot"></div>
+                </div>
+                <img class="dog" src="/img/front/dog.png" alt="">
+            </div>
+        </div>
+
         <div class="popup">
             <div class="popBox">
                 <div class="info">
@@ -103,11 +102,11 @@
 
 
 
-        
-        
-        
+
+
+
         <div class="container">
-            
+
             <div class="slider">
                 <div class="slideBarL">
                     <div class="menu">
@@ -132,13 +131,14 @@
                         <div class="btnBox">
                             <a class="fb" target="_blank"
                                 href="https://www.facebook.com/profile.php?id=61553615279273"></a>
-                            <a class="google" href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
+                            <a class="google"
+                                href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
                             <a class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
                             <div class="top"><a href="#section1"></a></div>
                         </div>
                     </div>
                 </div>
-    
+
                 {{-- 手機版MENU --}}
                 <div id="menuToggle">
                     <input type="checkbox">
@@ -162,10 +162,11 @@
                                 href="https://www.facebook.com/profile.php?id=61553615279273"></a>
                             {{-- <div class="google"><a href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a></div> --}}
                             {{-- <div class="ios"><a href="https://apps.apple.com/us/app/id6470368870"></a></div> --}}
-    
+
                             <a v-if="menu.isAndroid" class="google"
                                 href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
-                            <a v-if="menu.isiOS" class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
+                            <a v-if="menu.isiOS" class="ios"
+                                href="https://apps.apple.com/us/app/id6470368870"></a>
                         </div>
                     </div>
                 </div>
@@ -441,7 +442,8 @@
 
             <footer class="section footer">
                 <div class="footerbox_logo">
-                    <a href="https://www.digeam.com/index" target="_blank"><img class="logo_digeam" src="/img/front/footer/LOGO.png"></a>
+                    <a href="https://www.digeam.com/index" target="_blank"><img class="logo_digeam"
+                            src="/img/front/footer/LOGO.png"></a>
                     <img class="FIX_CI" src="/img/front/footer/FIX_CI.png">
                 </div>
                 <div class="spec">
@@ -474,8 +476,3 @@
 </body>
 
 </html>
-
-
-<script>
-    $('.loading').hide();
-</script>

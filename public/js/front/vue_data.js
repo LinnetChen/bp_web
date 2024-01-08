@@ -4,6 +4,7 @@ const app = Vue.createApp({
     delimiters: ["%[", "]"],
     data() {
         return {
+            loading: true,
             isClickable: true,
 
             sec03: {
@@ -321,6 +322,11 @@ const app = Vue.createApp({
         },
     },
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+            console.log(this.loading);
+        }, 2000);
+
         this.getSetting();
         window.addEventListener("scroll", this.handleScroll);
         this.detectDevice();
@@ -354,7 +360,6 @@ const app = Vue.createApp({
             },
             timeDifference > 0 ? timeDifference : 0
         );
-        
     },
     beforeDestroy() {
         window.removeEventListener("scroll", this.handleScroll);
