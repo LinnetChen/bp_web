@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('front/prereg');
 });
+
+Route::post('ckeditor/upload','CkeditorUploadController@uploadImage');

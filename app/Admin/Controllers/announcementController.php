@@ -27,7 +27,7 @@ class announcementController extends AdminController
         $grid = new Grid(new announcement());
 
         $grid->column('title', __('標題'));
-        $grid->column('content', __('內文'));
+        // $grid->column('content', __('內文'));
         $grid->column('created_at', __('建立時間'));
         $grid->column('updated_at', __('更新時間'));
         $grid->disableRowSelector();
@@ -65,7 +65,7 @@ class announcementController extends AdminController
         $form = new Form(new announcement());
 
         $form->text('title', __('標題'));
-        $form->textarea('content', __('內文'));
+        $form->ckeditor('content', __('內文'));
 
         //表單按鈕關閉
         $form->disableEditingCheck();
