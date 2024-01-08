@@ -50,8 +50,6 @@ function tab_btn(i) {
 }
 
 
-var a = '只是個分隔線'
-
 // sliderL選單
 const button = document.querySelector(".button");
 const menuList = document.querySelector(".menu_list");
@@ -73,8 +71,6 @@ $(document).scroll(function () {
         $(".slideBarL , .slideBarR , .slideBarDown").removeClass("appear");
     }
 });
-
-
 
 // 跳窗
 function pop(i) {

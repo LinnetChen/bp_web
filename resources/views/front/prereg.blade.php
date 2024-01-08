@@ -3,24 +3,6 @@
 
 <link rel="stylesheet" href="css/front/style.css?v=1.8">
 
-{{-- loading --}}
-<div class="loading">
-    <div class="dancing-lao">
-        <div class="left-dots">
-            <div class="dot dot-1"></div>
-            <div class="dot dot-2"></div>
-            <div class="circle-dot"></div>
-        </div>
-        <div class="right-dots">
-            <div class="dot dot-1"></div>
-            <div class="dot dot-2"></div>
-            <div class="circle-dot"></div>
-        </div>
-
-        <img class="dog" src="/img/front/dog.png" alt="">
-    </div>
-</div>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +20,7 @@
     <meta property="og:image:height" content="628" />
     <meta name="author" content="DiGeam" />
     <meta name="Resource-type" content="Document" />
-    <link rel="icon" sizes="192x192" href="/img/front/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/front/dog.ico">
     <meta name="description" content="《小狗英雄》事前預約 汪汪開跑!" />
     <link rel="pingback" href="" />
     <title>《小狗英雄》事前預約 汪汪開跑!</title>
@@ -53,10 +35,11 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js.map"></script>
 
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <link rel="stylesheet" href="css/front/style.css">
 
+    <link rel="stylesheet" href="css/front/style.css?v=1.0.1">
     <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -80,10 +63,27 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    {{-- <div class="overlay"></div> --}}
-    {{-- <div class="black-screen" id="blackScreen"></div> --}}
+     <!-- <div class="overlay"></div> 
+     <div class="black-screen" id="blackScreen"></div>  -->
+
     <div class="allBg"></div>
     <div class="wrap" id="app">
+        <div class="loading" v-if="loading">
+            <div class="dancing-lao">
+                <div class="left-dots">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="circle-dot"></div>
+                </div>
+                <div class="right-dots">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="circle-dot"></div>
+                </div>
+                <img class="dog" src="/img/front/dog.png" alt="">
+            </div>
+        </div>
+
         <div class="popup">
             <div class="popBox">
                 <div class="info">
@@ -111,7 +111,7 @@
         <div v-if="popupEmpty.visible" class="popupEmpty">
             <div class="popBox">
                 <div class="info">
-                    <div class="title" v-html="popupEmpty.title"></div>
+                <div class="title" v-html="popupEmpty.title"></div>
                     <div class="text" v-html="popupEmpty.text"></div>
                     <div @click="closePopup" class="yes">確認</div>
                 </div>
@@ -122,11 +122,11 @@
 
 
 
-        
-        
-        
+
+
+
         <div class="container">
-            
+
             <div class="slider">
                 <div class="slideBarL">
                     <div class="menu">
@@ -151,13 +151,14 @@
                         <div class="btnBox">
                             <a class="fb" target="_blank"
                                 href="https://www.facebook.com/profile.php?id=61553615279273"></a>
-                            <a class="google" href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
+                            <a class="google"
+                                href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
                             <a class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
                             <div class="top"><a href="#section1"></a></div>
                         </div>
                     </div>
                 </div>
-    
+
                 {{-- 手機版MENU --}}
                 <div id="menuToggle">
                     <input type="checkbox">
@@ -181,10 +182,11 @@
                                 href="https://www.facebook.com/profile.php?id=61553615279273"></a>
                             {{-- <div class="google"><a href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a></div> --}}
                             {{-- <div class="ios"><a href="https://apps.apple.com/us/app/id6470368870"></a></div> --}}
-    
+
                             <a v-if="menu.isAndroid" class="google"
                                 href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
-                            <a v-if="menu.isiOS" class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
+                            <a v-if="menu.isiOS" class="ios"
+                                href="https://apps.apple.com/us/app/id6470368870"></a>
                         </div>
                     </div>
                 </div>
@@ -220,7 +222,7 @@
                     <div class="sec2_box2">
                         <div class="sec2_box3">
                             <div class="numberbox">
-                                <select name="selected" class="select" id="mobile_select" @change="selectChange"
+                                <select name="selected" class="select" id="mobile_select"
                                     v-model="sec02.selectedCountry">
                                     <option value="+886">台灣(+886)</option>
                                     <option value="+852">香港(+852)</option>
@@ -460,7 +462,8 @@
 
             <footer class="section footer">
                 <div class="footerbox_logo">
-                    <a href="https://www.digeam.com/index" target="_blank"><img class="logo_digeam" src="/img/front/footer/LOGO.png"></a>
+                    <a href="https://www.digeam.com/index" target="_blank"><img class="logo_digeam"
+                            src="/img/front/footer/LOGO.png"></a>
                     <img class="FIX_CI" src="/img/front/footer/FIX_CI.png">
                 </div>
                 <div class="spec">
@@ -486,15 +489,10 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/front/vue_data.js?v=1.25"></script>
+    <script src="js/front/vue_data.js?v=1.27"></script>
     <script src="js/front/view.js?v=1.2"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>
 </body>
 
 </html>
-
-
-<script>
-    $('.loading').hide();
-</script>
