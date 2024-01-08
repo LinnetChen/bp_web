@@ -46,7 +46,7 @@ class preregController extends Controller
         }
 
         $allArray = [
-            $time10 => [250, 283, 100],
+            $time10 => [250, 283, 3],
             $time11 => [946, 912, 10],
             $time12 => [1822, 1623, 18],
             $time13 => [2125, 2289, 22],
@@ -72,7 +72,7 @@ class preregController extends Controller
         }
 
         $status = 1;
-        $arr = [250, 283, 100];
+        $arr = [250, 283, 3];
 
         return response()->json([
             'status' => $status,
