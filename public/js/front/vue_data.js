@@ -1,4 +1,3 @@
-// var api = "http://192.168.0.41:9001/api/prereg";。
 var api = "/api/prereg";
 
 const app = Vue.createApp({
@@ -96,15 +95,10 @@ const app = Vue.createApp({
         },
 
         // sec02
-        selectChange() {
-            console.log("國家代碼", this.sec02.selectedCountry);
-            console.log("條款", this.sec02.privacyChecked);
-        },
         getMaxLength() {
             return this.sec02.selectedCountry === "+886" ? 10 : 8;
         },
         inputChange() {
-            console.log("手機號碼：", this.sec02.phone);
             if (this.sec02.phone.length > this.getMaxLength()) {
                 // 如果超過，截斷字符串
                 this.sec02.phone = this.sec02.phone.slice(
@@ -190,7 +184,7 @@ const app = Vue.createApp({
 
                 if (response.data.status == 1) {
                     // 跳窗 預約成功
-                    this.popupEmpty.title = "<span>恭喜預約成功</span>";
+                    this.popupEmpty.title = "恭喜預約成功";
                     this.popupEmpty.text = `已完成預約​<br>
                     撿到【骨頭】，前往下頁活動<br>送給心儀汪汪​`;
                     this.popupEmptyShow();
@@ -318,31 +312,26 @@ const app = Vue.createApp({
 
         // 確認當前時間
         checkTime() {
-            console.log(123);
             const currentTime = new Date();
             const currentHour = currentTime.getHours();
             console.log(currentTime);
             if (currentHour >= 0 && currentHour < 12) {
-                // 如果是，则调用 getSetting 函数
                 this.getSetting();
             }
         },
     },
     mounted() {
-        // 在 mounted 鉤子中調用1次 getSetting 方法
         this.getSetting();
         window.addEventListener("scroll", this.handleScroll);
         this.detectDevice();
         this.calculateTransform();
 
-        // 計算距離午夜12點的時間差
+        // 距午夜12點的時間差
         const currentTime = new Date();
-        const currentL2 = currentTime.toLocaleTimeString("Taiwan", {
-            hour12: false,
-        });
+
         // 目標時間 今天00:00:00
         const targetTime = new Date(currentTime);
-        targetTime.setDate(currentTime.getDate() + 1); // 将日期设置为明天
+        targetTime.setDate(currentTime.getDate() + 1); // 日期設置為明天
         targetTime.setHours(0, 0, 0, 0);
 
         const timeDifference = targetTime.getTime() - currentTime.getTime();
@@ -353,10 +342,10 @@ const app = Vue.createApp({
             (timeDifference % (60 * 60 * 1000)) / (60 * 1000)
         );
         const seconds = Math.floor((timeDifference % (60 * 1000)) / 1000);
-
         console.log(
             `距离今天 00:00:00 的时间差：${hours} 小时 ${minutes} 分钟 ${seconds} 秒`
         );
+
         setTimeout(
             () => {
                 if (timeDifference > 0) {
@@ -365,6 +354,7 @@ const app = Vue.createApp({
             },
             timeDifference > 0 ? timeDifference : 0
         );
+        
     },
     beforeDestroy() {
         window.removeEventListener("scroll", this.handleScroll);
