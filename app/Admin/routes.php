@@ -13,4 +13,6 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('announcements', announcementController::class);
+    $router->resource('prereg', PreregController::class);
+    $router->resource('prereglog', PreregLogController::class);
 });
