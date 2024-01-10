@@ -114,6 +114,7 @@ const app = Vue.createApp({
 
         phoneDateWall() {
             if (this.isClickable) {
+                this.isClickable = false;
                 const country = this.sec02.selectedCountry;
                 const check = this.sec02.privacyChecked;
                 const phone = this.sec02.phone;
