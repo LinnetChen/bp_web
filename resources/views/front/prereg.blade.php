@@ -153,7 +153,7 @@
                                 href="https://www.facebook.com/profile.php?id=61553615279273"></a>
                             <a class="google"
                                 href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
-                            <a class="ios" href="https://apps.apple.com/us/app/id6470368870"></a>
+                            <a class="ios" href="https://apps.apple.com/TW/app/id6470368870"></a>
                             <div class="top"><a href="#section1"></a></div>
                         </div>
                     </div>
@@ -180,13 +180,10 @@
                             <div class="top"><a href="#section1"></a></div>
                             <a class="fb" target="_blank"
                                 href="https://www.facebook.com/profile.php?id=61553615279273"></a>
-                            {{-- <div class="google"><a href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a></div> --}}
-                            {{-- <div class="ios"><a href="https://apps.apple.com/us/app/id6470368870"></a></div> --}}
-
                             <a v-if="menu.isAndroid" class="google"
                                 href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"></a>
                             <a v-if="menu.isiOS" class="ios"
-                                href="https://apps.apple.com/us/app/id6470368870"></a>
+                                href="https://apps.apple.com/TW/app/id6470368870"></a>
                         </div>
                     </div>
                 </div>
