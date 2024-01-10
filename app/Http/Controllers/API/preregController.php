@@ -71,8 +71,8 @@ class preregController extends Controller
             }
         }
 
-        $status = 1;
-        $arr = [250, 283, 3];
+        // $status = 1;
+        // $arr = [250, 283, 3];
 
         return response()->json([
             'status' => $status,

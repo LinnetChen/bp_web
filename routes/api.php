@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('prereg', 'App\Http\Controllers\API\preregController@index')->name('event.prereg');
+Route::post('prereg', 'API\preregController@index')->name('event.prereg');

@@ -25,11 +25,16 @@ class PreregController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new prereg());
-
+        $grid->model()->latest();
         $grid->column('mobile', __('手機號碼'));
         $grid->column('ip', __('Ip'));
         $grid->column('created_at', __('建立時間'));
         $grid->column('updated_at', __('更新時間'));
+        $grid->filter(function ($filter) {
+            $filter->disableIdFilter();
+            $filter->equal('ip', 'Ip');
+            $filter->between('created_at', 'created_at')->datetime();
+        });
         $grid->disableRowSelector();
         $grid->disableActions();
         $grid->disableCreateButton();
