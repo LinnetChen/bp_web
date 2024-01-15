@@ -21,5 +21,9 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('front/prereg');
 });
+// 官網測試用
+Route::get('/index', function () {
+    return view('front/index');
+});
 
 Route::post('ckeditor/upload','CkeditorUploadController@uploadImage');
