@@ -28,9 +28,9 @@
             }
         }
         .sec2_box2 {
-            width: 40%;
-            height: 77%;
-            background: url(/img/front/sec2_box2Bg.png);
+            width: 70%;
+            height: 70%;
+            background: url(/img/front/sec2_box2BgIndex.png);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -46,6 +46,9 @@
             @include xxs() {
                 height: 62%;
             }
+
+
+
         }
     }
 }

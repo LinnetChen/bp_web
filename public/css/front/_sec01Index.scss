@@ -14,7 +14,11 @@
         display: none;
     }
 }
-
+.section.section1{
+    // @include mmd{
+    //     height: 900px;
+    // }
+}
 .section1 {
     z-index: 10;
     display: flex;
@@ -36,6 +40,9 @@
                 height: 10%;
                 width: 37%;
             }
+            @include xs{
+                top: 5%;
+            }
             .LOGO {
                 background: url(/img/front/LOGO.png);
                 background-repeat: no-repeat;
@@ -53,7 +60,7 @@
             }
         }
         .box1,
-        .box2{
+        .box2 {
             display: flex;
             justify-content: space-evenly;
             img {
@@ -65,17 +72,22 @@
             }
         }
         .box1 {
-            top: 39%;
+            border: 2px solid red;
+            top: 42%;
             left: 50%;
-            height: 50%;
+            height: 80%;
             transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             @include md {
-                height: 50%;
+                height: 62%;
                 width: 95%;
-                top: 25%;
+                top: 35%;
             }
             @include xs {
-                top: 18%;
+                height: 52%;
+                top: 32%;
             }
             img {
                 max-width: 1181px;
@@ -90,13 +102,39 @@
                 display: inline-block;
                 height: 100%;
                 width: 100%;
-                max-width: 1181px;
+                max-width: 1174px;
                 max-height: 505px;
                 @include md {
+                    max-width: 880px;
+                    max-height: 480px;
                     background: url(/img/front/sec01TitleMIndex.png);
                     background-repeat: no-repeat;
                     background-size: contain;
                     background-position: center;
+                }
+            }
+            .btnBoxPC,
+            .btnBoxM {
+                margin-top: 47px;
+                height: 100%;
+                width: 100%;
+                max-width: 627px;
+                max-height: 87px;
+                display: flex;
+                justify-content: space-between;
+                @include md {
+                    margin-top: 0px;
+                    justify-content: center;
+                }
+                a {
+                    height: 100%;
+                    width: 100%;
+                    max-width: 293px;
+                    max-height: 87px;
+                    @include xsm {
+                        height: 80%;
+                        width: 80%;
+                    }
                 }
             }
         }
@@ -106,13 +144,14 @@
                 display: block;
                 height: 32%;
                 width: 100%;
-                bottom: 2%;
+                bottom: -8%;
             }
+            
             @include xs {
-                bottom: 6%;
+                bottom: -10%;
             }
             .sec01dogM {
-                background: url(/img/front/sec01dogM.png);
+                background: url(/img/front/sec01dogMIndex.png);
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: center;

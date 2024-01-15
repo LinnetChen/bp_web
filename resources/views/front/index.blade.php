@@ -62,6 +62,7 @@
             style="display:none;visibility:hidden"></iframe></noscript>
 
 
+    <div class="overlay"></div>
     <div class="allBg"></div>
     <div class="wrap" id="app">
         <div class="loading" v-if="loading">
@@ -107,7 +108,7 @@
         <div v-if="popupEmpty.visible" class="popupEmpty">
             <div class="popBox">
                 <div class="info">
-                <div class="title" v-html="popupEmpty.title"></div>
+                    <div class="title" v-html="popupEmpty.title"></div>
                     <div class="text" v-html="popupEmpty.text"></div>
                     <div @click="closePopup" class="yes">確認</div>
                 </div>
@@ -119,7 +120,7 @@
 
 
 
-        
+
 
 
 
@@ -162,9 +163,7 @@
                     <span></span>
                     <span></span>
                     <ul id="menu">
-                        <li class="menu_list_item"><a href="#section2">預約領獎勵</a></li>
-                        <li class="menu_list_item"><a href="#section31">狗狗肉投票活動一</a></li>
-                        <li class="menu_list_item"><a href="#section32">狗狗肉投票活動二</a></li>
+                        <li class="menu_list_item"><a href="#section2">遊戲公告</a></li>
                         <li class="menu_list_item"><a href="#section4">狗狗介紹</a></li>
                         <li class="menu_list_item"><a href="#section5">遊戲特色</a></li>
                     </ul>
@@ -196,6 +195,16 @@
                     </div>
                     <div class="box1">
                         <div class="sec01TitlePC"></div>
+                        <div class="btnBoxPC" v-if="!menu.isAndroid && !menu.isiOS">
+                            <a class="google"
+                            href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"><img src="/img/front/sec01Google.png"></a>
+                        <a class="ios" href="https://apps.apple.com/TW/app/id6470368870"><img src="/img/front/sec01Ios.png"></a>
+                        </div>
+                        <div class="btnBoxM" v-if="menu.isAndroid || menu.isiOS">
+                            <a v-if="menu.isAndroid" class="google"
+                            href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"><img src="/img/front/sec01Google.png"></a>
+                        <a v-if="menu.isiOS"  class="ios" href="https://apps.apple.com/TW/app/id6470368870"><img src="/img/front/sec01Ios.png"></a>
+                        </div>
                     </div>
                     <div class="box2">
                         <div class="sec01dogM"></div>
@@ -210,6 +219,22 @@
                         <img src="/img/front/sec02TitleIndex.png">
                     </div>
                     <div class="sec2_box2">
+                        <div class="slickBox"></div>
+                        <div class="news">
+                            <div class="newsTab"></div>
+                            <div class="newsContainer">
+                                <div class="text textNA">
+                                    <ul>
+                                        <li>
+                                            <div class="textBox" id="1">
+                                                <div class="textTitle"></div>
+                                                <div class="textTime"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
