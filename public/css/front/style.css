@@ -506,7 +506,7 @@ textarea {
 }
 
 .popup2 {
-  z-index: 10;
+  z-index: 11;
   position: fixed;
   top: 50%;
   left: 50%;

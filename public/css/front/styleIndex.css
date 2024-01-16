@@ -431,177 +431,8 @@ textarea {
     opacity: 0;
   }
 }
-.popup {
-  display: none;
-  z-index: 10;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100vw;
-  height: 100vh;
-  background-image: linear-gradient(135deg, rgba(250, 255, 231, 0.9215686275) 0%, #eaffd6 100%);
-  padding: 60px;
-  letter-spacing: 3px;
-  text-align: center;
-}
-.popup .popBox {
-  width: 90vw;
-  max-width: 1700px;
-  height: 70vh;
-  padding: 0 0 30px;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-.popup .popBox .info {
-  text-align: center;
-  line-height: 35px;
-  font-size: 1.3rem;
-  font-weight: 800;
-}
-.popup .popBox .info .text,
-.popup .popBox .info .title {
-  color: #2c0900;
-  margin-bottom: 20px;
-}
-.popup .popBox .info img {
-  max-width: 70%;
-  max-height: 70%;
-  width: auto;
-  height: auto;
-}
-.popup .popBox .info .title {
-  font-size: 2.5rem;
-}
-.popup .popBox .info .text {
-  text-align: left;
-  display: flex;
-  justify-content: center;
-}
-.popup .popBox .info .text ul {
-  width: 58%;
-}
-@media all and (max-width: 900px) {
-  .popup .popBox .info .text ul {
-    width: 100%;
-  }
-}
-.popup .popBox .info .text ul li {
-  color: #2c0900;
-  list-style-type: decimal;
-  list-style-position: inside;
-}
-.popup .xBtn {
-  font-size: 4rem;
-  color: #2c0900;
-  position: fixed;
-  top: 72px;
-  right: 24px;
-  cursor: pointer;
-}
-
-.popup2 {
-  z-index: 10;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(135deg, rgba(250, 255, 231, 0.9215686275) 0%, #eaffd6 100%);
-  padding: 60px;
-  letter-spacing: 3px;
-  text-align: center;
-}
-.popup2 .popBox {
-  width: 100%;
-  max-width: 1700px;
-  height: 100%;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.popup2 .popBox .info {
-  z-index: 1;
-  padding: 20px;
-  width: 26%;
-  border-radius: 30px;
-  text-align: center;
-  line-height: 35px;
-  font-size: 1.3rem;
-  font-weight: 800;
-}
-@media all and (max-width: 960px) {
-  .popup2 .popBox .info {
-    width: 35%;
-  }
-}
-@media all and (max-width: 900px) {
-  .popup2 .popBox .info {
-    width: 60%;
-  }
-}
-@media all and (max-width: 500px) {
-  .popup2 .popBox .info {
-    width: 75%;
-  }
-}
-.popup2 .popBox .info .text,
-.popup2 .popBox .info .title {
-  color: #2c0900;
-  margin-bottom: 20px;
-}
-.popup2 .popBox .info img {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-  object-fit: contain;
-  cursor: pointer;
-}
-.popup2 .popBox .info .title {
-  font-size: 2.5rem;
-}
-.popup2 .popBox .info .text {
-  text-align: left;
-  display: flex;
-  justify-content: center;
-}
-.popup2 .popBox .info .text ul li {
-  color: #2c0900;
-  list-style-type: decimal;
-  list-style-position: inside;
-}
-.popup2 .xBtn {
-  z-index: 1;
-  font-size: 4rem;
-  color: #2c0900;
-  position: fixed;
-  top: 72px;
-  right: 24px;
-  cursor: pointer;
-}
-.popup2 .mask2 {
-  z-index: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.popupEmpty {
-  z-index: 10;
+.popupIndex {
+  z-index: 11;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -613,7 +444,7 @@ textarea {
   letter-spacing: 3px;
   text-align: center;
 }
-.popupEmpty .popBox {
+.popupIndex .popBox {
   width: 100%;
   max-width: 1700px;
   height: 100%;
@@ -627,34 +458,49 @@ textarea {
   justify-content: center;
 }
 @media all and (max-width: 500px) {
-  .popupEmpty .popBox {
+  .popupIndex .popBox {
     width: 90%;
     height: 90%;
   }
 }
-.popupEmpty .popBox .info {
-  padding: 20px;
-  width: 500px;
-  height: 300px;
+.popupIndex .popBox .info {
+  padding: 60px 40px;
+  max-width: 993px;
+  max-height: 669px;
+  width: 100%;
+  height: 100%;
   border-radius: 30px;
   text-align: center;
   line-height: 35px;
   font-size: 1.3rem;
   font-weight: 800;
-  background: url(/img/front/sec2_box2Bg.png);
-  background-color: #fff;
+  z-index: 1;
+  background-color: #f2ff6c;
   border: 5px solid #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
 }
-.popupEmpty .popBox .info .text,
-.popupEmpty .popBox .info .title {
-  color: #2c0900;
+.popupIndex .popBox .info .titleBox {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.popupIndex .popBox .info .line {
+  width: 100%;
+  height: 2px;
+  background-color: #371d04;
+}
+.popupIndex .popBox .info .text,
+.popupIndex .popBox .info .title,
+.popupIndex .popBox .info .time {
+  border: 1px solid blue;
+  color: #371d04;
   margin-bottom: 20px;
 }
-.popupEmpty .popBox .info img {
+.popupIndex .popBox .info img {
   display: inline-block;
   width: 100%;
   height: 100%;
@@ -662,26 +508,40 @@ textarea {
   object-fit: contain;
   cursor: pointer;
 }
-.popupEmpty .popBox .info .title {
+.popupIndex .popBox .info .title {
   font-size: 2.5rem;
   line-height: 2.9rem;
 }
-.popupEmpty .popBox .info .text {
+.popupIndex .popBox .info .text {
+  margin-top: 3rem;
+  font-size: 1.3rem;
   text-align: center;
   display: flex;
   justify-content: center;
+  max-width: 900px;
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  overflow-y: scroll;
 }
-.popupEmpty .popBox .info .yes {
-  font-weight: 700;
-  font-size: 1.8rem;
-  color: #fff;
+@media all and (max-width: 900px) {
+  .popupIndex .popBox .info .text {
+    margin-top: 4rem;
+  }
+}
+.popupIndex .popBox .info .time {
+  font-size: 1rem;
+}
+.popupIndex .popBox .info .close {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  font-weight: 500;
+  font-size: 2rem;
+  color: #371d04;
   cursor: pointer;
-  background-image: linear-gradient(45deg, #ff3b67 0%, #ff886e 100%);
-  padding: 10px 20px;
-  border: 3px solid #9e2510;
-  border-radius: 30px;
 }
-.popupEmpty .mask2 {
+.popupIndex .mask2 {
   z-index: 0;
   position: absolute;
   top: 0;
@@ -1477,8 +1337,14 @@ body {
 }
 @media all and (max-width: 900px) {
   .section2 .sec_box .sec2_box2 {
+    height: 77%;
     width: 90%;
     flex-direction: column;
+  }
+}
+@media all and (max-width: 768px) {
+  .section2 .sec_box .sec2_box2 {
+    background: none;
   }
 }
 @media all and (max-width: 375px) {
@@ -1503,6 +1369,12 @@ body {
   width: 50%;
   height: 100%;
   overflow: hidden;
+}
+@media all and (max-width: 500px) {
+  .section2 .sec_box .sec2_box2 .slickBox {
+    width: 90%;
+    height: 52%;
+  }
 }
 .section2 .sec_box .sec2_box2 .slickBox .slickImg {
   height: 100%;
@@ -1551,6 +1423,17 @@ body {
     width: 90%;
   }
 }
+@media all and (max-width: 800px) {
+  .section2 .sec_box .sec2_box2 .news {
+    width: 58%;
+  }
+}
+@media all and (max-width: 500px) {
+  .section2 .sec_box .sec2_box2 .news {
+    width: 90%;
+    height: 48%;
+  }
+}
 .section2 .sec_box .sec2_box2 .news .newsBtn {
   letter-spacing: 0.3rem;
   cursor: pointer;
@@ -1574,6 +1457,46 @@ body {
   width: 100%;
   height: 90%;
   background-color: #fff;
+}
+.section2 .sec_box .sec2_box2 .news .pagination {
+  list-style: none;
+  text-align: center;
+  margin-bottom: 0.4rem;
+  width: 100%;
+}
+.section2 .sec_box .sec2_box2 .news .pagination li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.section2 .sec_box .sec2_box2 .news .pagination .page-item {
+  font-size: 1.75rem;
+  padding: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1rem;
+}
+.section2 .sec_box .sec2_box2 .news .pagination .page-item .page-link {
+  color: #808a00;
+}
+.section2 .sec_box .sec2_box2 .news .pagination .page-item.disabled {
+  font-size: 1.75rem;
+  padding: 8px;
+  text-decoration: none;
+}
+.section2 .sec_box .sec2_box2 .news .pagination .page-item.disabled .page-link {
+  color: #808a00;
+}
+.section2 .sec_box .sec2_box2 .news .pagination .page-item.active {
+  width: 43px;
+  height: 43px;
+  color: #fff;
+  background-color: #808a00;
+  font-size: 1.75rem;
+  padding: 8px;
+  text-decoration: none;
+}
+.section2 .sec_box .sec2_box2 .news .pagination .page-item.active .page-link {
+  color: #fff;
 }
 .section2 .sec_box .sec2_box2 .newsContainer {
   font-size: 1.56rem;
@@ -1603,9 +1526,11 @@ body {
   color: #ff5b6a;
 }
 .section2 .sec_box .sec2_box2 .newsContainer .text .textBox {
+  border: #808a00 1px solid;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  cursor: pointer;
 }
 
 .section4 {

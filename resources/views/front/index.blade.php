@@ -82,36 +82,18 @@
             </div>
         </div>
 
-        <div class="popup">
+
+
+        <div v-if="popupIndex.visible" class="popupIndex">
             <div class="popBox">
                 <div class="info">
-                    <div class="title"></div>
-                    <div class="text"></div>
-
-                </div>
-            </div>
-            <div onclick='closePopup()' class="xBtn">x</div>
-        </div>
-
-        <div v-if="popup2.visible" class="popup2">
-            <div class="popBox">
-                <div class="info">
-                    <div class="text">%[ popup2 . text ]</div>
-                    <div class="img">
-                        <img :src="popup2.img" @click="chaVoteClick(popup2.currentCard)" />
+                    <div class="titleBox">
+                        <div class="title" v-html="popupIndex.title"></div>
+                        <div class="time" v-html="popupIndex.time"></div>
                     </div>
-                </div>
-                <div @click="closePopup" class="mask2"></div>
-            </div>
-            <div @click="closePopup" class="mask2"></div>
-        </div>
-
-        <div v-if="popupEmpty.visible" class="popupEmpty">
-            <div class="popBox">
-                <div class="info">
-                    <div class="title" v-html="popupEmpty.title"></div>
-                    <div class="text" v-html="popupEmpty.text"></div>
-                    <div @click="closePopup" class="yes">確認</div>
+                    <div class="line"></div>
+                    <div class="text" v-html="popupIndex.text"></div>
+                    <div @click="closePopup" class="close">x</div>
                 </div>
                 <div @click="closePopup" class="mask2"></div>
             </div>
@@ -239,23 +221,23 @@
                                 <div class="text">
                                     <ul>
                                         <li v-if="sec02Index.currentTab == 'new' ">
-                                            <div class="textBox" id="1">
+                                            <div class="textBox" id="1" @click="getTextId(1)">
                                                 <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
                                                 <div class="textTime">2024/01/16</div>
                                             </div>
-                                            <div class="textBox" id="2">
+                                            <div class="textBox" id="2" @click="getTextId(1)">
                                                 <div class="textTitle"><span>【活動】</span>這邊是標題111111111111</div>
                                                 <div class="textTime">2024/01/16</div>
                                             </div>
-                                            <div class="textBox" id="3">
+                                            <div class="textBox" id="3" @click="getTextId(1)">
                                                 <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
                                                 <div class="textTime">2024/01/16</div>
                                             </div>
-                                            <div class="textBox" id="4">
+                                            <div class="textBox" id="4" @click="getTextId(1)">
                                                 <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
                                                 <div class="textTime">2024/01/16</div>
                                             </div>
-                                            <div class="textBox" id="5">
+                                            <div class="textBox" id="5" @click="getTextId(1)">
                                                 <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
                                                 <div class="textTime">2024/01/16</div>
                                             </div>
@@ -274,6 +256,28 @@
                                         </li>
                                     </ul>
                                 </div>
+                                <nav>
+                                    <ul class="pagination">
+                                        <nav>
+                                            <ul class="pagination">
+                                                <li class="page-item disabled" aria-disabled="true"
+                                                    aria-label="« Previous">
+                                                    <span class="page-link" aria-hidden="true">‹</span>
+                                                </li>
+                                                <li class="page-item active" aria-current="page"><span
+                                                        class="page-link">1</span></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" rel="next"
+                                                        aria-label="Next »">›</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
 
