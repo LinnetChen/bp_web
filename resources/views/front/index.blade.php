@@ -222,19 +222,53 @@
                     </div>
 
                     <div class="sec2_box2">
-                        <img  class="thumbtack" src="/img/front/thumbtack.png">
+                        <img class="thumbtack" src="/img/front/thumbtack.png">
                         <div class="slickBox">
                             <div class="slickImg"><img src="/img/front/BN630X430.jpg"></div>
-                            {{-- <div class="slickImg"><img src="/img/front/BN630X430.jpg"></div> --}}
+                            <div class="slickImg"><img src="/img/front/BN630X430.jpg"></div>
+                            <div class="slickImg"><img src="/img/front/BN630X430.jpg"></div>
                         </div>
                         <div class="news">
-                            <div class="newsTab"></div>
+                            <div class="newsTab">
+                                <button class="newsBtn" v-for="(value, key) in sec02Index.newsTab"
+                                    :class="{ 'active': sec02Index.currentTab == key }"
+                                    @click="getCurrentTabData(key)">%[ value ]</button>
+                            </div>
+
                             <div class="newsContainer">
-                                <div class="text textNA">
+                                <div class="text">
                                     <ul>
-                                        <li>
+                                        <li v-if="sec02Index.currentTab == 'new' ">
                                             <div class="textBox" id="1">
-                                                <div class="textTitle"></div>
+                                                <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
+                                                <div class="textTime">2024/01/16</div>
+                                            </div>
+                                            <div class="textBox" id="2">
+                                                <div class="textTitle"><span>【活動】</span>這邊是標題111111111111</div>
+                                                <div class="textTime">2024/01/16</div>
+                                            </div>
+                                            <div class="textBox" id="3">
+                                                <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
+                                                <div class="textTime">2024/01/16</div>
+                                            </div>
+                                            <div class="textBox" id="4">
+                                                <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
+                                                <div class="textTime">2024/01/16</div>
+                                            </div>
+                                            <div class="textBox" id="5">
+                                                <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
+                                                <div class="textTime">2024/01/16</div>
+                                            </div>
+                                        </li>
+                                        <li v-if="sec02Index.currentTab == 'activity' ">
+                                            <div class="textBox" id="2">
+                                                <div class="textTitle">2</div>
+                                                <div class="textTime"></div>
+                                            </div>
+                                        </li>
+                                        <li v-if="sec02Index.currentTab == 'system' ">
+                                            <div class="textBox" id="3">
+                                                <div class="textTitle">3</div>
                                                 <div class="textTime"></div>
                                             </div>
                                         </li>
@@ -246,6 +280,8 @@
                     </div>
                 </div>
             </div>
+
+
 
 
             {{-- sec4 --}}
@@ -275,7 +311,6 @@
                     </div>
                 </div>
             </div>
-
 
             {{-- sec5 --}}
             <div class="section section5" id="section5">
@@ -313,8 +348,6 @@
                 </div>
             </div>
 
-
-
             <footer class="section footer">
                 <div class="footerbox_logo">
                     <a href="https://www.digeam.com/index" target="_blank"><img class="logo_digeam"
@@ -346,7 +379,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/front/vue_data.js?v=1.27"></script>
+    <script src="js/front/vue_data_index.js"></script>
     <script src="js/front/view.js?v=1.2"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>

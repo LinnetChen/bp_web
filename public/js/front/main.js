@@ -120,17 +120,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 公告輪播
-
 $('.slickBox').slick({
     dots: true,
     infinite: true,
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
-    adaptiveHeight: true,
-    autoplay: true,
-    pauseOnHover: true,
-    swipe: true,
-    touchMove: true,
     arrows:false,
 });
