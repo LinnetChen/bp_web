@@ -1122,7 +1122,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 999;
   pointer-events: none; /* 允許下面元素接收點擊事件 */
 }
@@ -1466,23 +1466,83 @@ body {
   background-size: cover;
   background-position: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 @media all and (max-width: 1775px) {
   .section2 .sec_box .sec2_box2 {
-    width: 60%;
+    width: 70%;
   }
 }
 @media all and (max-width: 900px) {
   .section2 .sec_box .sec2_box2 {
     width: 90%;
+    flex-direction: column;
   }
 }
 @media all and (max-width: 375px) {
   .section2 .sec_box .sec2_box2 {
     height: 62%;
   }
+}
+.section2 .sec_box .sec2_box2 .thumbtack {
+  position: absolute;
+  top: 8%;
+  left: 20%;
+  transform: translate(0%, -50%);
+  display: inline-block;
+  -o-object-fit: contain;
+  object-fit: contain;
+  z-index: 1;
+}
+.section2 .sec_box .sec2_box2 .slickBox {
+  border: 1px solid blue;
+  max-width: 650px;
+  max-height: 450px;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.section2 .sec_box .sec2_box2 .slickBox .slickImg {
+  height: 100%;
+  width: 100%;
+  border: 10px solid #fff;
+}
+.section2 .sec_box .sec2_box2 .slickBox .slickImg img {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.section2 .sec_box .sec2_box2 .slickBox ul {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+.section2 .sec_box .sec2_box2 .slickBox ul li button {
+  scale: 0.5;
+  opacity: 0.8;
+  color: #808a00;
+  background: #808a00;
+  border: 1px solid #808a00;
+  cursor: pointer;
+}
+.section2 .sec_box .sec2_box2 .slickBox ul li button:before {
+  content: "";
+}
+.section2 .sec_box .sec2_box2 .slickBox ul li.slick-active button {
+  color: #fff;
+  background: #fff;
+  border: 1px solid #fff;
+}
+.section2 .sec_box .sec2_box2 .news {
+  width: 50%;
+  height: 100%;
+  background-color: bisque;
 }
 
 .section4 {

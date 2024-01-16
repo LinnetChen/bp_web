@@ -10,7 +10,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        @include xxs(){
+        @include xxs() {
             justify-content: flex-start;
         }
         .sec2_box1 {
@@ -35,20 +35,85 @@
             background-size: cover;
             background-position: center;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             @include xxl() {
-                width: 60%;
+                width: 70%;
             }
             @include md() {
                 width: 90%;
+                flex-direction: column;
             }
             @include xxs() {
                 height: 62%;
             }
 
+            .thumbtack{
+                position: absolute;
+                top: 8%;
+                left: 20%;
+                transform: translate(0%,-50%);
+                display: inline-block;
+                -o-object-fit: contain;
+                object-fit: contain;
+                z-index: 1;
+            }
+            .slickBox {
+                border: 1px solid blue;
+                max-width: 650px;
+                max-height: 450px;
+                width: 50%;
+                height: 100%;
+                // background-color: #fff;
+                overflow: hidden;
+                
+                .slickImg {
+                    height: 100%;
+                    width: 100%;
+                    border: 10px solid #fff;
+                    img {
+                        position: relative;
+                        display: inline-block;
+                        height: 100%;
+                        width: 100%;
+                        -o-object-fit: contain;
+                        object-fit: contain;
+                    }
+                }
+                ul{
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    display: flex;
+                    li {
+                        button {
+                            scale: 0.5;
+                            opacity: .8;
+                            color: #808a00;
+                            background: #808a00;
+                            border: 1px solid #808a00;
+                            cursor: pointer;
+                            &:before {
+                                content: "";
+                            }
+                        }
+                    }
+                    li.slick-active{
+                        button {
+                            color: #fff;
+                            background: #fff;
+                            border: 1px solid #fff;
+                        }
+                    }
+                }
+            }
 
-
+            .news {
+                width: 50%;
+                height: 100%;
+                background-color: bisque;
+            }
         }
     }
 }

@@ -34,6 +34,7 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js.map"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -120,10 +121,6 @@
 
 
 
-
-
-
-
         <div class="container">
 
             <div class="slider">
@@ -197,13 +194,18 @@
                         <div class="sec01TitlePC"></div>
                         <div class="btnBoxPC" v-if="!menu.isAndroid && !menu.isiOS">
                             <a class="google"
-                            href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"><img src="/img/front/sec01Google.png"></a>
-                        <a class="ios" href="https://apps.apple.com/TW/app/id6470368870"><img src="/img/front/sec01Ios.png"></a>
+                                href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"><img
+                                    src="/img/front/sec01Google.png"></a>
+                            <a class="ios" href="https://apps.apple.com/TW/app/id6470368870"><img
+                                    src="/img/front/sec01Ios.png"></a>
                         </div>
                         <div class="btnBoxM" v-if="menu.isAndroid || menu.isiOS">
                             <a v-if="menu.isAndroid" class="google"
-                            href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"><img src="/img/front/sec01Google.png"></a>
-                        <a v-if="menu.isiOS"  class="ios" href="https://apps.apple.com/TW/app/id6470368870"><img src="/img/front/sec01Ios.png"></a>
+                                href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"><img
+                                    src="/img/front/sec01Google.png"></a>
+                            <a v-if="menu.isiOS" class="ios"
+                                href="https://apps.apple.com/TW/app/id6470368870"><img
+                                    src="/img/front/sec01Ios.png"></a>
                         </div>
                     </div>
                     <div class="box2">
@@ -218,8 +220,13 @@
                     <div class="sec2_box1">
                         <img src="/img/front/sec02TitleIndex.png">
                     </div>
+
                     <div class="sec2_box2">
-                        <div class="slickBox"></div>
+                        <img  class="thumbtack" src="/img/front/thumbtack.png">
+                        <div class="slickBox">
+                            <div class="slickImg"><img src="/img/front/BN630X430.jpg"></div>
+                            {{-- <div class="slickImg"><img src="/img/front/BN630X430.jpg"></div> --}}
+                        </div>
                         <div class="news">
                             <div class="newsTab"></div>
                             <div class="newsContainer">
@@ -235,6 +242,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -334,7 +342,9 @@
         </div>
     </div>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/front/vue_data.js?v=1.27"></script>
     <script src="js/front/view.js?v=1.2"></script>

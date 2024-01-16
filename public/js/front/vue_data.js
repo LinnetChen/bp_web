@@ -325,7 +325,6 @@ const app = Vue.createApp({
     mounted() {
         setTimeout(() => {
             this.loading = false;
-            console.log(this.loading);
         }, 2000);
 
         this.getSetting();
