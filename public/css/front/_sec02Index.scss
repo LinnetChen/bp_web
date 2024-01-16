@@ -61,6 +61,11 @@
                 -o-object-fit: contain;
                 object-fit: contain;
                 z-index: 1;
+                @include xs {
+                    transform: scale(0.6);
+                    top: 0%;
+                    left: 40%;
+                }
             }
             .slickBox {
                 transform: rotate(-2deg);
@@ -79,12 +84,18 @@
                     width: 90%;
                     height: 52%;
                 }
-                
+                @include xsm() {
+                    width: 68%;
+                    height: 44%;
+                }
 
                 .slickImg {
                     height: 100%;
                     width: 100%;
                     border: 10px solid #fff;
+                    @include md{
+                        border: 5px solid #fff;
+                    }
                     img {
                         position: relative;
                         display: inline-block;
@@ -127,20 +138,23 @@
                 width: 42%;
                 height: 80%;
                 margin-left: 2%;
-                background-color: #ffffff9c;
-                @include md{
+                // background-color: #ffffff9c;
+                @include md {
                     width: 90%;
                 }
-                @include mmd{
+                @include mmd {
                     width: 58%;
                 }
-                // @include sm{
-                //     width: 90%;
-                //     height: 48%;
-                // }
-                @include xs{
-                    width: 90%;
+                @include xs {
+                    width: 95%;
                     height: 48%;
+                }
+                @include xsm {
+                    width: 100%;
+                    height: 48%;
+                }
+                @include xxs {
+                    margin-top: 5px;
                 }
                 .newsBtn {
                     letter-spacing: 0.3rem;
@@ -153,6 +167,7 @@
                     color: #fff;
                     font-size: 1.56rem;
                     font-weight: 600;
+                    white-space: nowrap;
                     &.active {
                         background-color: #fff;
                         color: #440300;
@@ -163,36 +178,41 @@
                 }
                 .newsContainer {
                     width: 100%;
-                    height: 90%;
+                    // height: 90%;
                     background-color: #fff;
                 }
 
-
                 .pagination {
+                    cursor: pointer;
                     list-style: none;
                     text-align: center;
-                    margin-bottom: .4rem;
+                    vertical-align: middle;
+                    margin-bottom: 0.4rem;
                     width: 100%;
 
                     li {
                         display: inline-block;
-                        margin-right: 10px;
                     }
 
                     .page-item {
-
                         font-size: 1.75rem;
-                        padding: 8px;
                         text-decoration: none;
                         font-weight: 500;
                         letter-spacing: 1rem;
+                        width: 43px;
+                        height: 43px;
 
                         .page-link {
                             color: #808a00;
+                            padding: 13px 13px;
+                            line-height: 2.5rem;
+                            @include md {
+                                padding: 13px 16px 0;
+                                line-height: 3.7rem;
+                            }
                         }
                         &.disabled {
                             font-size: 1.75rem;
-                            padding: 8px;
                             text-decoration: none;
 
                             .page-link {
@@ -201,12 +221,9 @@
                         }
 
                         &.active {
-                            width: 43px;
-                            height: 43px;
                             color: #fff;
                             background-color: #808a00;
                             font-size: 1.75rem;
-                            padding: 8px;
                             text-decoration: none;
 
                             .page-link {
@@ -219,8 +236,8 @@
             .newsContainer {
                 font-size: 1.56rem;
                 font-weight: 500;
-                .text{
-                    padding: 20px 10px;
+                .text {
+                    padding: 20px 15px 20px 10px;
                     line-height: 3.4rem;
                     .textTitle,
                     .textTime {
@@ -242,7 +259,7 @@
                         color: #ff5b6a;
                     }
                     .textBox {
-                        border: #808a00 1px solid;
+                        // border: #808a00 1px solid;
                         display: flex;
                         justify-content: space-between;
                         align-items: flex-end;

@@ -8,6 +8,7 @@ const app = Vue.createApp({
             isClickable: true,
 
             sec02Index: {
+                id:"",
                 currentTab: "new",
                 newsTab: {
                     new: "一般",
@@ -25,7 +26,7 @@ const app = Vue.createApp({
             popupIndex: {
                 visible: false,
                 // visible: true,
-                title: "標題",
+                title: "標題很長很長的話",
                 time: "2024-01-10 18:00:00",
                 // text: "這邊全部是內文",
                 text: "這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文",
@@ -33,6 +34,24 @@ const app = Vue.createApp({
         };
     },
     methods: {
+
+        async getSetting(){
+            try{
+                const response = await axios.post(api, {
+                });
+
+                if (response.data.status == 1){
+
+                }else {
+                    console.error("Status is not 1:", response.data);
+                }
+
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        },
+        
+        
         getCurrentTabData(key) {
             this.sec02Index.currentTab = key;
             console.log(key);
@@ -41,6 +60,7 @@ const app = Vue.createApp({
 
         getTextId(id) {
             console.log(id);
+            this.sec02Index.id = id;
             this.popupIndex.visible = true;
         },
 
@@ -92,6 +112,8 @@ const app = Vue.createApp({
         setTimeout(() => {
             this.loading = false;
         }, 2000);
+
+        this.getSetting();
 
         window.addEventListener("scroll", this.handleScroll);
         this.detectDevice();

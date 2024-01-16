@@ -40,7 +40,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 
-    <link rel="stylesheet" href="css/front/styleIndex.css?v=1.0.1">
+    <link rel="stylesheet" href="css/front/styleIndex.css?v=1.0.3">
     <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -269,7 +269,6 @@
                                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                                 <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
                                                 <li class="page-item">
                                                     <a class="page-link" href="#" rel="next"
                                                         aria-label="Next »">›</a>
@@ -383,7 +382,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/front/vue_data_index.js"></script>
+    <script src="js/front/vue_data_index.js?v=1.2"></script>
     <script src="js/front/view.js?v=1.2"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>

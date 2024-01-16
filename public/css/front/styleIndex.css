@@ -475,6 +475,7 @@ textarea {
   font-size: 1.3rem;
   font-weight: 800;
   z-index: 1;
+  overflow-y: scroll;
   background-color: #f2ff6c;
   border: 5px solid #fff;
   display: flex;
@@ -487,6 +488,12 @@ textarea {
   width: 90%;
   justify-content: space-between;
   align-items: flex-end;
+}
+@media all and (max-width: 768px) {
+  .popupIndex .popBox .info .titleBox {
+    align-items: center;
+    flex-direction: column;
+  }
 }
 .popupIndex .popBox .info .line {
   width: 100%;
@@ -522,7 +529,6 @@ textarea {
   width: 100%;
   height: 100%;
   max-height: 400px;
-  overflow-y: scroll;
 }
 @media all and (max-width: 900px) {
   .popupIndex .popBox .info .text {
@@ -1361,6 +1367,13 @@ body {
   object-fit: contain;
   z-index: 1;
 }
+@media all and (max-width: 500px) {
+  .section2 .sec_box .sec2_box2 .thumbtack {
+    transform: scale(0.6);
+    top: 0%;
+    left: 40%;
+  }
+}
 .section2 .sec_box .sec2_box2 .slickBox {
   transform: rotate(-2deg);
   border: 1px solid rgb(34, 90, 36);
@@ -1376,10 +1389,21 @@ body {
     height: 52%;
   }
 }
+@media all and (max-width: 400px) {
+  .section2 .sec_box .sec2_box2 .slickBox {
+    width: 68%;
+    height: 44%;
+  }
+}
 .section2 .sec_box .sec2_box2 .slickBox .slickImg {
   height: 100%;
   width: 100%;
   border: 10px solid #fff;
+}
+@media all and (max-width: 900px) {
+  .section2 .sec_box .sec2_box2 .slickBox .slickImg {
+    border: 5px solid #fff;
+  }
 }
 .section2 .sec_box .sec2_box2 .slickBox .slickImg img {
   position: relative;
@@ -1416,7 +1440,6 @@ body {
   width: 42%;
   height: 80%;
   margin-left: 2%;
-  background-color: rgba(255, 255, 255, 0.6117647059);
 }
 @media all and (max-width: 900px) {
   .section2 .sec_box .sec2_box2 .news {
@@ -1430,8 +1453,19 @@ body {
 }
 @media all and (max-width: 500px) {
   .section2 .sec_box .sec2_box2 .news {
-    width: 90%;
+    width: 95%;
     height: 48%;
+  }
+}
+@media all and (max-width: 400px) {
+  .section2 .sec_box .sec2_box2 .news {
+    width: 100%;
+    height: 48%;
+  }
+}
+@media all and (max-width: 375px) {
+  .section2 .sec_box .sec2_box2 .news {
+    margin-top: 5px;
   }
 }
 .section2 .sec_box .sec2_box2 .news .newsBtn {
@@ -1445,6 +1479,7 @@ body {
   color: #fff;
   font-size: 1.56rem;
   font-weight: 600;
+  white-space: nowrap;
 }
 .section2 .sec_box .sec2_box2 .news .newsBtn.active {
   background-color: #fff;
@@ -1455,44 +1490,49 @@ body {
 }
 .section2 .sec_box .sec2_box2 .news .newsContainer {
   width: 100%;
-  height: 90%;
   background-color: #fff;
 }
 .section2 .sec_box .sec2_box2 .news .pagination {
+  cursor: pointer;
   list-style: none;
   text-align: center;
+  vertical-align: middle;
   margin-bottom: 0.4rem;
   width: 100%;
 }
 .section2 .sec_box .sec2_box2 .news .pagination li {
   display: inline-block;
-  margin-right: 10px;
 }
 .section2 .sec_box .sec2_box2 .news .pagination .page-item {
   font-size: 1.75rem;
-  padding: 8px;
   text-decoration: none;
   font-weight: 500;
   letter-spacing: 1rem;
+  width: 43px;
+  height: 43px;
 }
 .section2 .sec_box .sec2_box2 .news .pagination .page-item .page-link {
   color: #808a00;
+  padding: 13px 13px;
+  line-height: 2.5rem;
+}
+@media all and (max-width: 900px) {
+  .section2 .sec_box .sec2_box2 .news .pagination .page-item .page-link {
+    padding: 13px 16px 0;
+    line-height: 3.7rem;
+  }
 }
 .section2 .sec_box .sec2_box2 .news .pagination .page-item.disabled {
   font-size: 1.75rem;
-  padding: 8px;
   text-decoration: none;
 }
 .section2 .sec_box .sec2_box2 .news .pagination .page-item.disabled .page-link {
   color: #808a00;
 }
 .section2 .sec_box .sec2_box2 .news .pagination .page-item.active {
-  width: 43px;
-  height: 43px;
   color: #fff;
   background-color: #808a00;
   font-size: 1.75rem;
-  padding: 8px;
   text-decoration: none;
 }
 .section2 .sec_box .sec2_box2 .news .pagination .page-item.active .page-link {
@@ -1503,7 +1543,7 @@ body {
   font-weight: 500;
 }
 .section2 .sec_box .sec2_box2 .newsContainer .text {
-  padding: 20px 10px;
+  padding: 20px 15px 20px 10px;
   line-height: 3.4rem;
 }
 .section2 .sec_box .sec2_box2 .newsContainer .text .textTitle,
@@ -1526,7 +1566,6 @@ body {
   color: #ff5b6a;
 }
 .section2 .sec_box .sec2_box2 .newsContainer .text .textBox {
-  border: #808a00 1px solid;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
