@@ -250,39 +250,6 @@
                                     </ul>
                                 </div>
 
-                                {{-- <nav>
-                                    <ul class="pagination">
-                                        <li class="page-item disabled" aria-disabled="true" aria-label="« Previous">
-                                            <span class="page-link" aria-hidden="true">‹</span>
-                                        </li>
-                                        <li class="page-item active" aria-current="page"><span
-                                                class="page-link">1</span></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" rel="next"
-                                                aria-label="Next »">›</a>
-                                        </li>
-                                    </ul>
-                                </nav> --}}
-                                {{-- <nav>
-                                    <ul class="pagination">
-                                        <li :class="{ 'page-item disabled': currentPage === 1 }">
-                                            <span class="page-link" @click="prevPage" aria-hidden="true">‹</span>
-                                        </li>
-
-                                        <li v-for="page in pages" :key="page"
-                                            :class="{ 'page-item': true, 'active': currentPage === page }">
-                                            <span class="page-link" @click="gotoPage(page)">%{ page }</span>
-                                        </li>
-
-                                        <li :class="{ 'page-item': true, 'disabled': currentPage === totalPages }">
-                                            <span class="page-link" @click="nextPage" aria-hidden="true">›</span>
-                                        </li>
-                                    </ul>
-                                </nav> --}}
-
                                 <ul class="pagination">
                                     <li class="page-item" @click="page(currentPage - 1)" :disabled="currentPage === 1"> &lt; </li>
                                     <li class="page-item" v-for="pageNumber in displayedPages" :key="pageNumber"
