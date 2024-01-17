@@ -1,4 +1,5 @@
-var api = "/api/content";
+var api = "/api/announcement";
+var api2 = "/api/content";
 
 const app = Vue.createApp({
     delimiters: ["%{", "}"],
@@ -8,7 +9,7 @@ const app = Vue.createApp({
             isClickable: true,
 
             currentPage: 1,
-            totalPages: 5,
+            totalPages: 8,
             span: ["系統", "系統", "系統", "系統", "系統"],
             title: [
                 "標題很長很長的話",
@@ -55,10 +56,27 @@ const app = Vue.createApp({
     computed: {
         // 動態計算 v-for 的起始和結束範圍
         displayedPages() {
+            if (this.totalPages <= 4) {
+                // 如果 totalPages 小於等於 4，則顯示前面的全部頁碼
+                return Array.from(
+                    { length: this.totalPages },
+                    (_, index) => index + 1
+                );
+            }
+
+            // 否則，繼續使用原來的邏輯計算顯示的頁碼範圍
             const startPage = Math.max(1, this.currentPage - 2);
             const endPage = Math.min(startPage + 3, this.totalPages);
 
-            // 使用 Array.from 生成起始到結束範圍的數字陣列
+            // 如果是最後一頁，則顯示當前頁及前三個頁碼
+            if (this.currentPage === this.totalPages) {
+                return Array.from(
+                    { length: 4 },
+                    (_, index) => this.totalPages - 3 + index
+                );
+            }
+
+            // 否則使用 Array.from 生成起始到結束範圍的數字陣列
             return Array.from(
                 { length: endPage - startPage + 1 },
                 (_, index) => startPage + index
@@ -96,7 +114,7 @@ const app = Vue.createApp({
             this.popupIndex.id = id;
 
             try {
-                const response = await axios.post(api, {
+                const response = await axios.post(api2, {
                     id: this.popupIndex.id,
                 });
                 if (response.data.status == 1) {
