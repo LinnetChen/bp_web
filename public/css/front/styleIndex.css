@@ -1510,33 +1510,21 @@ body {
   letter-spacing: 1rem;
   width: 43px;
   height: 43px;
-}
-.section2 .sec_box .sec2_box2 .news .pagination .page-item .page-link {
   color: #808a00;
-  padding: 13px 13px;
+  padding: 0px 13px;
   line-height: 2.5rem;
 }
 @media all and (max-width: 900px) {
-  .section2 .sec_box .sec2_box2 .news .pagination .page-item .page-link {
+  .section2 .sec_box .sec2_box2 .news .pagination .page-item {
     padding: 13px 16px 0;
     line-height: 3.7rem;
   }
-}
-.section2 .sec_box .sec2_box2 .news .pagination .page-item.disabled {
-  font-size: 1.75rem;
-  text-decoration: none;
-}
-.section2 .sec_box .sec2_box2 .news .pagination .page-item.disabled .page-link {
-  color: #808a00;
 }
 .section2 .sec_box .sec2_box2 .news .pagination .page-item.active {
   color: #fff;
   background-color: #808a00;
   font-size: 1.75rem;
   text-decoration: none;
-}
-.section2 .sec_box .sec2_box2 .news .pagination .page-item.active .page-link {
-  color: #fff;
 }
 .section2 .sec_box .sec2_box2 .newsContainer {
   font-size: 1.56rem;

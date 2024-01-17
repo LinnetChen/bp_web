@@ -229,45 +229,41 @@
                                                 <div class="textTime">%{ time[index] }</div>
                                             </div>
                                         </li>
-                                        {{-- <li v-if="sec02Index.currentTab == 'activity' ">
-                                            <div v-for="(item, index) in span" :key="index"
-                                                :id="id[index]" @click="getTextId(item)">
+                                        <li v-if="sec02Index.currentTab == 'activity' ">
+                                            <div class="textBox" v-for="(item, index) in span" :key="index"
+                                                :id="id[index]" @click="getTextId(id[index])">
                                                 <div class="textTitle">
-                                                    <span>%[ item ]</span>%[ title[index] ]
+                                                    <span>【%{item }】</span>%{ title[index] }
                                                 </div>
-                                                <div class="textTime">%[ time[index] ]</div>
+                                                <div class="textTime">%{ time[index] }</div>
                                             </div>
                                         </li>
                                         <li v-if="sec02Index.currentTab == 'system' ">
-                                            <div v-for="(item, index) in span" :key="index"
-                                                :id="id[index]" @click="getTextId(item)">
+                                            <div class="textBox" v-for="(item, index) in span" :key="index"
+                                                :id="id[index]" @click="getTextId(id[index])">
                                                 <div class="textTitle">
-                                                    <span>%[ item ]</span>%[ title[index] ]
+                                                    <span>【%{item }】</span>%{ title[index] }
                                                 </div>
-                                                <div class="textTime">%[ time[index] ]</div>
+                                                <div class="textTime">%{ time[index] }</div>
                                             </div>
-                                        </li> --}}
+                                        </li>
                                     </ul>
                                 </div>
+
                                 {{-- <nav>
                                     <ul class="pagination">
-                                        <nav>
-                                            <ul class="pagination">
-                                                <li class="page-item disabled" aria-disabled="true"
-                                                    aria-label="« Previous">
-                                                    <span class="page-link" aria-hidden="true">‹</span>
-                                                </li>
-                                                <li class="page-item active" aria-current="page"><span
-                                                        class="page-link">1</span></li>
-                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#" rel="next"
-                                                        aria-label="Next »">›</a>
-                                                </li>
-                                            </ul>
-                                        </nav>
+                                        <li class="page-item disabled" aria-disabled="true" aria-label="« Previous">
+                                            <span class="page-link" aria-hidden="true">‹</span>
+                                        </li>
+                                        <li class="page-item active" aria-current="page"><span
+                                                class="page-link">1</span></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" rel="next"
+                                                aria-label="Next »">›</a>
+                                        </li>
                                     </ul>
                                 </nav> --}}
                                 {{-- <nav>
@@ -288,11 +284,12 @@
                                 </nav> --}}
 
                                 <ul class="pagination">
-                                    <li class="page-link"><</li>
-                                    <li class="page-item" data-id="1" @click="page(1)">1</li>
-                                    <li class="page-item" data-id="2" @click="page(2)">2</li>
-                                    <li class="page-item" data-id="3" @click="page(3)">3</li>
-                                    <li class="page-link">></li>
+                                    <li class="page-item" @click="page(currentPage - 1)" :disabled="currentPage === 1"> &lt; </li>
+                                    <li class="page-item" v-for="pageNumber in displayedPages" :key="pageNumber"
+                                        :class="{ 'active': currentPage === pageNumber }" @click="page(pageNumber)">
+                                        %{ pageNumber }
+                                    </li>
+                                    <li class="page-item" @click="page(currentPage + 1)" :disabled="currentPage === totalPages"> &gt; </li>
                                 </ul>
                             </div>
                         </div>
@@ -407,4 +404,3 @@
 </body>
 
 </html>
-

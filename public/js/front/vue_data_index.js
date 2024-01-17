@@ -8,7 +8,7 @@ const app = Vue.createApp({
             isClickable: true,
 
             currentPage: 1,
-            totalPages: 1,
+            totalPages: 5,
             span: ["系統", "系統", "系統", "系統", "系統"],
             title: [
                 "標題很長很長的話",
@@ -52,6 +52,19 @@ const app = Vue.createApp({
             },
         };
     },
+    computed: {
+        // 動態計算 v-for 的起始和結束範圍
+        displayedPages() {
+            const startPage = Math.max(1, this.currentPage - 2);
+            const endPage = Math.min(startPage + 3, this.totalPages);
+
+            // 使用 Array.from 生成起始到結束範圍的數字陣列
+            return Array.from(
+                { length: endPage - startPage + 1 },
+                (_, index) => startPage + index
+            );
+        },
+    },
     methods: {
         async getCurrentTabData(key) {
             this.sec02Index.currentTab = key;
@@ -59,13 +72,17 @@ const app = Vue.createApp({
             console.log(this.sec02Index.currentTab);
 
             try {
-                const response = await axios.post(api, {});
+                const response = await axios.post(api, {
+                    pageType: this.sec02Index.currentTab,
+                    pageNum: 1,
+                });
 
                 if (response.data.status == 1) {
-                    // this.span = response.data.span;
-                    // this.title = response.data.title;
-                    // this.time = response.data.time;
-                    // this.id = response.data.id;
+                    this.totalPages = response.data.totalPages;
+                    this.span = response.data.span;
+                    this.title = response.data.title;
+                    this.time = response.data.time;
+                    this.id = response.data.id;
                 } else {
                     console.error("Status is not 1:", response.data);
                 }
@@ -98,24 +115,27 @@ const app = Vue.createApp({
 
         async page(num) {
             console.log(num);
-            console.log(this.sec02Index.currentTab);
+            console.log(this.sec02Index.currentPage);
+            if (num >= 1 && num <= this.totalPages) {
+                this.currentPage = num;
 
-            try {
-                const response = await axios.post(api, {
-                    pageType: this.sec02Index.currentTab,
-                    pageNum: num,
-                });
+                try {
+                    const response = await axios.post(api, {
+                        pageType: this.sec02Index.currentTab,
+                        pageNum: num,
+                    });
 
-                if (response.data.status == 1) {
-                    this.span = response.data.span;
-                    this.title = response.data.title;
-                    this.time = response.data.time;
-                    this.id = response.data.id;
-                } else {
-                    console.error("Status is not 1:", response.data);
+                    if (response.data.status == 1) {
+                        this.span = response.data.span;
+                        this.title = response.data.title;
+                        this.time = response.data.time;
+                        this.id = response.data.id;
+                    } else {
+                        console.error("Status is not 1:", response.data);
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
                 }
-            } catch (error) {
-                console.error("Error:", error);
             }
         },
 
@@ -168,7 +188,7 @@ const app = Vue.createApp({
             this.loading = false;
         }, 2000);
 
-        // this.getCurrentTabData("new");
+        this.getCurrentTabData("new");
 
         window.addEventListener("scroll", this.handleScroll);
         this.detectDevice();
@@ -179,4 +199,3 @@ const app = Vue.createApp({
 });
 
 app.mount("#app");
-// const vm = app.mount("#app");

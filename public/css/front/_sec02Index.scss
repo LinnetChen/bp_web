@@ -201,23 +201,13 @@
                         letter-spacing: 1rem;
                         width: 43px;
                         height: 43px;
+                        color: #808a00;
+                        padding: 0px 13px;
+                        line-height: 2.5rem;
 
-                        .page-link {
-                            color: #808a00;
-                            padding: 13px 13px;
-                            line-height: 2.5rem;
-                            @include md {
-                                padding: 13px 16px 0;
-                                line-height: 3.7rem;
-                            }
-                        }
-                        &.disabled {
-                            font-size: 1.75rem;
-                            text-decoration: none;
-
-                            .page-link {
-                                color: #808a00;
-                            }
+                        @include md {
+                            padding: 13px 16px 0;
+                            line-height: 3.7rem;
                         }
 
                         &.active {
@@ -225,10 +215,6 @@
                             background-color: #808a00;
                             font-size: 1.75rem;
                             text-decoration: none;
-
-                            .page-link {
-                                color: #fff;
-                            }
                         }
                     }
                 }
