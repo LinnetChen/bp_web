@@ -1,7 +1,7 @@
 var api = "/api/prereg";
 
 const app = Vue.createApp({
-    delimiters: ["%[", "]"],
+    delimiters: ["%{", "}"],
     data() {
         return {
             loading: true,

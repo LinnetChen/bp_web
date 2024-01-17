@@ -214,7 +214,7 @@
                             <div class="newsTab">
                                 <button class="newsBtn" v-for="(value, key) in sec02Index.newsTab"
                                     :class="{ 'active': sec02Index.currentTab == key }"
-                                    @click="getCurrentTabData(key)">%[ value ]</button>
+                                    @click="getCurrentTabData(key)">%{ value }</button>
                             </div>
 
                             <div class="newsContainer">
@@ -224,9 +224,9 @@
                                             <div v-for="(item, index) in span" :key="index"
                                                 :id="id[index]" @click="getTextId(id[index])">
                                                 <div class="textTitle">
-                                                    <span>%[ item ]</span>%[ title[index] ]
+                                                    <span>%{ item }</span>%{ title[index] }
                                                 </div>
-                                                <div class="textTime">%[ time[index] ]</div>
+                                                <div class="textTime">%{ time[index] }</div>
                                             </div>
                                         </li>
                                         {{-- <li v-if="sec02Index.currentTab == 'activity' ">
@@ -280,7 +280,7 @@
 
                                         <li v-for="page in pages" :key="page"
                                             :class="{ 'page-item': true, 'active': currentPage === page }">
-                                            <span class="page-link" @click="gotoPage(page)">%[ page ]</span>
+                                            <span class="page-link" @click="gotoPage(page)">%{ page }</span>
                                         </li>
 
                                         <li :class="{ 'page-item': true, 'disabled': currentPage === totalPages }">
