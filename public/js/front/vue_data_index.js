@@ -100,23 +100,23 @@ const app = Vue.createApp({
             console.log(num);
             console.log(this.sec02Index.currentTab);
 
-            // try {
-            //     const response = await axios.post(api, {
-            //         pageType: this.sec02Index.currentTab,
-            //         pageNum: num,
-            //     });
+            try {
+                const response = await axios.post(api, {
+                    pageType: this.sec02Index.currentTab,
+                    pageNum: num,
+                });
 
-            //     if (response.data.status == 1) {
-            //         this.span = response.data.span;
-            //         this.title = response.data.title;
-            //         this.time = response.data.time;
-            //         this.id = response.data.id;
-            //     } else {
-            //         console.error("Status is not 1:", response.data);
-            //     }
-            // } catch (error) {
-            //     console.error("Error:", error);
-            // }
+                if (response.data.status == 1) {
+                    this.span = response.data.span;
+                    this.title = response.data.title;
+                    this.time = response.data.time;
+                    this.id = response.data.id;
+                } else {
+                    console.error("Status is not 1:", response.data);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
         },
 
         // menu
