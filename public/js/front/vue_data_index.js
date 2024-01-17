@@ -1,4 +1,4 @@
-var api = "/api/prereg";
+var api = "/api/content";
 
 const app = Vue.createApp({
     delimiters: ["%{", "}"],
@@ -15,7 +15,6 @@ const app = Vue.createApp({
             id:[1,2,3,4,5],
 
             sec02Index: {
-                id: "",
                 currentTab: "new",
                 newsTab: {
                     new: "一般",
@@ -31,6 +30,7 @@ const app = Vue.createApp({
             },
 
             popupIndex: {
+                id: "",
                 visible: false,
                 // visible: true,
                 title: "標題很長很長的話",
@@ -52,10 +52,10 @@ const app = Vue.createApp({
                 const response = await axios.post(api, {});
 
                 if (response.data.status == 1) {
-                    this.span = response.data.span;
-                    this.title = response.data.title;
-                    this.time = response.data.time;
-                    this.id = response.data.id;
+                    // this.span = response.data.span;
+                    // this.title = response.data.title;
+                    // this.time = response.data.time;
+                    // this.id = response.data.id;
                     
                 } else {
                     console.error("Status is not 1:", response.data);
@@ -65,10 +65,28 @@ const app = Vue.createApp({
             }
         },
 
-        getTextId(id) {
+        async getTextId(id) {
             console.log(id);
-            this.sec02Index.id = id;
-            this.popupIndex.visible = true;
+            this.popupIndex.id = id;
+            
+            try {
+                const response = await axios.post(api, {
+                    id:this.popupIndex.id,
+                });
+                if (response.data.status == 1) {
+
+                    this.popupIndex.title = response.data.title;
+                    this.popupIndex.time = response.data.time;
+                    this.popupIndex.text = response.data.content;
+
+                    this.popupIndex.visible = true;
+
+                } else {
+                    console.error("Status is not 1:", response.data);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
         },
 
 
@@ -121,7 +139,7 @@ const app = Vue.createApp({
             this.loading = false;
         }, 2000);
 
-        this.getCurrentTabData("new");
+        // this.getCurrentTabData("new");
 
         window.addEventListener("scroll", this.handleScroll);
         this.detectDevice();
