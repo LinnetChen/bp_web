@@ -222,31 +222,31 @@
                                     <ul>
                                         <li v-if="sec02Index.currentTab == 'new' ">
                                             <div v-for="(item, index) in span" :key="index"
-                                                :id="item" @click="getTextId(item)">
+                                                :id="id[index]" @click="getTextId(id[index])">
                                                 <div class="textTitle">
-                                                    <span>{{ item }}</span>{{ title[index] }}
+                                                    <span>%[ item ]</span>%[ title[index] ]
                                                 </div>
-                                                <div class="textTime">{{ time[index] }}</div>
+                                                <div class="textTime">%[ time[index] ]</div>
                                             </div>
                                         </li>
-                                        <li v-if="sec02Index.currentTab == 'activity' ">
+                                        {{-- <li v-if="sec02Index.currentTab == 'activity' ">
                                             <div v-for="(item, index) in span" :key="index"
-                                                :id="item" @click="getTextId(item)">
+                                                :id="id[index]" @click="getTextId(item)">
                                                 <div class="textTitle">
-                                                    <span>{{ item }}</span>{{ title[index] }}
+                                                    <span>%[ item ]</span>%[ title[index] ]
                                                 </div>
-                                                <div class="textTime">{{ time[index] }}</div>
+                                                <div class="textTime">%[ time[index] ]</div>
                                             </div>
                                         </li>
                                         <li v-if="sec02Index.currentTab == 'system' ">
                                             <div v-for="(item, index) in span" :key="index"
-                                                :id="item" @click="getTextId(item)">
+                                                :id="id[index]" @click="getTextId(item)">
                                                 <div class="textTitle">
-                                                    <span>{{ item }}</span>{{ title[index] }}
+                                                    <span>%[ item ]</span>%[ title[index] ]
                                                 </div>
-                                                <div class="textTime">{{ time[index] }}</div>
+                                                <div class="textTime">%[ time[index] ]</div>
                                             </div>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                                 {{-- <nav>
@@ -272,7 +272,7 @@
                                 </nav> --}}
 
 
-                                <nav>
+                                {{-- <nav>
                                     <ul class="pagination">
                                         <li :class="{ 'page-item disabled': currentPage === 1 }">
                                             <span class="page-link" @click="prevPage" aria-hidden="true">‹</span>
@@ -280,14 +280,14 @@
 
                                         <li v-for="page in pages" :key="page"
                                             :class="{ 'page-item': true, 'active': currentPage === page }">
-                                            <span class="page-link" @click="gotoPage(page)">{{ page }}</span>
+                                            <span class="page-link" @click="gotoPage(page)">%[ page ]</span>
                                         </li>
 
                                         <li :class="{ 'page-item': true, 'disabled': currentPage === totalPages }">
                                             <span class="page-link" @click="nextPage" aria-hidden="true">›</span>
                                         </li>
                                     </ul>
-                                </nav>
+                                </nav> --}}
                             </div>
                         </div>
 
