@@ -221,10 +221,10 @@
                                 <div class="text">
                                     <ul>
                                         <li v-if="sec02Index.currentTab == 'new' ">
-                                            <div v-for="(item, index) in span" :key="index"
+                                            <div class="textBox" v-for="(item, index) in span" :key="index"
                                                 :id="id[index]" @click="getTextId(id[index])">
                                                 <div class="textTitle">
-                                                    <span>%{ item }</span>%{ title[index] }
+                                                    <span>【 %{ item } 】</span>%{ title[index] }
                                                 </div>
                                                 <div class="textTime">%{ time[index] }</div>
                                             </div>
@@ -272,7 +272,7 @@
                                 </nav> --}}
 
 
-                                {{-- <nav>
+                                <nav>
                                     <ul class="pagination">
                                         <li :class="{ 'page-item disabled': currentPage === 1 }">
                                             <span class="page-link" @click="prevPage" aria-hidden="true">‹</span>
@@ -287,7 +287,7 @@
                                             <span class="page-link" @click="nextPage" aria-hidden="true">›</span>
                                         </li>
                                     </ul>
-                                </nav> --}}
+                                </nav>
                             </div>
                         </div>
 
