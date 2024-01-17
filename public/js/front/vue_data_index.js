@@ -7,8 +7,15 @@ const app = Vue.createApp({
             loading: true,
             isClickable: true,
 
+            currentPage: 1,
+            totalPages: 1,
+            span:['系統','系統','系統','系統','系統'],
+            title:['標題很長很長的話','標題很長很長的話','標題很長很長的話','標題很長很長的話','標題很長很長的話'],
+            time:['2024/01/10','2024/01/10','2024/01/10','2024/01/10','2024/01/10'],
+            id:[1,2,3,4,5],
+
             sec02Index: {
-                id:"",
+                id: "",
                 currentTab: "new",
                 newsTab: {
                     new: "一般",
@@ -35,27 +42,27 @@ const app = Vue.createApp({
     },
     methods: {
 
-        async getSetting(){
-            try{
-                const response = await axios.post(api, {
-                });
 
-                if (response.data.status == 1){
-
-                }else {
-                    console.error("Status is not 1:", response.data);
-                }
-
-            } catch (error) {
-                console.error("Error:", error);
-            }
-        },
-        
-        
-        getCurrentTabData(key) {
+        async getCurrentTabData(key) {
             this.sec02Index.currentTab = key;
             console.log(key);
             console.log(this.sec02Index.currentTab);
+
+            try {
+                const response = await axios.post(api, {});
+
+                if (response.data.status == 1) {
+                    this.span = response.data.span;
+                    this.title = response.data.title;
+                    this.time = response.data.time;
+                    this.id = response.data.id;
+                    
+                } else {
+                    console.error("Status is not 1:", response.data);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
         },
 
         getTextId(id) {
@@ -63,6 +70,7 @@ const app = Vue.createApp({
             this.sec02Index.id = id;
             this.popupIndex.visible = true;
         },
+
 
         // menu
         addActive(tabNumber) {
@@ -113,7 +121,7 @@ const app = Vue.createApp({
             this.loading = false;
         }, 2000);
 
-        this.getSetting();
+        this.getCurrentTabData("new");
 
         window.addEventListener("scroll", this.handleScroll);
         this.detectDevice();

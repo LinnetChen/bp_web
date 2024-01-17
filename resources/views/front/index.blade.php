@@ -221,42 +221,35 @@
                                 <div class="text">
                                     <ul>
                                         <li v-if="sec02Index.currentTab == 'new' ">
-                                            <div class="textBox" id="1" @click="getTextId(1)">
-                                                <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
-                                                <div class="textTime">2024/01/16</div>
-                                            </div>
-                                            <div class="textBox" id="2" @click="getTextId(1)">
-                                                <div class="textTitle"><span>【活動】</span>這邊是標題111111111111</div>
-                                                <div class="textTime">2024/01/16</div>
-                                            </div>
-                                            <div class="textBox" id="3" @click="getTextId(1)">
-                                                <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
-                                                <div class="textTime">2024/01/16</div>
-                                            </div>
-                                            <div class="textBox" id="4" @click="getTextId(1)">
-                                                <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
-                                                <div class="textTime">2024/01/16</div>
-                                            </div>
-                                            <div class="textBox" id="5" @click="getTextId(1)">
-                                                <div class="textTitle"><span>【系統】</span>這邊是標題111111111111</div>
-                                                <div class="textTime">2024/01/16</div>
+                                            <div v-for="(item, index) in span" :key="index"
+                                                :id="item" @click="getTextId(item)">
+                                                <div class="textTitle">
+                                                    <span>{{ item }}</span>{{ title[index] }}
+                                                </div>
+                                                <div class="textTime">{{ time[index] }}</div>
                                             </div>
                                         </li>
                                         <li v-if="sec02Index.currentTab == 'activity' ">
-                                            <div class="textBox" id="2">
-                                                <div class="textTitle">2</div>
-                                                <div class="textTime"></div>
+                                            <div v-for="(item, index) in span" :key="index"
+                                                :id="item" @click="getTextId(item)">
+                                                <div class="textTitle">
+                                                    <span>{{ item }}</span>{{ title[index] }}
+                                                </div>
+                                                <div class="textTime">{{ time[index] }}</div>
                                             </div>
                                         </li>
                                         <li v-if="sec02Index.currentTab == 'system' ">
-                                            <div class="textBox" id="3">
-                                                <div class="textTitle">3</div>
-                                                <div class="textTime"></div>
+                                            <div v-for="(item, index) in span" :key="index"
+                                                :id="item" @click="getTextId(item)">
+                                                <div class="textTitle">
+                                                    <span>{{ item }}</span>{{ title[index] }}
+                                                </div>
+                                                <div class="textTime">{{ time[index] }}</div>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
-                                <nav>
+                                {{-- <nav>
                                     <ul class="pagination">
                                         <nav>
                                             <ul class="pagination">
@@ -275,6 +268,24 @@
                                                 </li>
                                             </ul>
                                         </nav>
+                                    </ul>
+                                </nav> --}}
+
+
+                                <nav>
+                                    <ul class="pagination">
+                                        <li :class="{ 'page-item disabled': currentPage === 1 }">
+                                            <span class="page-link" @click="prevPage" aria-hidden="true">‹</span>
+                                        </li>
+
+                                        <li v-for="page in pages" :key="page"
+                                            :class="{ 'page-item': true, 'active': currentPage === page }">
+                                            <span class="page-link" @click="gotoPage(page)">{{ page }}</span>
+                                        </li>
+
+                                        <li :class="{ 'page-item': true, 'disabled': currentPage === totalPages }">
+                                            <span class="page-link" @click="nextPage" aria-hidden="true">›</span>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
