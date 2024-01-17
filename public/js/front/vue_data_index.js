@@ -9,10 +9,22 @@ const app = Vue.createApp({
 
             currentPage: 1,
             totalPages: 1,
-            span:['系統','系統','系統','系統','系統'],
-            title:['標題很長很長的話','標題很長很長的話','標題很長很長的話','標題很長很長的話','標題很長很長的話'],
-            time:['2024/01/10','2024/01/10','2024/01/10','2024/01/10','2024/01/10'],
-            id:[1,2,3,4,5],
+            span: ["系統", "系統", "系統", "系統", "系統"],
+            title: [
+                "標題很長很長的話",
+                "標題很長很長的話",
+                "標題很長很長的話",
+                "標題很長很長的話",
+                "標題很長很長的話",
+            ],
+            time: [
+                "2024/01/10",
+                "2024/01/10",
+                "2024/01/10",
+                "2024/01/10",
+                "2024/01/10",
+            ],
+            id: [1, 2, 3, 4, 5],
 
             sec02Index: {
                 currentTab: "new",
@@ -41,8 +53,6 @@ const app = Vue.createApp({
         };
     },
     methods: {
-
-
         async getCurrentTabData(key) {
             this.sec02Index.currentTab = key;
             console.log(key);
@@ -56,7 +66,6 @@ const app = Vue.createApp({
                     // this.title = response.data.title;
                     // this.time = response.data.time;
                     // this.id = response.data.id;
-                    
                 } else {
                     console.error("Status is not 1:", response.data);
                 }
@@ -68,19 +77,17 @@ const app = Vue.createApp({
         async getTextId(id) {
             console.log(id);
             this.popupIndex.id = id;
-            
+
             try {
                 const response = await axios.post(api, {
-                    id:this.popupIndex.id,
+                    id: this.popupIndex.id,
                 });
                 if (response.data.status == 1) {
-
                     this.popupIndex.title = response.data.title;
                     this.popupIndex.time = response.data.time;
                     this.popupIndex.text = response.data.content;
 
                     this.popupIndex.visible = true;
-
                 } else {
                     console.error("Status is not 1:", response.data);
                 }
@@ -89,6 +96,28 @@ const app = Vue.createApp({
             }
         },
 
+        async page(num) {
+            console.log(num);
+            console.log(this.sec02Index.currentTab);
+
+            // try {
+            //     const response = await axios.post(api, {
+            //         pageType: this.sec02Index.currentTab,
+            //         pageNum: num,
+            //     });
+
+            //     if (response.data.status == 1) {
+            //         this.span = response.data.span;
+            //         this.title = response.data.title;
+            //         this.time = response.data.time;
+            //         this.id = response.data.id;
+            //     } else {
+            //         console.error("Status is not 1:", response.data);
+            //     }
+            // } catch (error) {
+            //     console.error("Error:", error);
+            // }
+        },
 
         // menu
         addActive(tabNumber) {
@@ -150,3 +179,4 @@ const app = Vue.createApp({
 });
 
 app.mount("#app");
+// const vm = app.mount("#app");

@@ -128,3 +128,4 @@ $('.slickBox').slick({
     slidesToScroll: 1,
     arrows:false,
 });
+

@@ -270,9 +270,7 @@
                                         </nav>
                                     </ul>
                                 </nav> --}}
-
-
-                                <nav>
+                                {{-- <nav>
                                     <ul class="pagination">
                                         <li :class="{ 'page-item disabled': currentPage === 1 }">
                                             <span class="page-link" @click="prevPage" aria-hidden="true">‹</span>
@@ -287,13 +285,22 @@
                                             <span class="page-link" @click="nextPage" aria-hidden="true">›</span>
                                         </li>
                                     </ul>
-                                </nav>
+                                </nav> --}}
+
+                                <ul class="pagination">
+                                    <li class="page-link"><</li>
+                                    <li class="page-item" data-id="1" @click="page(1)">1</li>
+                                    <li class="page-item" data-id="2" @click="page(2)">2</li>
+                                    <li class="page-item" data-id="3" @click="page(3)">3</li>
+                                    <li class="page-link">></li>
+                                </ul>
                             </div>
                         </div>
 
                     </div>
                 </div>
             </div>
+
 
 
 
@@ -400,3 +407,4 @@
 </body>
 
 </html>
+
