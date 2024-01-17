@@ -86,8 +86,6 @@ const app = Vue.createApp({
     methods: {
         async getCurrentTabData(key) {
             this.sec02Index.currentTab = key;
-            console.log(key);
-            console.log(this.sec02Index.currentTab);
 
             try {
                 const response = await axios.post(api, {
@@ -110,7 +108,6 @@ const app = Vue.createApp({
         },
 
         async getTextId(id) {
-            console.log(id);
             this.popupIndex.id = id;
 
             try {
@@ -132,8 +129,6 @@ const app = Vue.createApp({
         },
 
         async page(num) {
-            console.log(num);
-            console.log(this.sec02Index.currentPage);
             if (num >= 1 && num <= this.totalPages) {
                 this.currentPage = num;
 
