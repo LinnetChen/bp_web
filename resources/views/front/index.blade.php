@@ -224,7 +224,7 @@
                                             <div class="textBox" v-for="(item, index) in span" :key="index"
                                                 :id="id[index]" @click="getTextId(id[index])">
                                                 <div class="textTitle">
-                                                    <span>【 %{ item } 】</span>%{ title[index] }
+                                                    <span>【%{item }】</span>%{ title[index] }
                                                 </div>
                                                 <div class="textTime">%{ time[index] }</div>
                                             </div>
