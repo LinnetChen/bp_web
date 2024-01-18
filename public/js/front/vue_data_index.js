@@ -220,7 +220,7 @@ const app = Vue.createApp({
 
         this.getCurrentTabData("new");
 
-        this.popupIndexShowShow(1);
+        // this.popupIndexShowShow(1);
         window.addEventListener("scroll", this.handleScroll);
         this.detectDevice();
     },
