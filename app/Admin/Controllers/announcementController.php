@@ -25,13 +25,24 @@ class announcementController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new announcement());
-
+        $grid->model()
+            ->orderBy('open', 'desc')
+            ->orderBy('sort', 'desc')
+            ->orderBy('created_at', 'desc');
         $grid->column('title', __('標題'));
-        // $grid->column('content', __('內文'));
-        $grid->column('created_at', __('建立時間'));
-        $grid->column('updated_at', __('更新時間'));
-        $grid->disableRowSelector();
+        $grid->column('cate', __('分類'))->using(['activity' => '活動', 'system' => '系統']);
+        $grid->column('sort', __('排序(大到小)'));
+        $grid->column('open', __('是否開啟'))->using(['Y' => '開啟', 'N' => '關閉'])->label(['N' => 'default', 'Y' => 'danger']);
 
+        $grid->column('created_at', __('建立時間'))->display(function () {
+            $time = date('Y-m-d H:i:s', strtotime($this->created_at));
+            return $time;
+        });
+        $grid->column('updated_at', __('更新時間'))->display(function () {
+            $time = date('Y-m-d H:i:s', strtotime($this->updated_at));
+            return $time;
+        });
+        $grid->disableRowSelector();
 
         return $grid;
     }
@@ -66,7 +77,8 @@ class announcementController extends AdminController
 
         $form->text('title', __('標題'));
         $form->ckeditor('content', __('內文'));
-
+        $form->radio('cate', __('分類'))->options(['activity' => '活動', 'system' => '系統']);
+        $form->number('sort', __('排序'));
         //表單按鈕關閉
         $form->disableEditingCheck();
         $form->disableViewCheck();
@@ -74,6 +86,7 @@ class announcementController extends AdminController
             $tools->disableDelete();
             $tools->disableView();
         });
+        $form->datetime('created_at', __('發佈日期'))->default(date('Y-m-d H:i:s'));
 
         return $form;
     }

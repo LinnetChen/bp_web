@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\imgUpload;
+
 
 class CkeditorUploadController extends Controller
 {
@@ -19,8 +21,17 @@ class CkeditorUploadController extends Controller
         $filename = $image->getClientOriginalName();
         $image->move(public_path('upload/ckeditor'), $filename);
 
+        $imgUpload = new imgUpload();
+        $imgUpload->file_name = $filename;
+        $imgUpload->type = 'ckeditor';
+        $imgUpload->save();
+
         return "<script>alert('上傳成功')</script>";
 
     }
-
+    public function getImage()
+    {
+        $imgUpload = imgUpload::get();
+        return response()->json(['imgUpload' => $imgUpload]);
+    }
 }

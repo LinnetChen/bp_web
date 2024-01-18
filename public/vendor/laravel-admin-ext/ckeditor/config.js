@@ -9,12 +9,14 @@ CKEDITOR.editorConfig = function (config) {
     // config.uiColor = '#AADC6E';
     config.removePlugins = "easyimage,cloudservices,exportpdf";
     config.allowedContent = true;
-    // config.filebrowserImageUploadUrl =
-    //     'ckfinder/core/connector/php/connector.php?com
-    config.filebrowserBrowseUrl =
-        "/vendor/laravel-admin-ext/ckfinder/ckfinder.html?type=Files";
-    config.filebrowserImageBrowseUrl =
-        "/vendor/laravel-admin-ext/ckfinder/ckfinder.html?type=Files";
+
+    config.filebrowserImageUploadUrl ="/ckeditor/upload?opener=ckeditor&type=images";
+    config.filebrowserBrowseUrl = "/vendor/laravel-admin-ext/ckfinder/filePath.html";
+    config.filebrowserImageBrowseUrl = "/vendor/laravel-admin-ext/ckfinder/filePath.html";
+
+    // config.filebrowserImageUploadUrl ="/vendor/laravel-admin-ext/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images";
+    // config.filebrowserBrowseUrl ="/vendor/laravel-admin-ext/ckfinder/ckfinder.html?type=Files";
+    // config.filebrowserImageBrowseUrl ="/vendor/laravel-admin-ext/ckfinder/ckfinder.html?type=Files";
     config.image_previewText = " ";
     config.filebrowserUploadMethod = "form";
 

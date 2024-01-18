@@ -23,3 +23,4 @@ Route::get('/', function () {
 });
 
 Route::post('ckeditor/upload','CkeditorUploadController@uploadImage');
+Route::post('filepath', 'CkeditorUploadController@getImage')->name('filePath');
