@@ -442,7 +442,6 @@ textarea {
   background-color: rgba(0, 0, 0, 0.6235294118);
   padding: 60px;
   letter-spacing: 3px;
-  text-align: center;
 }
 .popupIndex .popBox {
   width: 100%;
@@ -470,7 +469,6 @@ textarea {
   width: 100%;
   height: 100%;
   border-radius: 16px;
-  text-align: center;
   line-height: 35px;
   font-size: 1.3rem;
   font-weight: 800;
@@ -521,7 +519,6 @@ textarea {
 .popupIndex .popBox .info .text {
   margin-top: 3rem;
   font-size: 100%;
-  text-align: center;
   display: flex;
   justify-content: center;
   max-width: 900px;
@@ -554,6 +551,99 @@ textarea {
   left: 0;
   width: 100%;
   height: 100%;
+}
+.popupIndex table,
+.popupIndex caption,
+.popupIndex tbody,
+.popupIndex tfoot,
+.popupIndex thead,
+.popupIndex tr,
+.popupIndex th,
+.popupIndex td {
+  border: 1px solid;
+}
+.popupIndex .text html,
+.popupIndex .text body,
+.popupIndex .text div,
+.popupIndex .text span,
+.popupIndex .text applet,
+.popupIndex .text object,
+.popupIndex .text iframe,
+.popupIndex .text h1,
+.popupIndex .text h2,
+.popupIndex .text h3,
+.popupIndex .text h4,
+.popupIndex .text h5,
+.popupIndex .text h6,
+.popupIndex .text p,
+.popupIndex .text blockquote,
+.popupIndex .text pre,
+.popupIndex .text a,
+.popupIndex .text abbr,
+.popupIndex .text acronym,
+.popupIndex .text address,
+.popupIndex .text big,
+.popupIndex .text cite,
+.popupIndex .text code,
+.popupIndex .text del,
+.popupIndex .text dfn,
+.popupIndex .text em,
+.popupIndex .text img,
+.popupIndex .text ins,
+.popupIndex .text kbd,
+.popupIndex .text q,
+.popupIndex .text s,
+.popupIndex .text samp,
+.popupIndex .text small,
+.popupIndex .text strike,
+.popupIndex .text strong,
+.popupIndex .text sub,
+.popupIndex .text sup,
+.popupIndex .text tt,
+.popupIndex .text var,
+.popupIndex .text b,
+.popupIndex .text u,
+.popupIndex .text i,
+.popupIndex .text center,
+.popupIndex .text dl,
+.popupIndex .text dt,
+.popupIndex .text dd,
+.popupIndex .text ol,
+.popupIndex .text ul,
+.popupIndex .text li,
+.popupIndex .text fieldset,
+.popupIndex .text form,
+.popupIndex .text label,
+.popupIndex .text legend,
+.popupIndex .text table,
+.popupIndex .text caption,
+.popupIndex .text tbody,
+.popupIndex .text tfoot,
+.popupIndex .text thead,
+.popupIndex .text tr,
+.popupIndex .text th,
+.popupIndex .text td,
+.popupIndex .text article,
+.popupIndex .text aside,
+.popupIndex .text canvas,
+.popupIndex .text details,
+.popupIndex .text embed,
+.popupIndex .text figure,
+.popupIndex .text figcaption,
+.popupIndex .text footer,
+.popupIndex .text header,
+.popupIndex .text hgroup,
+.popupIndex .text menu,
+.popupIndex .text nav,
+.popupIndex .text output,
+.popupIndex .text ruby,
+.popupIndex .text section,
+.popupIndex .text summary,
+.popupIndex .text time,
+.popupIndex .text mark,
+.popupIndex .text audio,
+.popupIndex .text video {
+  font: revert;
 }
 
 .slideBarL {
