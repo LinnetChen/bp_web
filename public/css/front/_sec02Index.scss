@@ -50,7 +50,7 @@
                 background: none;
             }
             @include xxs() {
-                height: 62%;
+                height: 80%;
             }
 
             .thumbtack {
@@ -76,16 +76,18 @@
                 height: 100%;
                 overflow: hidden;
 
-                // @include sm() {
-                //     width: 90%;
-                //     height: 52%;
-                // }
+                @include md{
+                    height: 79%;
+                }
+                @include sm{
+                    width: 60%;
+                }
                 @include xs() {
                     width: 90%;
                     height: 52%;
                 }
                 @include xsm() {
-                    width: 68%;
+                    width: 95%;
                     height: 44%;
                 }
 
@@ -155,6 +157,9 @@
                 }
                 @include xxs {
                     margin-top: 5px;
+                    height: 60%;
+                }
+                @include x4s{
                 }
                 .newsBtn {
                     letter-spacing: 0.3rem;
@@ -179,11 +184,22 @@
                 }
                 .newsContainer {
                     width: 100%;
-                    // height: 90%;
+                    height: 87%;
                     background-color: #fff;
+                    @include lmd{
+                        height: 74%;
+                    }
+                    @include md{
+                        height: 88%;
+                    }
+                    @include xs{
+                        height: 94%;
+                    }
                 }
 
                 .pagination {
+                    position: absolute;
+                    bottom: 0;
                     cursor: pointer;
                     list-style: none;
                     text-align: center;

@@ -1444,7 +1444,7 @@ body {
 }
 @media all and (max-width: 375px) {
   .section2 .sec_box .sec2_box2 {
-    height: 62%;
+    height: 80%;
   }
 }
 .section2 .sec_box .sec2_box2 .thumbtack {
@@ -1471,6 +1471,16 @@ body {
   height: 100%;
   overflow: hidden;
 }
+@media all and (max-width: 900px) {
+  .section2 .sec_box .sec2_box2 .slickBox {
+    height: 79%;
+  }
+}
+@media all and (max-width: 768px) {
+  .section2 .sec_box .sec2_box2 .slickBox {
+    width: 60%;
+  }
+}
 @media all and (max-width: 500px) {
   .section2 .sec_box .sec2_box2 .slickBox {
     width: 90%;
@@ -1479,7 +1489,7 @@ body {
 }
 @media all and (max-width: 400px) {
   .section2 .sec_box .sec2_box2 .slickBox {
-    width: 68%;
+    width: 95%;
     height: 44%;
   }
 }
@@ -1554,6 +1564,7 @@ body {
 @media all and (max-width: 375px) {
   .section2 .sec_box .sec2_box2 .news {
     margin-top: 5px;
+    height: 60%;
   }
 }
 .section2 .sec_box .sec2_box2 .news .newsBtn {
@@ -1579,9 +1590,27 @@ body {
 }
 .section2 .sec_box .sec2_box2 .news .newsContainer {
   width: 100%;
+  height: 87%;
   background-color: #fff;
 }
+@media all and (max-width: 960px) {
+  .section2 .sec_box .sec2_box2 .news .newsContainer {
+    height: 74%;
+  }
+}
+@media all and (max-width: 900px) {
+  .section2 .sec_box .sec2_box2 .news .newsContainer {
+    height: 88%;
+  }
+}
+@media all and (max-width: 500px) {
+  .section2 .sec_box .sec2_box2 .news .newsContainer {
+    height: 94%;
+  }
+}
 .section2 .sec_box .sec2_box2 .news .pagination {
+  position: absolute;
+  bottom: 0;
   cursor: pointer;
   list-style: none;
   text-align: center;
