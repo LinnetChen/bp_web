@@ -168,6 +168,7 @@
                     font-size: 1.56rem;
                     font-weight: 600;
                     white-space: nowrap;
+                    text-align: center;
                     &.active {
                         background-color: #fff;
                         color: #440300;
@@ -207,7 +208,7 @@
 
                         @include md {
                             padding: 13px 16px 0;
-                            line-height: 3.7rem;
+                            line-height: 1.7rem;
                         }
 
                         &.active {

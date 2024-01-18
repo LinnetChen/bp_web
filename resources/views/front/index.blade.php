@@ -40,7 +40,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 
-    <link rel="stylesheet" href="css/front/styleIndex.css?v=1.0.3">
+    <link rel="stylesheet" href="css/front/styleIndex.css?v=1.0.5">
     <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -63,7 +63,7 @@
             style="display:none;visibility:hidden"></iframe></noscript>
 
 
-    <div class="overlay"></div>
+    {{-- <div class="overlay"></div> --}}
     <div class="allBg"></div>
     <div class="wrap" id="app">
         <div class="loading" v-if="loading">
@@ -93,6 +93,18 @@
                     </div>
                     <div class="line"></div>
                     <div class="text" v-html="popupIndex.text"></div>
+                    {{-- <table class="table tab1Table">
+                        <thead>
+                            <tr>
+                                <th>獎勵道具</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in tab1Table">
+                                <td class="left" v-html="item.img + item.name"></td>
+                            </tr>
+                        </tbody>
+                    </table> --}}
                     <div @click="closePopup" class="close">x</div>
                 </div>
                 <div @click="closePopup" class="mask2"></div>
@@ -251,12 +263,14 @@
                                 </div>
 
                                 <ul class="pagination">
-                                    <li class="page-item" @click="page(currentPage - 1)" :disabled="currentPage === 1"> &lt; </li>
+                                    <li class="page-item" @click="page(currentPage - 1)"
+                                        :disabled="currentPage === 1"> &lt; </li>
                                     <li class="page-item" v-for="pageNumber in displayedPages" :key="pageNumber"
                                         :class="{ 'active': currentPage === pageNumber }" @click="page(pageNumber)">
                                         %{ pageNumber }
                                     </li>
-                                    <li class="page-item" @click="page(currentPage + 1)" :disabled="currentPage === totalPages"> &gt; </li>
+                                    <li class="page-item" @click="page(currentPage + 1)"
+                                        :disabled="currentPage === totalPages"> &gt; </li>
                                 </ul>
                             </div>
                         </div>
@@ -364,7 +378,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/front/vue_data_index.js?v=1.2"></script>
+    <script src="js/front/vue_data_index.js?v=1.4"></script>
     <script src="js/front/view.js?v=1.2"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>

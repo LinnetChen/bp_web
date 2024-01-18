@@ -51,6 +51,23 @@ const app = Vue.createApp({
                 // text: "這邊全部是內文",
                 text: "這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文這邊全部是內文",
             },
+
+            tab1Table: [
+                {
+                    img: "<img src='img/front/icon/D1.png'>",
+                    name: "米迦勒之翼兌換券(紅) (7天）",
+                },
+                {
+                    img: "<img src='img/front/icon/D2.png'>",
+
+                    name: "[獎勵]魔法背包兌換券(1天)",
+                },
+                {
+                    img: "<img src='img/front/icon/D3.png'>",
+
+                    name: "移動速度增加藥水*3",
+                },
+            ],
         };
     },
     computed: {
@@ -203,6 +220,7 @@ const app = Vue.createApp({
 
         this.getCurrentTabData("new");
 
+        this.popupIndexShowShow(1);
         window.addEventListener("scroll", this.handleScroll);
         this.detectDevice();
     },
