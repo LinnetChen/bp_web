@@ -1,0 +1,222 @@
+.popupIndex {
+    z-index: 11;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: #0000009f;
+    padding: 60px;
+    letter-spacing: 3px;
+    // text-align: center;
+    .popBox {
+        width: 100%;
+        max-width: 1700px;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include xs {
+            width: 90%;
+            height: 90%;
+        }
+        .info {
+            padding: 60px 40px;
+            max-width: 993px;
+            max-height: 669px;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            // text-align: center;
+            line-height: 35px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            z-index: 1;
+
+            overflow-y: scroll;
+
+            background-color: #f2ff6c;
+            border: 5px solid #fff;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+
+            .titleBox {
+                display: flex;
+                width: 90%;
+                justify-content: space-between;
+                align-items: flex-end;
+                @include sm {
+                    align-items: center;
+                    flex-direction: column;
+                }
+            }
+
+            .line {
+                width: 100%;
+                height: 2px;
+                background-color: #371d04;
+            }
+
+            .text,
+            .title,
+            .time {
+                // border: 1px solid blue;
+                color: #371d04;
+                margin-bottom: 20px;
+            }
+            img {
+                display: inline-block;
+                max-width: 100%;
+                max-height: 100%;
+                -o-object-fit: contain;
+                object-fit: contain;
+                cursor: pointer;
+            }
+            .title {
+                font-size: 2.5rem;
+                line-height: 2.9rem;
+            }
+            .text {
+                margin-top: 3rem;
+                // font-size: 1.3rem;
+                font-size: 100%;
+                // text-align: center;
+                display: flex;
+                justify-content: center;
+                max-width: 900px;
+                width: 100%;
+                height: 100%;
+                max-height: 400px;
+                flex-direction: column;
+                @include md {
+                    margin-top: 4rem;
+                }
+            }
+            .time {
+                font-size: 1rem;
+            }
+            .close {
+                position: absolute;
+                top: 0;
+                right: 1%;
+                font-weight: 500;
+                font-size: 2rem;
+                color: #371d04;
+                cursor: pointer;
+            }
+        }
+    }
+    .mask2 {
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td {
+        border: 1px solid;
+    }
+    .text {
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            font: revert;
+        }
+    }
+}

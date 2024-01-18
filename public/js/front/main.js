@@ -8,8 +8,6 @@ $(document).ready(function () {
     });
 });
 
-
-
 tab_btn(0);
 
 // 小狗介紹tab
@@ -49,14 +47,13 @@ function tab_btn(i) {
     $(".sec4_box3 .imgBox").html('<img src="/img/front/sec4_' + img + '.png">');
 }
 
-
 // sliderL選單
 const button = document.querySelector(".button");
 const menuList = document.querySelector(".menu_list");
 
 const handleClick = () => {
     menuList.classList.toggle("menu_list--animate");
-    $('.triangle').toggleClass('rotate');
+    $(".triangle").toggleClass("rotate");
 }; // 定義點擊事件的監聽函式
 
 button.addEventListener("click", handleClick); // 點擊事件監聽
@@ -91,31 +88,44 @@ function closePopup() {
 }
 
 // 手機MENU收起，並到a連結
-    document.addEventListener('DOMContentLoaded', function () {
-        var menuToggleCheckbox = document.querySelector('#menuToggle input[type="checkbox"]');
-        var menuLinks = document.querySelectorAll('#menu a');
+document.addEventListener("DOMContentLoaded", function () {
+    var menuToggleCheckbox = document.querySelector(
+        '#menuToggle input[type="checkbox"]'
+    );
+    var menuLinks = document.querySelectorAll("#menu a");
 
-        // 監聽菜單連結的點擊事件
-        menuLinks.forEach(function (link) {
-            link.addEventListener('click', function (event) {
-                // 取消 #menuToggle 的 checkbox 勾選狀態
-                menuToggleCheckbox.checked = false;
+    // 監聽菜單連結的點擊事件
+    menuLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            // 取消 #menuToggle 的 checkbox 勾選狀態
+            menuToggleCheckbox.checked = false;
 
-                // 取得目標區塊的 id
-                var targetId = link.getAttribute('href').substring(1);
+            // 取得目標區塊的 id
+            var targetId = link.getAttribute("href").substring(1);
 
-                // 找到目標區塊
-                var targetElement = document.getElementById(targetId);
+            // 找到目標區塊
+            var targetElement = document.getElementById(targetId);
 
-                // 如果目標區塊存在，則進行滾動
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+            // 如果目標區塊存在，則進行滾動
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: "smooth",
+                });
 
-                    // 阻止預設點擊事件，避免頁面跳轉
-                    event.preventDefault();
-                }
-            });
+                // 阻止預設點擊事件，避免頁面跳轉
+                event.preventDefault();
+            }
         });
     });
+});
+
+// 公告輪播
+$('.slickBox').slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows:false,
+});
+
