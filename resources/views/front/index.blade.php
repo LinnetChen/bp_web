@@ -40,7 +40,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 
-    <link rel="stylesheet" href="css/front/styleIndex.css?v=1.0.5">
+    <link rel="stylesheet" href="css/front/styleIndex.css?v=1.0.7">
     <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -189,17 +189,17 @@
                         <div class="btnBoxPC" v-if="!menu.isAndroid && !menu.isiOS">
                             <a class="google"
                                 href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"><img
-                                    src="/img/front/sec01Google.png"></a>
+                                class="google" src="/img/front/sec01Google.png"></a>
                             <a class="ios" href="https://apps.apple.com/TW/app/id6470368870"><img
-                                    src="/img/front/sec01Ios.png"></a>
+                                class="ios" src="/img/front/sec01Ios.png"></a>
                         </div>
                         <div class="btnBoxM" v-if="menu.isAndroid || menu.isiOS">
                             <a v-if="menu.isAndroid" class="google"
                                 href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"><img
-                                    src="/img/front/sec01Google.png"></a>
+                                class="google" src="/img/front/sec01Google.png"></a>
                             <a v-if="menu.isiOS" class="ios"
                                 href="https://apps.apple.com/TW/app/id6470368870"><img
-                                    src="/img/front/sec01Ios.png"></a>
+                                class="ios" src="/img/front/sec01Ios.png"></a>
                         </div>
                     </div>
                     <div class="box2">
@@ -218,9 +218,12 @@
                     <div class="sec2_box2">
                         <img class="thumbtack" src="/img/front/thumbtack.png">
                         <div class="slickBox">
+                            @foreach ($images as $value)
+                                <div class="slickImg"><img src="{{ $value->file_name }}"></div>
+                            @endforeach
+                            {{-- <div class="slickImg"><img src="/img/front/BN630X430.jpg"></div>
                             <div class="slickImg"><img src="/img/front/BN630X430.jpg"></div>
-                            <div class="slickImg"><img src="/img/front/BN630X430.jpg"></div>
-                            <div class="slickImg"><img src="/img/front/BN630X430.jpg"></div>
+                            <div class="slickImg"><img src="/img/front/BN630X430.jpg"></div> --}}
                         </div>
                         <div class="news">
                             <div class="newsTab">
@@ -278,10 +281,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
 
             {{-- sec4 --}}
             <div class="section section4" id="section4">

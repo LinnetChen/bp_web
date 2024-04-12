@@ -63,7 +63,7 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-     <!-- <div class="overlay"></div> 
+     <!-- <div class="overlay"></div>
      <div class="black-screen" id="blackScreen"></div>  -->
 
     <div class="allBg"></div>
@@ -487,7 +487,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/front/vue_data.js?v=1.27"></script>
-    <script src="js/front/view.js?v=1.2"></script>
+    <script src="js/front/view.js?v=1.4"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
     <script src="js/front/main.js?v=1.1"></script>
 </body>

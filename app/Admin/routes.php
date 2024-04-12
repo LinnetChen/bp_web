@@ -15,4 +15,6 @@ Route::group([
     $router->resource('announcements', announcementController::class);
     $router->resource('prereg', PreregController::class);
     $router->resource('prereglog', PreregLogController::class);
+    $router->resource('banner', bannerController::class);
+    $router->resource('images', bannerController::class);
 });

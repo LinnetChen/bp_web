@@ -33,6 +33,9 @@ class announcementController extends Controller
         }
 
         $totalPages = (integer) ($count / 5);
+        if ($totalPages < 1) {
+            $totalPages = 1;
+        }
         $title = [];
         $time = [];
         $id = [];

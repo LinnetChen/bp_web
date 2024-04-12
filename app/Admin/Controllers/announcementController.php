@@ -34,7 +34,7 @@ class announcementController extends AdminController
         $grid->column('sort', __('排序(大到小)'));
         $grid->column('open', __('是否開啟'))->using(['Y' => '開啟', 'N' => '關閉'])->label(['N' => 'default', 'Y' => 'danger']);
 
-        $grid->column('created_at', __('建立時間'))->display(function () {
+        $grid->column('created_at', __('對外時間'))->display(function () {
             $time = date('Y-m-d H:i:s', strtotime($this->created_at));
             return $time;
         });
@@ -78,7 +78,9 @@ class announcementController extends AdminController
         $form->text('title', __('標題'));
         $form->ckeditor('content', __('內文'));
         $form->radio('cate', __('分類'))->options(['activity' => '活動', 'system' => '系統']);
+        $form->radio('open', __('是否開啟'))->options(['N' => '關閉', 'Y' => '開啟']);
         $form->number('sort', __('排序'));
+
         //表單按鈕關閉
         $form->disableEditingCheck();
         $form->disableViewCheck();

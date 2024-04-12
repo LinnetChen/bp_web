@@ -20,3 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('prereg', 'API\preregController@index')->name('event.prereg');
+Route::post('announcement', 'API\announcementController@index');
+Route::post('content', 'API\announcementController@content');
+Route::post('digeamIndexNews', 'API\DigeamController@IndexNews')->name('IndexNews');
