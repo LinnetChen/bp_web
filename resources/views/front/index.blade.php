@@ -29,15 +29,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.js"></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js.map"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.0/swiper-bundle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.0/swiper-bundle.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.0/swiper-bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.0/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.0/swiper-bundle.min.js.map"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3.2.4/dist/vue.global.js"></script>
 
 
     <link rel="stylesheet" href="css/front/styleIndex.css?v=1.0.7">
@@ -189,17 +189,17 @@
                         <div class="btnBoxPC" v-if="!menu.isAndroid && !menu.isiOS">
                             <a class="google"
                                 href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"><img
-                                class="google" src="/img/front/sec01Google.png"></a>
-                            <a class="ios" href="https://apps.apple.com/TW/app/id6470368870"><img
-                                class="ios" src="/img/front/sec01Ios.png"></a>
+                                    class="google" src="/img/front/sec01Google.png"></a>
+                            <a class="ios" href="https://apps.apple.com/TW/app/id6470368870"><img class="ios"
+                                    src="/img/front/sec01Ios.png"></a>
                         </div>
                         <div class="btnBoxM" v-if="menu.isAndroid || menu.isiOS">
                             <a v-if="menu.isAndroid" class="google"
                                 href="https://play.google.com/store/apps/details?id=com.digeam.a.bptw"><img
-                                class="google" src="/img/front/sec01Google.png"></a>
+                                    class="google" src="/img/front/sec01Google.png"></a>
                             <a v-if="menu.isiOS" class="ios"
-                                href="https://apps.apple.com/TW/app/id6470368870"><img
-                                class="ios" src="/img/front/sec01Ios.png"></a>
+                                href="https://apps.apple.com/TW/app/id6470368870"><img class="ios"
+                                    src="/img/front/sec01Ios.png"></a>
                         </div>
                     </div>
                     <div class="box2">
@@ -376,7 +376,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/front/vue_data_index.js?v=1.4"></script>
     <script src="js/front/view.js?v=1.2"></script>
     <script src="js/front/swiper.js?v=1.1"></script>
